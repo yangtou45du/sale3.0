@@ -1,0 +1,32 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           json
+Library           Collections
+Library           ../py_keyword/deal_premises.py
+Resource          SaleKeywordsLD.txt
+
+*** Keywords ***
+Login
+    [Documentation]    登录
+    CommomInit
+    ${payload}    Set Variable    {"username":"${username}","password":"${password}","productKey":"${productKey}"}
+    ${payload1}    to json    ${payload}
+    ${headers}    Create Dictionary    Content-Type=application/json
+    Create Session    S    ${url}    headers=${headers}
+    ${login_addr}    Post Request    S    /auth/api/open/login    data=${payload1}
+    log    ${login_addr.content}
+    ${content}    loads    ${login_addr.content}
+    ${token}    Set Variable    ${content["data"]["token"]}
+    ${headers}    Create Dictionary    Authorization=Bearer ${token}    token=${token}    Content-Type=application/json
+    Set suite Variable    ${headers}
+    Create Session    api    ${url1}    headers=${headers}
+    [Return]    ${headers}
+
+LogAndLogToConsole
+    [Arguments]    ${data}
+    log to console    ${data}
+    log    ${data}
+
+GetPlanName
+    ${plan_name}    Evaluate    "plan"+str(random.randint(1,9999))+str(random.randint(1,9999))    random
+    Set Suite Variable    ${plan_name}

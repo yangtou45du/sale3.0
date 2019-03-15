@@ -1,0 +1,182 @@
+*** Settings ***
+Suite Setup       InitPlanInfo
+Library           RequestsLibrary
+Resource          ../common/rf_keyword/SaleKeywordsLD.txt
+Resource          ../common/rf_keyword/SalePlanList_JX.txt
+Library           ../common/py_keyword/OtherKW.py
+Resource          ../common/rf_keyword/Common.txt
+
+*** Test Cases ***
+AddPlan_T1
+    [Documentation]    添加t1方案
+    [Setup]
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=T1
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.text}
+    Should Be Equal As Strings    ${result.json()["msg"]}    成功
+
+AddPlan_T2
+    [Documentation]    添加t2方案
+    [Setup]
+    Login
+    #设置随机的方案名
+    ${plannameT2}    PlanName    value=T2
+    ${result}    AddPlan    name=${plannameT2}    deliveryMode=002
+    log    ${result.text}
+    Should Be Equal As Strings    ${result.json()["msg"]}    成功
+
+AddPlan_T3
+    [Documentation]    添加t3方案
+    [Setup]
+    Login
+    #设置随机的方案名
+    ${plannameT3}    PlanName    value=T3
+    ${result}    AddPlan    name=${plannameT3}    deliveryMode=003
+    log    ${result.text}
+    Should Be Equal As Strings    ${result.json()["msg"]}    成功
+
+SearchPlan_byname
+    [Documentation]    新建方案后，通过方案名搜索方案
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=T1
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.text}
+    ${result2}    SearchPlan    name=${plannameT1}
+    log    ${result2.text}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    成功
+
+SearchPlan_bydate
+    [Documentation]    搜索最近一个周六为开始时间的方案
+    Login
+    ${result}    SearchPlan    beginTime=${begin_Time}
+    log    ${result.text}
+
+SearchPlan_CheckWithoutDate&Name
+    Login
+    ${result}    SearchPlan
+    log    ${result.content}
+
+EditPlan_OrderPlan
+    [Documentation]    编辑预定方案，编辑他的方案名
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=T1
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.text}
+    ${result2}    SearchPlan    name=${plannameT1}
+    log    ${result2.json()["data"]["data"][0]["id"]}
+    #设置随机的编辑方案名
+    ${PlanNameEdite}    PlanName    value=编辑方案名
+    ${result3}    EditPlan    id=${result2.json()["data"]["data"][0]["id"]}    name=${PlanNameEdite}
+    log    ${result3.text}
+    Should Be Equal As Strings    ${result3.json()["msg"]}    修改成功
+
+RepeatAddPlan
+    [Documentation]    重复新建方案，不要轻易使用 \ 北京：cityCompanies=["110100-a0003"]
+    Login
+    : FOR    ${i}    IN RANGE    0    1
+    \    ${plannameT1}    PlanName    value=T1
+    \    ${result}    AddPlan    name=${plannameT1}
+    \    log    ${result.text}
+    \    log    ${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}_${i}
+    log    ****************************成功新建方案${i+1}个******************************
+
+MatePointExcel_NoLocation
+    [Documentation]    没有导入坐标的匹配点位，导出excel，要想导出有坐标范围的支持传oss地址后再导出
+    Login
+    ${result2}    MatePointExcel
+    log    ${result2.text}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    成功
+
+MatePointMap_NoLocation
+    [Documentation]    没有导入坐标的匹配点位，导出地图，要想导出有坐标范围的支持传oss地址后再导出
+    Login
+    ${result2}    MatePointMap
+    log    ${result2.text}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    成功
+
+ExportPlanList
+    [Documentation]    导出方案列表，传flag值（false按列表导出，true按条件导出）来区分导出方式
+    Login
+    ${result2}    ExportPlan
+    log    ${result2.text}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    导出成功
+
+ExportPlanListByCondition
+    [Documentation]    导出方案列表，传flag值（false按列表导出，true按条件导出）来区分导出方式
+    Login
+    ${result2}    ExportPlan    flag=true
+    log    ${result2.text}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    导出成功
+
+DeletePlan
+    [Documentation]    编辑预定方案，编辑他的方案名
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=测试删除
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.json()["data"][0]["id"]}
+    ${result2}    DeletePlan_J    id=${result.json()["data"][0]["id"]}
+    log    ${result2.text}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    成功
+
+EditDeletePlan
+    [Documentation]    编辑预定方案，编辑他的方案名
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=编辑删除
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.json()["data"][0]["id"]}
+    ${result2}    DeletePlan_J    id=${result.json()["data"][0]["id"]}
+    ${result3}    SearchDeletePlan    name=${plannameT1}
+    ${newplanname}    PlanName    value=已编辑删除
+    ${result4}    EditDeletePlan    upTime=${result3.json()["data"]["data"][0]["upTime"]}    id=${result.json()["data"][0]["id"]}    name=${newplanname}
+    Should Be Equal As Strings    ${result4.json()["msg"]}    修改成功
+
+SearchDeletePlan_byname
+    [Documentation]    通过方案名搜索已删除的方案
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=搜索删除
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.json()["data"][0]["id"]}
+    ${result2}    DeletePlan_J    id=${result.json()["data"][0]["id"]}
+    ${result3}    SearchDeletePlan    name=${plannameT1}
+    Should Be Equal As Strings    ${result3.json()["msg"]}    成功
+
+RenewPlan
+    [Documentation]    恢复已删除的方案，做了删除成功验证和恢复成功验证
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=恢复已删除
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.json()["data"][0]["id"]}
+    ${result2}    DeletePlan_J    id=${result.json()["data"][0]["id"]}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    成功
+    ${result3}    RenewPlan    id=${result.json()["data"][0]["id"]}
+    Should Be Equal As Strings    ${result3.json()["msg"]}    恢复成功
+
+ExportDeletePlanPoint
+    [Documentation]    恢复已删除的方案，做了删除成功验证和恢复成功验证
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=导出删除方案点位
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.json()["data"][0]["id"]}
+    ${result2}    DeletePlan_J    id=${result.json()["data"][0]["id"]}
+    Should Be Equal As Strings    ${result2.json()["msg"]}    成功
+    ${result3}    ExportDeletePlanPoint    id=${result.json()["data"][0]["id"]}
+    Should Be Equal As Strings    ${result3.json()["msg"]}    成功
+
+CopyPlan
+    [Documentation]    添加t1方案
+    [Setup]
+    Login
+    #设置随机的方案名
+    ${plannameT1}    PlanName    value=T1
+    ${result}    AddPlan    name=${plannameT1}
+    log    ${result.text}
+    Should Be Equal As Strings    ${result.json()["msg"]}    成功

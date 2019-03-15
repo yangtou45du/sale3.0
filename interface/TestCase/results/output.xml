@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20190314 18:07:27.750" generator="Robot 3.0.4 (Python 2.7.10 on win32)">
+<suite source="D:\autoTest\AutoTest\Sale3.0\interface\TestCase" id="s1" name="TestCase">
+<suite source="D:\autoTest\AutoTest\Sale3.0\interface\TestCase\autoDispatchLD.robot" id="s1-s1" name="autoDispatchLD">
+<test id="s1-s1-t1" name="dispatchCancel_Y_ALL">
+<kw type="setup" name="MyInit" library="SaleKeywordsLD">
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"csplan"+str(random.randint(1,9999))+str(random.randint(1,9999))</arg>
+<arg>random</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.880" level="INFO">${name} = csplan27052484</msg>
+<status status="PASS" endtime="20190314 18:07:27.880" starttime="20190314 18:07:27.880"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.880" level="INFO">${name} = csplan27052484</msg>
+<status status="PASS" endtime="20190314 18:07:27.880" starttime="20190314 18:07:27.880"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.880" level="INFO">csplan27052484</msg>
+<status status="PASS" endtime="20190314 18:07:27.880" starttime="20190314 18:07:27.880"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>["530100-a0027"]</arg>
+</arguments>
+<assign>
+<var>${city}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.881" level="INFO">${city} = ["530100-a0027"]</msg>
+<status status="PASS" endtime="20190314 18:07:27.881" starttime="20190314 18:07:27.881"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${city}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.881" level="INFO">${city} = ["530100-a0027"]</msg>
+<status status="PASS" endtime="20190314 18:07:27.881" starttime="20190314 18:07:27.881"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>601</arg>
+</arguments>
+<assign>
+<var>${orderId}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.881" level="INFO">${orderId} = 601</msg>
+<status status="PASS" endtime="20190314 18:07:27.881" starttime="20190314 18:07:27.881"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${orderId}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.882" level="INFO">${orderId} = 601</msg>
+<status status="PASS" endtime="20190314 18:07:27.882" starttime="20190314 18:07:27.882"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>4401</arg>
+</arguments>
+<assign>
+<var>${saleUser}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.882" level="INFO">${saleUser} = 4401</msg>
+<status status="PASS" endtime="20190314 18:07:27.882" starttime="20190314 18:07:27.882"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${saleUser}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.882" level="INFO">${saleUser} = 4401</msg>
+<status status="PASS" endtime="20190314 18:07:27.882" starttime="20190314 18:07:27.882"></status>
+</kw>
+<kw name="Get Two Week Friday" library="OtherKW">
+<assign>
+<var>${begin_Time}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.883" level="INFO">${begin_Time} = 2019-03-16</msg>
+<status status="PASS" endtime="20190314 18:07:27.883" starttime="20190314 18:07:27.883"></status>
+</kw>
+<kw name="Get Two Weeks Friday" library="OtherKW">
+<assign>
+<var>${end_Time}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.883" level="INFO">${end_Time} = 2019-03-22</msg>
+<status status="PASS" endtime="20190314 18:07:27.883" starttime="20190314 18:07:27.883"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${begin_Time}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.883" level="INFO">${begin_Time} = 2019-03-16</msg>
+<status status="PASS" endtime="20190314 18:07:27.883" starttime="20190314 18:07:27.883"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${end_Time}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.884" level="INFO">${end_Time} = 2019-03-22</msg>
+<status status="PASS" endtime="20190314 18:07:27.884" starttime="20190314 18:07:27.884"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:27.884" starttime="20190314 18:07:27.879"></status>
+</kw>
+<kw name="AddPlanInit" library="SaleKeywordsLD">
+<doc>初始化新建方案</doc>
+<kw name="Login" library="Common">
+<doc>登录</doc>
+<kw name="CommomInit" library="SaleKeywordsLD">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>http://t.zuul.xinchao.mobi</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.886" level="INFO">${url} = http://t.zuul.xinchao.mobi</msg>
+<status status="PASS" endtime="20190314 18:07:27.886" starttime="20190314 18:07:27.885"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.886" level="INFO">${url} = http://t.zuul.xinchao.mobi</msg>
+<status status="PASS" endtime="20190314 18:07:27.886" starttime="20190314 18:07:27.886"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>a123456</arg>
+</arguments>
+<assign>
+<var>${password}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.886" level="INFO">${password} = a123456</msg>
+<status status="PASS" endtime="20190314 18:07:27.886" starttime="20190314 18:07:27.886"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.887" level="INFO">${password} = a123456</msg>
+<status status="PASS" endtime="20190314 18:07:27.887" starttime="20190314 18:07:27.886"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>6b31a18e-db6e-4e63-b823-7e60cda7b11d</arg>
+</arguments>
+<assign>
+<var>${productKey}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.887" level="INFO">${productKey} = 6b31a18e-db6e-4e63-b823-7e60cda7b11d</msg>
+<status status="PASS" endtime="20190314 18:07:27.887" starttime="20190314 18:07:27.887"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${productKey}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.887" level="INFO">${productKey} = 6b31a18e-db6e-4e63-b823-7e60cda7b11d</msg>
+<status status="PASS" endtime="20190314 18:07:27.887" starttime="20190314 18:07:27.887"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>lidan</arg>
+</arguments>
+<assign>
+<var>${username}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.888" level="INFO">${username} = lidan</msg>
+<status status="PASS" endtime="20190314 18:07:27.888" starttime="20190314 18:07:27.887"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.888" level="INFO">${username} = lidan</msg>
+<status status="PASS" endtime="20190314 18:07:27.888" starttime="20190314 18:07:27.888"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>http://t.sale.api.xinchao.mobi</arg>
+</arguments>
+<assign>
+<var>${url1}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.888" level="INFO">${url1} = http://t.sale.api.xinchao.mobi</msg>
+<status status="PASS" endtime="20190314 18:07:27.888" starttime="20190314 18:07:27.888"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${url1}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.889" level="INFO">${url1} = http://t.sale.api.xinchao.mobi</msg>
+<status status="PASS" endtime="20190314 18:07:27.889" starttime="20190314 18:07:27.888"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:27.889" starttime="20190314 18:07:27.885"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"username":"${username}","password":"${password}","productKey":"${productKey}"}</arg>
+</arguments>
+<assign>
+<var>${payload}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.889" level="INFO">${payload} = {"username":"lidan","password":"a123456","productKey":"6b31a18e-db6e-4e63-b823-7e60cda7b11d"}</msg>
+<status status="PASS" endtime="20190314 18:07:27.889" starttime="20190314 18:07:27.889"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${payload}</arg>
+</arguments>
+<assign>
+<var>${payload1}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.889" level="INFO">To JSON using : content={"username":"lidan","password":"a123456","productKey":"6b31a18e-db6e-4e63-b823-7e60cda7b11d"} </msg>
+<msg timestamp="20190314 18:07:27.889" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20190314 18:07:27.889" level="INFO">${payload1} = {u'username': u'lidan', u'productKey': u'6b31a18e-db6e-4e63-b823-7e60cda7b11d', u'password': u'a123456'}</msg>
+<status status="PASS" endtime="20190314 18:07:27.889" starttime="20190314 18:07:27.889"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20190314 18:07:27.890" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20190314 18:07:27.890" starttime="20190314 18:07:27.890"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>S</arg>
+<arg>${url}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:27.890" level="INFO">Creating Session using : alias=S, url=http://t.zuul.xinchao.mobi, headers={u'Content-Type': u'application/json'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190314 18:07:27.891" starttime="20190314 18:07:27.890"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>S</arg>
+<arg>/auth/api/open/login</arg>
+<arg>data=${payload1}</arg>
+</arguments>
+<assign>
+<var>${login_addr}</var>
+</assign>
+<msg timestamp="20190314 18:07:28.193" level="INFO">Post Request using : alias=S, uri=/auth/api/open/login, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:28.193" level="INFO">${login_addr} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:28.193" starttime="20190314 18:07:27.891"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${login_addr.content}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:28.194" level="INFO">{"status":true,"code":"033","msg":"login success","data":{"token":"eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvoYZBiFR9RXPv2bhYuUAm6JafWcMyGmmrhGgcFoPqw7QcUfpRIcP9oPV0LwgNtWkDsSa5aXjDpw"}}</msg>
+<status status="PASS" endtime="20190314 18:07:28.194" starttime="20190314 18:07:28.194"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${login_addr.content}</arg>
+</arguments>
+<assign>
+<var>${content}</var>
+</assign>
+<msg timestamp="20190314 18:07:28.195" level="INFO">${content} = {u'status': True, u'msg': u'login success', u'code': u'033', u'data': {u'token': u'eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvo...</msg>
+<status status="PASS" endtime="20190314 18:07:28.195" starttime="20190314 18:07:28.194"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${content["data"]["token"]}</arg>
+</arguments>
+<assign>
+<var>${token}</var>
+</assign>
+<msg timestamp="20190314 18:07:28.195" level="INFO">${token} = eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvoYZBiFR9RXPv2bhYuUAm6JafWcMyGmmrhGgcFoPqw7QcUfpRIcP9oPV0LwgNtWkDsSa5aXjDpw</msg>
+<status status="PASS" endtime="20190314 18:07:28.195" starttime="20190314 18:07:28.195"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Authorization=Bearer ${token}</arg>
+<arg>token=${token}</arg>
+<arg>Content-Type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20190314 18:07:28.196" level="INFO">${headers} = {u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvoYZBiFR9RXPv2bhYuUAm6JafWcMyGmmrhGgcFoPqw7QcUfpRIcP9oPV0...</msg>
+<status status="PASS" endtime="20190314 18:07:28.196" starttime="20190314 18:07:28.195"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:28.196" level="INFO">${headers} = {u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvoYZBiFR9RXPv2bhYuUAm6JafWcMyGmmrhGgcFoPqw7QcUfpRIcP9oPV0...</msg>
+<status status="PASS" endtime="20190314 18:07:28.196" starttime="20190314 18:07:28.196"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${url1}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:28.196" level="INFO">Creating Session using : alias=api, url=http://t.sale.api.xinchao.mobi, headers={u'Authorization': u'Bearer eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvoYZBiFR9RXPv2bhYuUAm6JafWcMyGmmrhGgcFoPqw7QcUfpRIcP9oPV0LwgNtWkDsSa5aXjDpw', u'token': u'eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNTUyNTU4MDQ4NTU5LCJleHAiOjQxMDI0NDg0NjAsInVzZXJuYW1lIjoibGlkYW4ifQ.p9PLJhbvM7wvoYZBiFR9RXPv2bhYuUAm6JafWcMyGmmrhGgcFoPqw7QcUfpRIcP9oPV0LwgNtWkDsSa5aXjDpw', u'Content-Type': u'application/json'},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20190314 18:07:28.197" starttime="20190314 18:07:28.196"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:28.197" starttime="20190314 18:07:27.885"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${cityCompanies}</arg>
+</arguments>
+<assign>
+<var>${cityCompanies}</var>
+</assign>
+<msg timestamp="20190314 18:07:28.197" level="INFO">${cityCompanies} = [u'530100-a0027']</msg>
+<status status="PASS" endtime="20190314 18:07:28.197" starttime="20190314 18:07:28.197"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>saleUser=${saleUser}</arg>
+<arg>orderId=${orderId}</arg>
+<arg>trade=${trade}</arg>
+<arg>name=${name}</arg>
+<arg>cityCompanies=${cityCompanies}</arg>
+<arg>continuation=${continuation}</arg>
+<arg>wholeNetwork=${wholeNetwork}</arg>
+<arg>moreTwo=${moreTwo}</arg>
+<arg>beginTime=${beginTime}</arg>
+<arg>endTime=${endTime}</arg>
+<arg>saleType=${saleType}</arg>
+<arg>pointStatus=${pointStatus}</arg>
+<arg>compactNum=${compactNum}</arg>
+<arg>regulateNum=${regulateNum}</arg>
+<arg>remark=${remark}</arg>
+<arg>deliveryMode=${deliveryMode}</arg>
+<arg>seconds=${seconds}</arg>
+<arg>numbers=${numbers}</arg>
+<arg>type=${type}</arg>
+<arg>photoRequire=${photoRequire}</arg>
+<arg>photoPack=${photoPack}</arg>
+<arg>photoReport=${photoReport}</arg>
+<arg>photoUp=${photoUp}</arg>
+<arg>photoDown=${photoDown}</arg>
+</arguments>
+<assign>
+<var>${params}</var>
+</assign>
+<msg timestamp="20190314 18:07:28.199" level="INFO">${params} = {u'saleUser': u'4401', u'orderId': u'601', u'trade': u'H02008', u'name': 'csplan27052484', u'cityCompanies': [u'530100-a0027'], u'continuation': u'0', u'wholeNetwork': u'0', u'moreTwo': u'0', u'beginT...</msg>
+<status status="PASS" endtime="20190314 18:07:28.199" starttime="20190314 18:07:28.197"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${params}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:28.199" level="INFO">{u'saleUser': u'4401', u'orderId': u'601', u'trade': u'H02008', u'name': 'csplan27052484', u'cityCompanies': [u'530100-a0027'], u'continuation': u'0', u'wholeNetwork': u'0', u'moreTwo': u'0', u'beginTime': '2019-03-16', u'endTime': '2019-03-22', u'saleType': u'001', u'pointStatus': u'0', u'compactNum': u'0', u'regulateNum': u'0', u'remark': u'', u'deliveryMode': u'001', u'seconds': u'001', u'numbers': u'001', u'type': u'003', u'photoRequire': u'001', u'photoPack': u'002', u'photoReport': u'001', u'photoUp': u'002', u'photoDown': u'002'}</msg>
+<status status="PASS" endtime="20190314 18:07:28.199" starttime="20190314 18:07:28.199"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=1001004</arg>
+<arg>data=${params}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.042" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=1001004, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:29.042" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:29.042" starttime="20190314 18:07:28.199"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.043" level="INFO">${result} = {u'status': True, u'msg': u'\u6210\u529f', u'code': u'000', u'data': [{u'status': u'001', u'pointStatus': 0, u'continuation': 0, u'trade': u'H02008', u'saleUser': u'4401', u'photoRequire': u'001', u'i...</msg>
+<status status="PASS" endtime="20190314 18:07:29.043" starttime="20190314 18:07:29.042"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result["data"][0]["id"]}</arg>
+</arguments>
+<assign>
+<var>${planId}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.043" level="INFO">${planId} = 135031</msg>
+<status status="PASS" endtime="20190314 18:07:29.043" starttime="20190314 18:07:29.043"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${planId}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:29.043" level="INFO">135031</msg>
+<status status="PASS" endtime="20190314 18:07:29.044" starttime="20190314 18:07:29.043"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${planId}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:29.044" level="INFO">${planId} = 135031</msg>
+<status status="PASS" endtime="20190314 18:07:29.044" starttime="20190314 18:07:29.044"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:29.044" starttime="20190314 18:07:27.884"></status>
+</kw>
+<kw name="AutoDispatch" library="SaleKeywordsLD">
+<doc>自动调度，参数默认为自动调度，适用于只需要调度点位</doc>
+<arguments>
+<arg>${planId}</arg>
+</arguments>
+<kw name="GetItemsList" library="SaleKeywordsLD">
+<doc>获取项目列表，0是id的list，1是楼盘具体单元和设备数，例如([u'42390'], [{u'units': 9, u'id': u'42390', u'machines': 18, u'name': u'滇池泊屋|"}</doc>
+<arguments>
+<arg>${planId}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"planId":"${planId}"}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.045" level="INFO">${data} = {"planId":"135031"}</msg>
+<status status="PASS" endtime="20190314 18:07:29.045" starttime="20190314 18:07:29.045"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.046" level="INFO">To JSON using : content={"planId":"135031"} </msg>
+<msg timestamp="20190314 18:07:29.046" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20190314 18:07:29.046" level="INFO">${data} = {u'planId': u'135031'}</msg>
+<status status="PASS" endtime="20190314 18:07:29.046" starttime="20190314 18:07:29.046"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=1001014</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.691" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=1001014, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:29.691" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:29.691" starttime="20190314 18:07:29.046"></status>
+</kw>
+<msg timestamp="20190314 18:07:29.691" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:29.691" starttime="20190314 18:07:29.045"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.695" level="INFO">${result} = {u'status': True, u'msg': u'\u6210\u529f', u'code': u'000', u'data': [{u'units': 0, u'id': u'42390', u'machines': 0, u'name': u'\u6ec7\u6c60\u6cca\u5c4b|":}{+?&gt;&lt;\\/:\';123'}, {u'units': 17, u'id': u'4...</msg>
+<status status="PASS" endtime="20190314 18:07:29.695" starttime="20190314 18:07:29.691"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result["data"]}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:29.697" level="INFO">[{u'units': 0, u'id': u'42390', u'machines': 0, u'name': u'\u6ec7\u6c60\u6cca\u5c4b|":}{+?&gt;&lt;\\/:\';123'}, {u'units': 17, u'id': u'42391', u'machines': 33, u'name': u'\u6606\u660e\u4e2d\u5929\u82b1\u56ed'}, {u'units': 0, u'id': u'42392', u'machines': 0, u'name': u'\u6606\u660e\u4e2d\u5929\u878d\u57df\u4e00\u671f'}, {u'units': 0, u'id': u'42393', u'machines': 0, u'name': u'\u6606\u660e\u4e2d\u5929\u878d\u57df\u4e8c\u671f'}, {u'units': 0, u'id': u'42394', u'machines': 0, u'name': u'\u6606\u660e\u4e2d\u5929\u9633\u5149100\u5546\u4f4f\u697c'}, {u'units': 0, u'id': u'42395', u'machines': 0, u'name': u'\u6606\u660e\u4e2d\u5929\u878d\u57df\u4e00\u671f\u5199\u5b57\u697c'}, {u'units': 0, u'id': u'42396', u'machines': 0, u'name': u'\u6606\u660e\u4e2d\u5929\u878d\u57df\u4e8c\u671f\u5199\u5b57\u697c'}, {u'units': 26, u'id': u'42397', u'machines': 40, u'name': u'\u5fb7\u60e0\u5c0f\u533a'}, {u'units': 5, u'id': u'42398', u'machines': 20, u'name': u'\u5408\u5fc3\u56ed'}, {u'units': 48, u'id': u'42399', u'machines': 49, u'name': u'\u660e\u6c34\u4e3d\u666f'}, {u'units': 27, u'id': u'42400', u'machines': 52, u'name': u'\u5e78\u798f\u90bb\u91cc'}, {u'units': 40, u'id': u'42401', u'machines': 40, u'name': u'\u4e91\u901a\u5609\u56ed'}, {u'units': 0, u'id': u'42402', u'machines': 0, u'name': u'\u5929\u6d69\u5927\u53a6'}, {u'units': 4, u'id': u'42403', u'machines': 4, u'name': u'\u666f\u6c5f\u82b1\u56ed\u5c0f\u533a'}, {u'units': 0, u'id': u'42404', u'machines': 0, u'name': u'\u4e91\u5357\u7406\u60f3\u836f\u54c1\u914d\u9001\u4e2d\u5fc3'}, {u'units': 10, u'id': u'42405', u'machines': 10, u'name': u'\u91d1\u5dde\u6e7e\u5c0f\u533a'}, {u'units': 3, u'id': u'42406', u'machines': 3, u'name': u'\u6606\u660e\u4e2d\u5929\u9633\u5149100\u5883\u754c'}, {u'units': 0, u'id': u'42407', u'machines': 0, u'name': u'\u4e91\u5357\u533b\u836f\u7269\u6d41\u4e2d\u5fc32\u53f7\u697c'}, {u'units': 0, u'id': u'42408', u'machines': 0, u'name': u'\u4e91\u5357\u533b\u836f\u7269\u6d41\u4e2d\u5fc35\u53f7\u697c'}, {u'units': 4, u'id': u'42409', u'machines': 8, u'name': u'\u91d1\u8272\u7ef4\u4e5f\u7eb3'}, {u'units': 11, u'id': u'42410', u'machines': 13, u'name': u'\u91d1\u6d32\u6e7e\u84dd\u5c7f'}, {u'units': 0, u'id': u'42411', u'machines': 0, u'name': u'\u6606\u660e\u62ff\u94c1\u516c\u5bd3'}, {u'units': 0, u'id': u'42412', u'machines': 0, u'name': u'\u65f6\u5c1a\u5047\u65e5'}, {u'units': 9, u'id': u'42413', u'machines': 9, u'name': u'\u5047\u65e5\u6e7e\u5c0f\u533a'}, {u'units': 2, u'id': u'42414', u'machines': 6, u'name': u'\u6d77\u4f26\u57ce\u5e02\u5e7f\u573a'}, {u'units': 9, u'id': u'42415', u'machines': 24, u'name': u'\u6d77\u4f26\u56fd\u9645\u6d77\u5fb7\u533a'}, {u'units': 7, u'id': u'42416', u'machines': 28, u'name': u'\u6d77\u4f26\u56fd\u9645\u6d77\u4f26\u533a'}, {u'units': 12, u'id': u'42417', u'machines': 37, u'name': u'\u6d77\u4f26\u56fd\u9645\u67cf\u6797\u533a'}, {u'units': 8, u'id': u'42418', u'machines': 24, u'name': u'\u6d77\u4f26\u56fd\u9645\u8d1d\u5b81\u533a'}, {u'units': 8, u'id': u'42419', u'machines': 23, u'name': u'\u6d77\u4f26\u56fd\u9645\u83f2\u8bfa\u533a'}, {u'units': 7, u'id': u'42420', u'machines': 20, u'name': u'\u6d77\u4f26\u56fd\u9645\u7c73\u5170\u533a'}, {u'units': 17, u'id': u'42421', u'machines': 17, u'name': u'\u9f99\u6eaa\u82b1\u56ed'}, {u'units': 6, u'id': u'42422', u'machines': 6, u'name': u'\u8001\u674e\u5c71'}, {u'units': 2, u'id': u'42423', u'machines': 4, u'name': u'\u5929\u6021\u5cf0\u666f'}, {u'units': 19, u'id': u'42424', u'machines': 33, u'name': u'\u8fdc\u6d0b\u98ce\u666f'}, {u'units': 34, u'id': u'42425', u'machines': 34, u'name': u'\u91d1\u57df\u84dd\u6e7e'}, {u'units': 11, u'id': u'42426', u'machines': 31, u'name': u'\u6d77\u4f26\u56fd\u9645\u6d1b\u6797\u533a'}, {u'units': 10, u'id': u'42427', u'machines': 30, u'name': u'\u6d77\u4f26\u56fd\u9645\u6cf0\u6664\u58eb\u533a'}, {u'units': 0, u'id': u'42428', u'machines': 0, u'name': u'\u7199\u6cfd\u82d1'}, {u'units': 0, u'id': u'42429', u'machines': 0, u'name': u'\u4e1c\u5bfa\u516c\u5bd3'}, {u'units': 0, u'id': u'42430', u'machines': 0, u'name': u'\u7406\u60f3\u57ce\u5e02\u82b1\u56ed'}, {u'units': 0, u'id': u'42431', u'machines': 0, u'name': u'\u6d77\u4f26\u5148\u751f'}, {u'units': 0, u'id': u'42432', u'machines': 0, u'name': u'\u534e\u5c14\u987f\u5927\u53a6'}, {u'units': 0, u'id': u'42433', u'machines': 0, u'name': u'\u6a31\u82b1\u4e3d\u666f\u516c\u5bd3'}, {u'units': 19, u'id': u'42434', u'machines': 19, u'name': u'\u6842\u946b\u56ed'}, {u'units': 0, u'id': u'42435', u'machines': 0, u'name': u'\u6c34\u5cb8\u827a\u57ce'}, {u'units': 0, u'id': u'42436', u'machines': 0, u'name': u'\u91d1\u67ab\u82d1'}, {u'units': 0, u'id': u'42437', u'machines': 0, u'name': u'\u5982\u5b893\u53f7'}, {u'units': 0, u'id': u'42453', u'machines': 0, u'name': u'\u9759\u6d77\u56ed'}, {u'units': 0, u'id': u'42454', u'machines': 0, u'name': u'\u62d3\u4e1c\u8def96\u53f7'}, {u'units': 0, u'id': u'42455', u'machines': 0, u'name': u'\u6c55\u5934\u5927\u53a6'}, {u'units': 0, u'id': u'42456', u'machines': 0, u'name': u'\u6587\u5316\u79d1\u6280\u5927\u697c'}, {u'units': 0, u'id': u'42457', u'machines': 0, u'name': u'\u94f6\u5ea7SOHO'}, {u'units': 20, u'id': u'42458', u'machines': 20, u'name': u'\u5927\u6eaa\u5730'}, {u'units': 0, u'id': u'42459', u'machines': 0, u'name': u'\u9999\u7f07\u73ab\u7470'}, {u'units': 0, u'id': u'42460', u'machines': 0, u'name': u'\u57ce\u5e02\u65b0\u5bb8'}, {u'units': 7, u'id': u'42461', u'machines': 16, u'name': u'\u9633\u5149\u516c\u5bd3'}, {u'units': 0, u'id': u'42462', u'machines': 0, u'name': u'\u7199\u7fe5\u82d1'}, {u'units': 0, u'id': u'42463', u'machines': 0, u'name': u'\u767e\u5bcc\u742a\u5546\u4e1a\u5e7f\u573a'}, {u'units': 2, u'id': u'42464', u'machines': 4, u'name': u'\u7c73\u5170\u56fd\u9645'}, {u'units': 0, u'id': u'42465', u'machines': 0, u'name': u'\u6469\u5c14\u5927\u53a6'}, {u'units': 0, u'id': u'42466', u'machines': 0, u'name': u'\u8fdc\u5efa\u5546\u52a1\u5927\u53a6'}, {u'units': 0, u'id': u'42467', u'machines': 0, u'name': u'\u6d3b\u529b\u7a7a\u95f4'}, {u'units': 2, u'id': u'42468', u'machines': 2, u'name': u'\u534e\u5c71\u5357\u82d1'}, {u'units': 0, u'id': u'42469', u'machines': 0, u'name': u'\u5982\u610f\u5927\u53a6'}, {u'units': 0, u'id': u'42470', u'machines': 0, u'name': u'\u5609\u8bda\u5927\u53a6'}, {u'units': 0, u'id': u'42471', u'machines': 0, u'name': u'\u9f99\u56ed\u8c6a\u5b85'}, {u'units': 30, u'id': u'42472', u'machines': 30, u'name': u'\u6ec7\u6c60\u5cad\u79c0'}, {u'units': 13, u'id': u'42473', u'machines': 13, u'name': u'\u849c\u6751\u65b0\u533a'}, {u'units': 0, u'id': u'42474', u'machines': 0, u'name': u'\u5efa\u8bbe\u5927\u53a6'}, {u'units': 0, u'id': u'42475', u'machines': 0, u'name': u'\u81ea\u7531\u6e2f\u5927\u53a6'}, {u'units': 12, u'id': u'42476', u'machines': 12, u'name': u'\u6843\u674e\u5bb6\u56ed\u5317\u53a2\u82d1'}, {u'units': 2, u'id': u'42477', u'machines': 4, u'name': u'\u76d8\u6c5f\u82d1\u4e0a\u6e38\u6c34\u5cb8\u4e8c\u671f'}, {u'units': 12, u'id': u'42478', u'machines': 12, u'name': u'\u76d8\u6c5f\u82d1\u4e0a\u6e38\u6c34\u5cb8\u4e00\u671f'}, {u'units': 0, u'id': u'42479', u'machines': 0, u'name': u'\u534e\u590f\u5fa1\u5e9c\u6021\u749f\u82d1'}, {u'units': 0, u'id': u'42480', u'machines': 0, u'name': u'\u534e\u590f\u5fa1\u5e9c\u96cd\u749f\u82d1'}, {u'units': 0, u'id': u'42481', u'machines': 0, u'name': u'\u76ca\u73d1\u5927\u53a6'}, {u'units': 0, u'id': u'42482', u'machines': 0, u'name': u'\u6ec7\u6c60\u5883\u754c'}, {u'units': 5, u'id': u'42483', u'machines': 5, u'name': u'\u5e7f\u6e90\u5c0f\u533a\uff08\u897f\u533a\uff09'}, {u'units': 12, u'id': u'42484', u'machines': 12, u'name': u'\u5e7f\u6e90\u5c0f\u533a\uff08\u4e1c\u533a\uff09'}, {u'units': 3, u'id': u'42485', u'machines': 3, u'name': u'\u5317\u4ed3\u56ed\u4e01'}, {u'units': 6, u'id': u'42486', u'machines': 6, u'name': u'\u540d\u4ed5\u94f6\u822a\u5c0f\u533a'}, {u'units': 0, u'id': u'42487', u'machines': 0, u'name': u'\u590d\u5174\u82b1\u56ed'}, {u'units': 1, u'id': u'42488', u'machines': 2, u'name': u'\u5146\u718a\u5927\u53a6'}, {u'units': 0, u'id': u'42489', u'machines': 0, u'name': u'\u4e39\u5f64\u5927\u53a6'}, {u'units': 6, u'id': u'42490', u'machines': 6, u'name': u'\u767d\u9f99\u82d1'}, {u'units': 0, u'id': u'42491', u'machines': 0, u'name': u'\u52d8\u6cf0\u5927\u53a6'}, {u'units': 0, u'id': u'42492', u'machines': 0, u'name': u'\u91d1\u6cf0\u5927\u53a6'}, {u'units': 1, u'id': u'42493', u'machines': 2, u'name': u'\u6797\u94a2\u96c5\u82d1'}, {u'units': 2, u'id': u'42494', u'machines': 3, u'name': u'\u4e9a\u9f99\u96c5\u82d1'}, {u'units': 0, u'id': u'42495', u'machines': 0, u'name': u'\u8fbe\u9635\u5e7f\u573a'}, {u'units': 7, u'id': u'42496', u'machines': 21, u'name': u'\u7ecf\u5178\u6210\u660e\u82d1'}, {u'units': 25, u'id': u'42497', u'machines': 43, u'name': u'\u822a\u7a7a\u5c0f\u533a'}, {u'units': 11, u'id': u'42498', u'machines': 11, u'name': u'\u7fe0\u660e\u56ed\u5c0f\u533a'}, {u'units': 5, u'id': u'42499', u'machines': 15, u'name': u'\u83b2\u82b1\u6c60\u7554'}, {u'units': 0, u'id': u'42500', u'machines': 0, u'name': u'\u83b2\u82b1\u6c60\u7554\u5546\u4e1a\u7efc\u5408\u4f53'}, {u'units': 14, u'id': u'42501', u'machines': 38, u'name': u'\u84dd\u5149\u5929\u5a07\u57ce\u4e00\u671f'}, {u'units': 17, u'id': u'42502', u'machines': 46, u'name': u'\u84dd\u5149\u5929\u5a07\u57ce\u4e8c\u671f'}, {u'units': 10, u'id': u'42503', u'machines': 30, u'name': u'\u84dd\u5149\u5929\u5a07\u57ce\u4e09\u671f'}, {u'units': 4, u'id': u'42504', u'machines': 8, u'name': u'\u897f\u5e9c\u666f\u82d1\u4e8c\u671f'}, {u'units': 12, u'id': u'42505', u'machines': 24, u'name': u'\u897f\u5e9c\u666f\u82d1\u4e00\u671f'}, {u'units': 5, u'id': u'42506', u'machines': 5, u'name': u'\u666f\u9f99\u56ed'}, {u'units': 12, u'id': u'42507', u'machines': 24, u'name': u'\u4e91\u51b6\u5c0f\u533a'}, {u'units': 0, u'id': u'42508', u'machines': 0, u'name': u'\u897f\u5357\u6d77M\u533a'}, {u'units': 0, u'id': u'42509', u'machines': 0, u'name': u'\u897f\u5357\u6d77N\u533a'}, {u'units': 0, u'id': u'42510', u'machines': 0, u'name': u'\u897f\u5357\u6d77O\u533a'}, {u'units': 5, u'id': u'42511', u'machines': 5, u'name': u'\u897f\u5357\u6d77K\u533a'}, {u'units': 0, u'id': u'42512', u'machines': 0, u'name': u'\u8d22\u5174\u76db\u5927\u53a6A\u3001C\u5ea7'}, {u'units': 0, u'id': u'42513', u'machines': 0, u'name': u'\u8d22\u5174\u76db\u5927\u53a6B\u5ea7'}, {u'units': 0, u'id': u'42514', u'machines': 0, u'name': u'\u548c\u6cf0\u5546\u52a1\u4e2d\u5fc3'}, {u'units': 8, u'id': u'42515', u'machines': 10, u'name': u'\u4e91\u827a\u82d1'}, {u'units': 0, u'id': u'42516', u'machines': 0, u'name': u'\u84dd\u5149COCO\u871c\u57ce'}, {u'units': 20, u'id': u'42517', u'machines': 22, u'name': u'\u957f\u57ce\u5c0f\u533a'}, {u'units': 0, u'id': u'42518', u'machines': 0, u'name': u'\u7965\u9e4f\u822a\u7a7a'}, {u'units': 17, u'id': u'42519', u'machines': 18, u'name': u'\u957f\u57ce\u6ec7\u6c60\u82b1\u82d1'}, {u'units': 2, u'id': u'42520', u'machines': 2, u'name': u'\u9526\u82d1\u5c0f\u533a'}, {u'units': 0, u'id': u'42521', u'machines': 0, u'name': u'\u946b\u9038\u82d1'}, {u'units': 0, u'id': u'42522', u'machines': 0, u'name': u'\u5343\u8bfa\u9152\u5e97'}, {u'units': 3, u'id': u'42523', u'machines': 4, u'name': u'\u522b\u6837\u5e78\u798f\u57ce\u4f73\u4ec1\u82d1'}, {u'units': 1, u'id': u'42524', u'machines': 1, u'name': u'\u522b\u6837\u5e78\u798f\u57ce\u4f73\u97f3\u82d1'}, {u'units': 12, u'id': u'42525', u'machines': 15, u'name': u'\u522b\u6837\u5e78\u798f\u57ce\u4f73\u7f8e\u82d1'}, {u'units': 0, u'id': u'42526', u'machines': 0, u'name': u'\u534e\u90fd\u5927\u9152\u5e97\u6c38\u5174\u8def'}, {u'units': 0, u'id': u'42527', u'machines': 0, u'name': u'\u534e\u90fd\u5927\u9152\u5e97\u534e\u660c\u8def'}, {u'units': 0, u'id': u'42528', u'machines': 0, u'name': u'\u91d1\u6d77\u65b0\u533a\u4e8c\u671f'}, {u'units': 34, u'id': u'42529', u'machines': 34, u'name': u'\u9f99\u9a6c\u65b0\u5c45'}, {u'units': 0, u'id': u'42530', u'machines': 0, u'name': u'\u4e1c\u5bfa\u4eba\u5bb6\u5546\u4f4f\u697c'}, {u'units': 0, u'id': u'42531', u'machines': 0, u'name': u'\u534e\u5fb7\u82b1\u56ed\u9152\u5e97'}, {u'units': 0, u'id': u'42532', u'machines': 0, u'name': u'\u94ed\u6625\u82b1\u56ed\u6e29\u6cc9\u5ea6\u5047\u9152\u5e97'}, {u'units': 0, u'id': u'42533', u'machines': 0, u'name': u'\u6606\u660e\u56fa\u5b9a\u5c1a\u8bda\u5546\u52a1\u4e2d\u5fc3'}, {u'units': 0, u'id': u'42534', u'machines': 0, u'name': u'\u946b\u8dc3\u5546\u52a1\u9152\u5e97'}, {u'units': 0, u'id': u'42535', u'machines': 0, u'name': u'\u90fd\u9716\u5927\u9152\u5e97'}, {u'units': 0, u'id': u'42536', u'machines': 0, u'name': u'\u91d1\u6d77\u5927\u53a6'}, {u'units': 0, u'id': u'42537', u'machines': 0, u'name': u'\u9ad8\u987a\u94ed\u90fd'}, {u'units': 0, u'id': u'42538', u'machines': 0, u'name': u'\u76db\u8fbe\u5927\u53a6'}, {u'units': 21, u'id': u'42539', u'machines': 42, u'name': u'\u5e7f\u7535\u82d1\u667a\u56ed'}, {u'units': 19, u'id': u'42540', u'machines': 38, u'name': u'\u5e7f\u7535\u82d1\u4fe1\u56ed'}, {u'units': 9, u'id': u'42541', u'machines': 30, u'name': u'\u798f\u6cfd\u96c5\u82d1'}, {u'units': 10, u'id': u'42542', u'machines': 16, u'name': u'\u4fca\u798f\u82b1\u57ce\u6d2a\u798f\u82d1'}, {u'units': 5, u'id': u'42543', u'machines': 10, u'name': u'\u4fca\u798f\u82b1\u57ce\u6d77\u798f\u82d1'}, {u'units': 8, u'id': u'42544', u'machines': 14, u'name': u'\u4fca\u798f\u82b1\u57ce\u5929\u798f\u82d1'}, {u'units': 8, u'id': u'42545', u'machines': 13, u'name': u'\u4fca\u798f\u82b1\u57ce\u9f50\u798f\u82d1'}, {u'units': 12, u'id': u'42546', u'machines': 21, u'name': u'\u4fca\u798f\u82b1\u57ce\u91d1\u798f\u82d1'}, {u'units': 3, u'id': u'42547', u'machines': 6, u'name': u'\u94ed\u60e0\u56ed'}, {u'units': 0, u'id': u'42548', u'machines': 0, u'name': u'\u5b8f\u5174\u5927\u53a6'}, {u'units': 11, u'id': u'42549', u'machines': 22, u'name': u'\u82f1\u8302\u534e\u5e9c\u745e\u666f\u5706'}, {u'units': 0, u'id': u'42550', u'machines': 0, u'name': u'\u90fd\u5e02\u540d\u5178'}, {u'units': 2, u'id': u'42551', u'machines': 5, u'name': u'\u7845\u8c37\u516c\u5bd3'}, {u'units': 3, u'id': u'42552', u'machines': 3, u'name': u'\u4e94\u661f\u5f69\u56ed'}, {u'units': 11, u'id': u'42553', u'machines': 11, u'name': u'\u9644\u4e2d\u82b1\u56ed'}, {u'units': 11, u'id': u'42554', u'machines': 11, u'name': u'\u89e3\u7532\u56ed'}, {u'units': 23, u'id': u'42555', u'machines': 23, u'name': u'\u798f\u5eb7\u82b1\u56ed'}, {u'units': 5, u'id': u'42556', u'machines': 15, u'name': u'\u91d1\u6a80\u5c0f\u533a'}, {u'units': 25, u'id': u'42557', u'machines': 48, u'name': u'\u666f\u79c0\u897f\u82d1'}, {u'units': 0, u'id': u'42558', u'machines': 0, u'name': u'\u96c6\u6210\u5e7f\u573a'}, {u'units': 11, u'id': u'42559', u'machines': 11, u'name': u'\u4e3d\u9633\u661f\u57ce\u5317\u533a'}, {u'units': 19, u'id': u'42560', u'machines': 19, u'name': u'\u4e3d\u9633\u661f\u57ce\u5357\u533a'}, {u'units': 0, u'id': u'42561', u'machines': 0, u'name': u'\u4e2d\u94c1\u4e91\u65f6\u4ee3\u5e7f\u573a\u897f\u533a'}, {u'units': 0, u'id': u'42562', u'machines': 0, u'name': u'\u4e2d\u94c1\u4e91\u65f6\u4ee3\u5e7f\u573a\u5357\u533a'}, {u'units': 0, u'id': u'42563', u'machines': 0, u'name': u'\u4e2d\u94c1\u4e91\u65f6\u4ee3\u5e7f\u573a\u5317\u533a'}, {u'units': 8, u'id': u'42564', u'machines': 25, u'name': u'\u6021\u5408\u666f\u82d1'}, {u'units': 0, u'id': u'42565', u'machines': 0, u'name': u'\u96c6\u6210\u5927\u53a6'}, {u'units': 5, u'id': u'42566', u'machines': 8, u'name': u'\u5357\u4e9a\u4e4b\u95e8\u5c1a\u4e49\u516c\u9986'}, {u'units': 8, u'id': u'42567', u'machines': 8, u'name': u'\u6a59\u90e1\u4e00\u671f'}, {u'units': 17, u'id': u'42568', u'machines': 29, u'name': u'\u6a59\u90e1\u4e8c\u671f'}, {u'units': 9, u'id': u'42569', u'machines': 9, u'name': u'\u91d1\u6797\u78a7\u6c34'}, {u'units': 7, u'id': u'42570', u'machines': 7, u'name': u'\u8b66\u5bdf\u804c\u5de5\u4f4f\u5b85'}, {u'units': 5, u'id': u'42571', u'machines': 10, u'name': u'\u534e\u98de\u540d\u76db\u4e16\u754cC\u533a'}, {u'units': 6, u'id': u'42572', u'machines': 12, u'name': u'\u534e\u98de\u540d\u76db\u4e16\u754cA\u533a'}, {u'units': 0, u'id': u'42573', u'machines': 0, u'name': u'\u7199\u57ce\u5927\u53a6'}, {u'units': 22, u'id': u'42574', u'machines': 22, u'name': u'\u6625\u82d1\u5c0f\u533a'}, {u'units': 0, u'id': u'42575', u'machines': 0, u'name': u'\u4e91\u5927\u665f\u82d1'}, {u'units': 14, u'id': u'42576', u'machines': 35, u'name': u'\u5929\u6021\u5cf0\u666f\u4e8c\u671f'}, {u'units': 7, u'id': u'42577', u'machines': 20, u'name': u'\u4e91\u6295\u666f\u82d1'}, {u'units': 0, u'id': u'42578', u'machines': 0, u'name': u'\u534f\u4fe1\u5929\u5730'}, {u'units': 7, u'id': u'42579', u'machines': 7, u'name': u'\u897f\u660c\u8def188\u53f7\u7efc\u5408\u697c'}, {u'units': 2, u'id': u'42580', u'machines': 4, u'name': u'\u5b89\u5eb7\u666f\u82d1'}, {u'units': 4, u'id': u'42581', u'machines': 11, u'name': u'\u94f6\u674f\u91d1\u5ddd\u82b1\u56ed'}, {u'units': 4, u'id': u'42582', u'machines': 8, u'name': u'\u4e30\u548c\u82d1\u5c0f\u533a'}, {u'units': 0, u'id': u'42583', u'machines': 0, u'name': u'\u9a8f\u4fe1\u56fd\u9645\u6c7d\u914d\u57ce'}, {u'units': 16, u'id': u'42584', u'machines': 41, u'name': u'\u5927\u6e14\u6b23\u57ce\u6a31\u82b1\u82d1\u4e00\u671f'}, {u'units': 5, u'id': u'42585', u'machines': 10, u'name': u'\u65b0\u57df\u76db\u666f\u4e00\u671f'}, {u'units': 7, u'id': u'42586', u'machines': 14, u'name': u'\u65b0\u57df\u76db\u666f\u4e8c\u671f'}, {u'units': 0, u'id': u'42587', u'machines': 0, u'name': u'\u534e\u5c14\u8d1d\u5927\u53a6'}, {u'units': 0, u'id': u'42588', u'machines': 0, u'name': u'\u6606\u660e\u6607\u798f\u82b1\u56ed\u9152\u5e97'}, {u'units': 0, u'id': u'42589', u'machines': 0, u'name': u'\u65b0\u5e7f\u4e30\u7efc\u5408\u6279\u53d1\u5e02\u573aB1\u680b'}, {u'units': 0, u'id': u'42590', u'machines': 0, u'name': u'\u548c\u8c10\u65f6\u4ee3\u516c\u5bd3'}, {u'units': 0, u'id': u'42591', u'machines': 0, u'name': u'\u5929\u8d50\u660e\u73e0\u5546\u4e1a\u5927\u53a6\u88d9\u697c'}, {u'units': 0, u'id': u'42592', u'machines': 0, u'name': u'\u5929\u8d50\u660e\u73e0\u5546\u4e1a\u5927\u53a6'}, {u'units': 0, u'id': u'42593', u'machines': 0, u'name': u'\u65b0\u5149\u4e16\u7eaa\u88d9\u697c'}, {u'units': 4, u'id': u'42708', u'machines': 4, u'name': u'\u6021\u666f\u82d1'}, {u'units': 18, u'id': u'42709', u'machines': 19, u'name': u'\u749f\u99a8\u82d1\u5c0f\u533a'}, {u'units': 9, u'id': u'42710', u'machines': 9, u'name': u'\u826f\u8fb0\u4e00\u671f'}, {u'units': 15, u'id': u'42711', u'machines': 17, u'name': u'\u6021\u9526\u82d1'}, {u'units': 11, u'id': u'42712', u'machines': 34, u'name': u'\u4e2d\u6606\u533b\u5927\u5e7f\u573a'}, {u'units': 13, u'id': u'42713', u'machines': 26, u'name': u'\u535a\u4f17\u82b1\u56ed'}, {u'units': 0, u'id': u'42714', u'machines': 0, u'name': u'\u9756\u56fd\u5927\u53a6'}, {u'units': 0, u'id': u'42715', u'machines': 0, u'name': u'\u7f8e\u4e9a\u5927\u53a6'}, {u'units': 0, u'id': u'42716', u'machines': 0, u'name': u'\u957f\u6625\u82b1\u56ed'}, {u'units': 0, u'id': u'42717', u'machines': 0, u'name': u'\u6854\u5c1a\u516c\u5bd3'}, {u'units': 0, u'id': u'42718', u'machines': 0, u'name': u'\u56fd\u9645\u6606\u660e\u73e0\u5b9d\u57ce\u5199\u5b57\u697c'}, {u'units': 0, u'id': u'42719', u'machines': 0, u'name': u'\u56fd\u9645\u6606\u660e\u73e0\u5b9d\u57ce\u5546\u4f4f\u697c'}, {u'units': 0, u'id': u'42720', u'machines': 0, u'name': u'\u6469\u6839\u9053'}, {u'units': 6, u'id': u'42721', u'machines': 10, u'name': u'\u4e0a\u4e1c\u57ce\u4e1c\u533a'}, {u'units': 9, u'id': u'42722', u'machines': 16, u'name': u'\u4e0a\u4e1c\u57ce\u897f\u533a'}, {u'units': 0, u'id': u'42723', u'machines': 0, u'name': u'\u4e07\u8c37\u56fd\u9645'}, {u'units': 12, u'id': u'42724', u'machines': 12, u'name': u'\u534e\u590f\u66e6\u5cb8B\u533a'}, {u'units': 13, u'id': u'42725', u'machines': 13, u'name': u'\u534e\u590f\u66e6\u5cb8C\u533a'}, {u'units': 0, u'id': u'42726', u'machines': 0, u'name': u'\u76ca\u65b0\u4e07\u8c61\u57ce'}, {u'units': 12, u'id': u'42727', u'machines': 24, u'name': u'\u534e\u666f\u82d1\u5c0f\u533a'}, {u'units': 12, u'id': u'42728', u'machines': 39, u'name': u'\u7ecf\u5178\u53cc\u57ceA\u533a'}, {u'units': 6, u'id': u'42729', u'machines': 12, u'name': u'\u7ecf\u5178\u53cc\u57ceC\u533a'}, {u'units': 0, u'id': u'42730', u'machines': 0, u'name': u'\u7ecf\u5178\u53cc\u57ce\u5546\u4e1a'}, {u'units': 30, u'id': u'42731', u'machines': 39, u'name': u'\u6ec7\u6c60\u661f\u8fb0'}, {u'units': 0, u'id': u'42732', u'machines': 0, u'name': u'\u90a6\u76db\u4e07\u5546\u57ce'}, {u'units': 0, u'id': u'42733', u'machines': 0, u'name': u'\u65b0\u5149\u4e16\u7eaa\u57ce'}, {u'units': 6, u'id': u'42734', u'machines': 6, u'name': u'\u767d\u9f99\u65b0\u533a'}, {u'units': 13, u'id': u'42735', u'machines': 13, u'name': u'\u8fb9\u9632\u5bb6\u56ed\u5c0f\u533a\u4e00\u6807'}, {u'units': 18, u'id': u'42736', u'machines': 18, u'name': u'\u8fb9\u9632\u5bb6\u56ed\u5c0f\u533a\u4e8c\u6807'}, {u'units': 0, u'id': u'42737', u'machines': 0, u'name': u'\u9a8f\u4fe1\u56fd\u9645\u6c7d\u914d\u57ce2\u671f'}, {u'units': 0, u'id': u'42738', u'machines': 0, u'name': u'\u53cc\u521b\u5927\u53a6'}, {u'units': 6, u'id': u'42739', u'machines': 12, u'name': u'\u6b63\u57fa\u6625\u5929\u91cc'}, {u'units': 0, u'id': u'42740', u'machines': 0, u'name': u'\u5357\u5c4f\u65f6\u4ee3\u5927\u53a6'}, {u'units': 13, u'id': u'42741', u'machines': 26, u'name': u'\u5316\u57ce\u793e\u533a\u4e00\u671f'}, {u'units': 8, u'id': u'42742', u'machines': 10, u'name': u'\u8d62\u57ce\u6d0b\u697c'}, {u'units': 0, u'id': u'42743', u'machines': 0, u'name': u'\u6da6\u57ce\u7b2c\u4e00\u5927\u9053'}, {u'units': 0, u'id': u'42744', u'machines': 0, u'name': u'\u9e3f\u6e90\u5927\u53a6'}, {u'units': 4, u'id': u'42745', u'machines': 8, u'name': u'\u957f\u6c34\u822a\u57ce\u6728\u69ff\u82d1'}, {u'units': 15, u'id': u'42746', u'machines': 29, u'name': u'\u957f\u6c34\u822a\u57ce\u6c34\u6749\u82d1'}, {u'units': 11, u'id': u'42747', u'machines': 21, u'name': u'\u957f\u6c34\u822a\u57ce\u6c34\u79be\u82d1'}, {u'units': 5, u'id': u'42748', u'machines': 10, u'name': u'\u957f\u6c34\u822a\u57ce\u77f3\u659b\u82d1'}, {u'units': 11, u'id': u'42749', u'machines': 22, u'name': u'\u957f\u6c34\u822a\u57ce\u6c34\u69d0\u82d1'}, {u'units': 13, u'id': u'42750', u'machines': 23, u'name': u'\u957f\u6c34\u822a\u57ce\u6728\u85e4\u82d1'}, {u'units': 7, u'id': u'42751', u'machines': 11, u'name': u'\u957f\u6c34\u822a\u57ce\u9526\u8475\u82d1'}, {u'units': 8, u'id': u'42752', u'machines': 16, u'name': u'\u957f\u6c34\u822a\u57ce\u4e91\u6749\u82d1'}, {u'units': 13, u'id': u'42753', u'machines': 23, u'name': u'\u957f\u6c34\u822a\u57ce\u4e91\u7cb9\u82d1'}, {u'units': 9, u'id': u'42754', u'machines': 18, u'name': u'\u957f\u6c34\u822a\u57ce\u4e91\u7fce\u82d1'}, {u'units': 23, u'id': u'42755', u'machines': 23, u'name': u'\u6021\u82b3\u82d1'}, {u'units': 0, u'id': u'42756', u'machines': 0, u'name': u'\u4e16\u7eaa\u6d69\u9e3f\u5546\u4e1a\u5e7f\u573a\u5199\u5b57\u697c'}, {u'units': 17, u'id': u'42757', u'machines': 22, u'name': u'\u9f0e\u6613\u5929\u666f'}, {u'units': 44, u'id': u'42758', u'machines': 44, u'name': u'\u5b9d\u8c61\u5eb7\u56ed'}, {u'units': 6, u'id': u'42759', u'machines': 15, u'name': u'\u6da6\u57ce\u5341\u533a'}, {u'units': 8, u'id': u'42760', u'machines': 24, u'name': u'\u6da6\u57ce\u4e8c\u533a'}, {u'units': 14, u'id': u'42761', u'machines': 28, u'name': u'\u6da6\u57ce\u4e00\u533a'}, {u'units': 10, u'id': u'42762', u'machines': 25, u'name': u'\u6da6\u57ce\u4e5d\u533a'}, {u'units': 5, u'id': u'42763', u'machines': 15, u'name': u'\u6da6\u57ce\u4e03\u533a'}, {u'units': 9, u'id': u'42764', u'machines': 21, u'name': u'\u9f0e\u6613\u5929\u57ce'}, {u'units': 35, u'id': u'42765', u'machines': 35, u'name': u'\u6eaa\u8c37\u96c5\u82d1'}, {u'units': 37, u'id': u'42766', u'machines': 48, u'name': u'\u4e2d\u94c1\u767e\u5e74\u5370\u8c61\u4e00\u671f'}, {u'units': 4, u'id': u'42767', u'machines': 6, u'name': u'\u4e2d\u94c1\u767e\u5e74\u5370\u8c61\u4e8c\u671f'}, {u'units': 11, u'id': u'42768', u'machines': 22, u'name': u'\u679c\u9999\u82d1\u5357\u82d1'}, {u'units': 5, u'id': u'42769', u'machines': 10, u'name': u'\u679c\u9999\u82d1\u5317\u82d1'}, {u'units': 9, u'id': u'42770', u'machines': 34, u'name': u'\u9ad8\u65b0\u90bb\u91cc\u4e2d\u5fc3'}, {u'units': 3, u'id': u'42771', u'machines': 10, u'name': u'\u8def\u6613\u516c\u5143\u4e00\u671f'}, {u'units': 44, u'id': u'42772', u'machines': 44, u'name': u'\u6ec7\u6c60\u536b\u57ce\u94c2\u777f'}, {u'units': 5, u'id': u'42773', u'machines': 10, u'name': u'\u6da6\u57ce\u56db\u533a'}, {u'units': 3, u'id': u'42774', u'machines': 7, u'name': u'\u6da6\u57ce\u5341\u4e00\u533a'}, {u'units': 25, u'id': u'42775', u'machines': 34, u'name': u'\u4f17\u548c\u5eb7\u56ed\u4e00\u671f'}, {u'units': 18, u'id': u'42776', u'machines': 27, u'name': u'\u4f17\u548c\u5eb7\u56ed\u4e8c\u671f'}, {u'units': 18, u'id': u'42777', u'machines': 22, u'name': u'\u534a\u5c71\u4e03\u54e9\u6eaa\u5c0f\u533a'}, {u'units': 0, u'id': u'42778', u'machines': 0, u'name': u'\u9890\u9ad8\u6570\u7801'}, {u'units': 3, u'id': u'42779', u'machines': 6, u'name': u'\u5929\u5143\u5c45'}, {u'units': 14, u'id': u'42780', u'machines': 14, u'name': u'\u78a7\u6842\u56ed\u7d2b\u53f0'}, {u'units': 31, u'id': u'42781', u'machines': 62, u'name': u'\u6797\u5858\u793e\u533a\u4e8c\u671f'}, {u'units': 11, u'id': u'42782', u'machines': 22, u'name': u'\u6797\u5858\u793e\u533a\u4e00\u671f'}, {u'units': 34, u'id': u'42783', u'machines': 48, u'name': u'\u4e1c\u6cf0\u82b1\u56ed\u4e1c\u533a'}, {u'units': 5, u'id': u'42784', u'machines': 5, u'name': u'\u4e1c\u6cf0\u82b1\u56ed\u897f\u533a'}, {u'units': 0, u'id': u'42785', u'machines': 0, u'name': u'\u91d1\u78a7\u8f89\u714c\u5927\u53a6'}, {u'units': 11, u'id': u'42786', u'machines': 11, u'name': u'\u6ec7\u6c60\u536b\u57ce\u84dd\u57df\u6674\u5929'}, {u'units': 5, u'id': u'42787', u'machines': 5, u'name': u'\u91d1\u9f99\u82d1'}, {u'units': 5, u'id': u'42788', u'machines': 5, u'name': u'\u798f\u7f18\u5c45'}, {u'units': 70, u'id': u'42789', u'machines': 70, u'name': u'\u6ec7\u6c60\u536b\u57ce\u6a61\u5c1a'}, {u'units': 11, u'id': u'42790', u'machines': 11, u'name': u'\u6ec7\u6c60\u536b\u57ce\u6edf\u6f9c\u6e7e'}, {u'units': 57, u'id': u'42791', u'machines': 57, u'name': u'\u6ec7\u6c60\u536b\u57ce\u5c1a\u57ce'}, {u'units': 4, u'id': u'42835', u'machines': 8, u'name': u'\u5b89\u5b81\u73cd\u6cc9\u9890\u56ed'}, {u'units': 7, u'id': u'42836', u'machines': 19, u'name': u'\u4e1c\u6e56\u65b0\u82d1'}, {u'units': 0, u'id': u'42837', u'machines': 0, u'name': u'\u4e1c\u6e56\u7b2c\u4e00\u5199\u5b57\u697cC\u5ea7'}, {u'units': 2, u'id': u'42838', u'machines': 6, u'name': u'\u4e1c\u6e56\u65b0\u5929\u5730AB\u680b'}, {u'units': 4, u'id': u'42839', u'machines': 12, u'name': u'\u51e4\u57ce\u6625\u8272'}, {u'units': 12, u'id': u'42840', u'machines': 25, u'name': u'\u6c5f\u6e7e\u82d1'}, {u'units': 15, u'id': u'42841', u'machines': 29, u'name': u'\u67f3\u6811\u82b1\u56ed\u793e\u533a'}, {u'units': 20, u'id': u'42842', u'machines': 20, u'name': u'\u9f99\u5c71\u6e56\u7554'}, {u'units': 18, u'id': u'42843', u'machines': 36, u'name': u'\u5b81\u548c\u5bb6\u56ed\u4e94\u671f'}, {u'units': 12, u'id': u'42844', u'machines': 12, u'name': u'\u5929\u534e\u82d1'}, {u'units': 2, u'id': u'42845', u'machines': 5, u'name': u'\u4e2d\u592e\u534e\u51a0'}, {u'units': 17, u'id': u'42846', u'machines': 24, u'name': u'\u897f\u5c71\u7530\u56ed\u6f9c\u5c71\u60a6'}, {u'units': 8, u'id': u'42847', u'machines': 14, u'name': u'\u5c71\u6c34\u878d\u57ce\u518c\u5ce8\u82d1'}, {u'units': 20, u'id': u'42848', u'machines': 33, u'name': u'\u5b89\u6f9c\u96c5\u82d1'}, {u'units': 22, u'id': u'42849', u'machines': 22, u'name': u'\u5b89\u5b81\u77f3\u6c5f\u666f\u82d1'}, {u'units': 14, u'id': u'42850', u'machines': 14, u'name': u'\u6c47\u4fea\u5883\u56ed'}, {u'units': 20, u'id': u'42851', u'machines': 20, u'name': u'\u90fd\u94ce\u57ce\u90a61\u53f7\u9662'}, {u'units': 21, u'id': u'42852', u'machines': 22, u'name': u'\u90fd\u94ce\u57ce\u90a62\u53f7\u9662'}, {u'units': 7, u'id': u'42853', u'machines': 10, u'name': u'\u90fd\u94ce\u57ce\u90a63\u53f7\u9662'}, {u'units': 0, u'id': u'42854', u'machines': 0, u'name': u'\u90fd\u94ce\u57ce\u90a6\u5199\u5b57\u697c'}, {u'units': 7, u'id': u'42855', u'machines': 13, u'name': u'\u5929\u57ce\u56ed\u6797\u5c40\u4e09\u671f\u8c6a\u56ed'}, {u'units': 60, u'id': u'42856', u'machines': 61, u'name': u'\u6ec7\u6c60\u536b\u57ce\u9526\u5c1a'}, {u'units': 0, u'id': u'42857', u'machines': 0, u'name': u'\u6668\u519c\u5927\u53a6'}, {u'units': 0, u'id': u'42858', u'machines': 0, u'name': u'\u6668\u519c\u5546\u52a1\u4e2d\u5fc3'}, {u'units': 3, u'id': u'42859', u'machines': 9, u'name': u'\u4e91\u8def\u88d5\u5ead\u4e1c\u533a'}, {u'units': 7, u'id': u'42860', u'machines': 9, u'name': u'\u5927\u6210\u851a\u84dd\u65f6\u4ee3'}, {u'units': 12, u'id': u'42861', u'machines': 24, u'name': u'\u5c71\u6c34\u6da6\u57ce\u99a8\u56ed'}, {u'units': 12, u'id': u'42862', u'machines': 26, u'name': u'\u5c71\u6c34\u6da6\u57ce\u96c5\u56ed'}, {u'units': 10, u'id': u'42863', u'machines': 19, u'name': u'\u5c71\u6c34\u6da6\u57ce\u97f5\u56ed'}, {u'units': 0, u'id': u'42864', u'machines': 0, u'name': u'\u62d3\u4e1c\u5927\u53a6'}, {u'units': 14, u'id': u'42865', u'machines': 20, u'name': u'\u6b63\u5fc3\u82d1'}, {u'units': 9, u'id': u'42866', u'machines': 18, u'name': u'\u96c5\u4ed5\u82d1'}, {u'units': 4, u'id': u'42867', u'machines': 8, u'name': u'\u535a\u624d\u82d1'}, {u'units': 21, u'id': u'42868', u'machines': 28, u'name': u'\u8bda\u610f\u82d1'}, {u'units': 23, u'id': u'42869', u'machines': 46, u'name': u'\u4e66\u9999\u82d1'}, {u'units': 17, u'id': u'42870', u'machines': 34, u'name': u'\u660e\u5fb7\u82d1'}, {u'units': 14, u'id': u'42871', u'machines': 27, u'name': u'\u80b2\u624d\u82d1'}, {u'units': 15, u'id': u'42872', u'machines': 28, u'name': u'\u6c47\u8d24\u82d1'}, {u'units': 8, u'id': u'42873', u'machines': 16, u'name': u'\u4fee\u8eab\u82d1'}, {u'units': 9, u'id': u'42874', u'machines': 18, u'name': u'\u667a\u5584\u82d1'}, {u'units': 6, u'id': u'42875', u'machines': 12, u'name': u'\u4e91\u62a5\u8bb0\u8005\u6751'}, {u'units': 48, u'id': u'42876', u'machines': 81, u'name': u'\u5c45\u5b89\u56ed'}, {u'units': 55, u'id': u'42877', u'machines': 108, u'name': u'\u6c38\u6cf0\u56ed'}, {u'units': 41, u'id': u'42878', u'machines': 76, u'name': u'\u99a8\u548c\u56ed'}, {u'units': 1, u'id': u'42879', u'machines': 3, u'name': u'\u6606\u660e\u5927\u89c2\u8def168\u53f7\u5c0f\u533a'}, {u'units': 0, u'id': u'42880', u'machines': 0, u'name': u'\u671b\u6d77\u697c'}, {u'units': 2, u'id': u'42881', u'machines': 5, u'name': u'\u73b0\u4ee3\u6587\u5ead'}, {u'units': 2, u'id': u'42882', u'machines': 5, u'name': u'\u7fe0\u7fbd\u4e39\u971e'}, {u'units': 0, u'id': u'42883', u'machines': 0, u'name': u'\u4e1c\u4fe1\u4e2d\u5fc3\u57ce'}, {u'units': 0, u'id': u'42884', u'machines': 0, u'name': u'\u5173\u5cad\u4f73\u82d1'}, {u'units': 9, u'id': u'42885', u'machines': 9, u'name': u'\u6ec7\u6c60\u6e90\u5c45'}, {u'units': 0, u'id': u'42886', u'machines': 0, u'name': u'\u4e91\u742a\u5927\u9152\u5e97'}, {u'units': 0, u'id': u'42887', u'machines': 0, u'name': u'\u4e91\u7eba\u56fd\u9645\u5546\u53a6'}, {u'units': 0, u'id': u'42888', u'machines': 0, u'name': u'\u4e91\u7eba\u4e1c\u5357\u4e9a\u5546\u57ce'}, {u'units': 0, u'id': u'42889', u'machines': 0, u'name': u'\u4e91\u7eba\u88c5\u9970\u5e7f\u573a'}, {u'units': 12, u'id': u'42890', u'machines': 36, u'name': u'\u6eaa\u7554\u4e3d\u666f'}, {u'units': 0, u'id': u'42891', u'machines': 0, u'name': u'\u6eaa\u7554\u4e3d\u666f\u5199\u5b57\u697c'}, {u'units': 2, u'id': u'42898', u'machines': 6, u'name': u'\u54c1\u6cf0\u8317\u5c45'}, {u'units': 6, u'id': u'42899', u'machines': 6, u'name': u'\u6da6\u57ce\u7b2c\u4e09\u5927\u9053'}, {u'units': 0, u'id': u'42900', u'machines': 0, u'name': u'\u5f97\u80dc\u5bb6\u5177\u5317\u7ad9\u5e97'}, {u'units': 0, u'id': u'42901', u'machines': 0, u'name': u'\u5f97\u80dc\u5bb6\u5177\u660e\u6ce2\u5bb6\u5c45\u5e7f\u573a'}, {u'units': 9, u'id': u'42902', u'machines': 12, u'name': u'\u94ed\u95e8\u9ad8\u7b2c'}, {u'units': 18, u'id': u'42903', u'machines': 18, u'name': u'\u7f57\u767d\u99a8\u82d1'}, {u'units': 2, u'id': u'42904', u'machines': 4, u'name': u'\u5c1a\u90fd\u8c6a\u5ead'}, {u'units': 0, u'id': u'42905', u'machines': 0, u'name': u'\u6606\u660e\u56fd\u9645\u4f1a\u5c55\u4e2d\u5fc3'}, {u'units': 0, u'id': u'42906', u'machines': 0, u'name': u'\u9a8f\u5fb7\u79d1\u6280\u56ed'}, {u'units': 0, u'id': u'42907', u'machines': 0, u'name': u'\u6606\u660e\u4e30\u5143\u5927\u9152\u5e97'}, {u'units': 2, u'id': u'42908', u'machines': 4, u'name': u'\u4f0a\u7687\u5927\u53a6A\u5ea7'}, {u'units': 2, u'id': u'42909', u'machines': 6, u'name': u'\u4f0a\u7687\u5927\u53a6B\u5ea7'}, {u'units': 11, u'id': u'42910', u'machines': 11, u'name': u'\u8def\u99a8\u5c0f\u533a'}, {u'units': 0, u'id': u'42911', u'machines': 0, u'name': u'\u6d77\u5f52\u5927\u53a6'}, {u'units': 0, u'id': u'42912', u'machines': 0, u'name': u'\u706b\u70ac\u5927\u53a6'}, {u'units': 0, u'id': u'42913', u'machines': 0, u'name': u'\u6d77\u5f52\u521b\u4e1a\u56ed'}, {u'units': 6, u'id': u'42914', u'machines': 11, u'name': u'\u7ecf\u767e\u666e\u7167\u5174\u56ed\u4e00\u671f'}, {u'units': 6, u'id': u'42915', u'machines': 14, u'name': u'\u7ecf\u767e\u666e\u7167\u5174\u56ed\u4e8c\u671f'}, {u'units': 0, u'id': u'42916', u'machines': 0, u'name': u'\u5f97\u80dc\u5bb6\u5177\u529e\u516c\u533a'}, {u'units': 0, u'id': u'42917', u'machines': 0, u'name': u'\u5f97\u80dc\u5bb6\u5c45\u4e16\u535a\u5e97'}, {u'units': 5, u'id': u'42918', u'machines': 5, u'name': u'\u9e3f\u8fd0\u90fd\u5e02\u522b\u5885'}, {u'units': 37, u'id': u'42919', u'machines': 46, u'name': u'\u4e07\u8f89\u661f\u57ce\u84dd\u5c71\u90e1B\u533a'}, {u'units': 11, u'id': u'42920', u'machines': 12, u'name': u'\u4e07\u8f89\u661f\u57ce\u84dd\u5c71\u90e1C\u533a'}, {u'units': 2, u'id': u'42921', u'machines': 2, u'name': u'\u94f6\u674f\u5eca\u4ead'}, {u'units': 1, u'id': u'42922', u'machines': 2, u'name': u'\u6842\u534e\u65b0\u56ed'}, {u'units': 26, u'id': u'42923', u'machines': 40, u'name': u'\u9f99\u6e7e\u4e00\u53f7'}, {u'units': 0, u'id': u'42924', u'machines': 0, u'name': u'\u65b0\u5609\u6e90\u7269\u6d41\u4e2d\u5fc3a\u533a'}, {u'units': 0, u'id': u'42925', u'machines': 0, u'name': u'\u65b0\u5609\u6e90\u7269\u6d41\u4e2d\u5fc3b\u533a'}, {u'units': 4, u'id': u'42926', u'machines': 4, u'name': u'\u8239\u623f\u5c0f\u533a\u57ce\u5e02\u5e7f\u573a\u53571\u680b'}, {u'units': 15, u'id': u'42927', u'machines': 18, u'name': u'\u4e91\u5eb7\u56ed'}, {u'units': 20, u'id': u'42928', u'machines': 20, u'name': u'\u5b89\u5b81\u7965\u4e30\u4e0a\u57ce'}, {u'units': 8, u'id': u'42929', u'machines': 15, u'name': u'\u731c\u6d4b\u5443\u5443\u5443\u5443'}, {u'units': 0, u'id': u'1185726', u'machines': 0, u'name': u'\u6d4b\u8bd5'}, {u'units': 0, u'id': u'1185729', u'machines': 0, u'name': u'\u51ef\u5fb7\u5929\u5e9c'}, {u'units': 0, u'id': u'1185730', u'machines': 0, u'name': u'\u9ec4\u91d1\u65f6\u4ee3'}, {u'units': 0, u'id': u'1185731', u'machines': 0, u'name': u'\u51ef\u534e\u4e3d\u666f34'}, {u'units': 0, u'id': u'1185732', u'machines': 0, u'name': u'\u4eba\u6c11\u516c\u56ed'}, {u'units': 0, u'id': u'1185735', u'machines': 0, u'name': u'\u51ef\u534e\u4e3d\u666f2'}, {u'units': 0, u'id': u'1185738', u'machines': 0, u'name': u'\u6d4b\u8bd50831\u2014s'}, {u'units': 0, u'id': u'1185739', u'machines': 0, u'name': u'\u6d4b\u8bd50831\u2014s'}, {u'units': 0, u'id': u'1185740', u'machines': 0, u'name': u'\u94f6\u6cf0\u57ce'}, {u'units': 0, u'id': u'1185741', u'machines': 0, u'name': u'\u94f6\u6cf0\u57ce'}, {u'units': 0, u'id': u'1185742', u'machines': 0, u'name': u'\u94f6\u6cf0\u57cein99'}, {u'units': 0, u'id': u'1185744', u'machines': 0, u'name': u'\u94f6\u6cf0\u57ce'}, {u'units': 0, u'id': u'1185745', u'machines': 0, u'name': u'\u5609\u7965\u745e\u5ead\u5357\u57ce0903'}, {u'units': 0, u'id': u'1185746', u'machines': 0, u'name': u'\u94f6\u6cf0\u57ce'}, {u'units': 0, u'id': u'1185747', u'machines': 0, u'name': u'\u5f85\u5ba1\u6838\u697c\u76d8'}, {u'units': 0, u'id': u'1185752', u'machines': 0, u'name': u'\u6d4b\u8bd50903_ssp'}, {u'units': 0, u'id': u'1185753', u'machines': 0, u'name': u'\u6d4b\u8bd50903_ssp2'}, {u'units': 0, u'id': u'1185756', u'machines': 0, u'name': u'\u6d4b\u8bd50903_ssp2'}, {u'units': 0, u'id': u'1185757', u'machines': 0, u'name': u'\u6d4b\u8bd50903_ssp3'}, {u'units': 0, u'id': u'1185759', u'machines': 0, u'name': u'\u6d4b\u8bd5\u68af\u5185\u68af\u5916'}, {u'units': 0, u'id': u'1185760', u'machines': 0, u'name': u'\u7981\u5fcc\u884c\u4e1a\u6d4b\u8bd5\u9879\u76ee'}, {u'units': 0, u'id': u'1185761', u'machines': 0, u'name': u'\u9f99\u6e7e\u4e00\u53f7'}, {u'units': 0, u'id': u'1185762', u'machines': 0, u'name': u'\u6842\u534e\u65b0\u56ed'}, {u'units': 0, u'id': u'1185763', u'machines': 0, u'name': u'\u91d1\u878d\u57ce'}, {u'units': 0, u'id': u'1185764', u'machines': 0, u'name': u'\u6d4b\u8bd509041'}, {u'units': 0, u'id': u'1185768', u'machines': 0, u'name': u'test_ssp_1'}, {u'units': 0, u'id': u'1185769', u'machines': 0, u'name': u'test_ssp_1'}, {u'units': 0, u'id': u'1185770', u'machines': 0, u'name': u'test_ssp_2'}, {u'units': 0, u'id': u'1185773', u'machines': 0, u'name': u'test_ssp-3'}, {u'units': 0, u'id': u'1185777', u'machines': 0, u'name': u'1111111'}, {u'units': 0, u'id': u'1185778', u'machines': 0, u'name': u'\u73af\u7403\u4e2d\u5fc369'}, {u'units': 0, u'id': u'1185780', u'machines': 0, u'name': u'\u6d4b\u8bd50905'}, {u'units': 0, u'id': u'1185853', u'machines': 0, u'name': u'\u6606\u660e\u6d4b\u8bd50906'}, {u'units': 0, u'id': u'1185855', u'machines': 0, u'name': u'\u6d4b\u8bd509061'}, {u'units': 0, u'id': u'1185859', u'machines': 0, u'name': u'112233'}, {u'units': 0, u'id': u'1185860', u'machines': 0, u'name': u'\u8302\u4e1a\u4e2d\u5fc3'}, {u'units': 0, u'id': u'1185862', u'machines': 0, u'name': u'\u4e00\u7433\u6d4b\u8bd5\u9879\u76ee'}, {u'units': 0, u'id': u'1185872', u'machines': 0, u'name': u'new_building2'}, {u'units': 0, u'id': u'1185873', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee1'}, {u'units': 0, u'id': u'1185882', u'machines': 0, u'name': u'\u5b57\u6bb5\u6821\u9a8c'}, {u'units': 0, u'id': u'1185883', u'machines': 0, u'name': u'\u6d4b\u8bd50907_ssp5'}, {u'units': 0, u'id': u'1185884', u'machines': 0, u'name': u'\u6d4b\u8bd50907_ssp6'}, {u'units': 0, u'id': u'1185885', u'machines': 0, u'name': u'\u6d4b\u8bd50907_ssp7'}, {u'units': 0, u'id': u'1185886', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee'}, {u'units': 0, u'id': u'1185887', u'machines': 0, u'name': u'new_building_1'}, {u'units': 0, u'id': u'1185888', u'machines': 0, u'name': u'\u6d4b\u8bd50911_ssp1'}, {u'units': 0, u'id': u'1185889', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee908'}, {u'units': 0, u'id': u'1185904', u'machines': 0, u'name': u'new_building_2'}, {u'units': 0, u'id': u'1185921', u'machines': 0, u'name': u'new_building3'}, {u'units': 0, u'id': u'1185923', u'machines': 0, u'name': u'\u6d4b\u8bd50912_ssp1'}, {u'units': 0, u'id': u'1185924', u'machines': 0, u'name': u'\u6d4b\u8bd50912_ssp2'}, {u'units': 0, u'id': u'1185925', u'machines': 0, u'name': u'\u6d4b\u8bd50912_ssp3'}, {u'units': 0, u'id': u'1185926', u'machines': 0, u'name': u'\u6d4b\u8bd50912_ssp4'}, {u'units': 0, u'id': u'1185927', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee'}, {u'units': 0, u'id': u'1185928', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee0912'}, {u'units': 0, u'id': u'1185937', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee0912001'}, {u'units': 0, u'id': u'1185938', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee0912002'}, {u'units': 0, u'id': u'1185939', u'machines': 0, u'name': u'\u6d4b\u8bd511111'}, {u'units': 0, u'id': u'1185940', u'machines': 0, u'name': u'\u6d4b\u8bd50912_ssp_test_1'}, {u'units': 0, u'id': u'1185950', u'machines': 0, u'name': u'111111111111'}, {u'units': 0, u'id': u'1185956', u'machines': 0, u'name': u'new_building'}, {u'units': 0, u'id': u'1185957', u'machines': 0, u'name': u'new_building0912'}, {u'units': 0, u'id': u'1185958', u'machines': 0, u'name': u'ssp_building001'}, {u'units': 0, u'id': u'1185959', u'machines': 0, u'name': u'ssp_building002\u3001#@\uffe5'}, {u'units': 0, u'id': u'1185986', u'machines': 0, u'name': u'\u65b0\u589e\u9879\u76ee0913'}, {u'units': 0, u'id': u'1185989', u'machines': 0, u'name': u'ssp_building002'}, {u'units': 0, u'id': u'1185990', u'machines': 0, u'name': u'new_building5'}, {u'units': 0, u'id': u'1185991', u'machines': 0, u'name': u'new_building6'}, {u'units': 0, u'id': u'1186020', u'machines': 0, u'name': u'new_building9'}, {u'units': 0, u'id': u'1186096', u'machines': 0, u'name': u'new_building0917'}, {u'units': 0, u'id': u'1186101', u'machines': 0, u'name': u'new_building8'}, {u'units': 0, u'id': u'1186106', u'machines': 0, u'name': u'new_building10'}, {u'units': 0, u'id': u'1186107', u'machines': 0, u'name': u'new_building13'}, {u'units': 0, u'id': u'1186108', u'machines': 0, u'name': u'new_building15'}, {u'units': 0, u'id': u'1186109', u'machines': 0, u'name': u'new_building16'}, {u'units': 0, u'id': u'1186110', u'machines': 0, u'name': u'new_building17'}, {u'units': 0, u'id': u'1186111', u'machines': 0, u'name': u'new_building18'}, {u'units': 0, u'id': u'1186116', u'machines': 0, u'name': u'new_building20'}, {u'units': 0, u'id': u'1186137', u'machines': 0, u'name': u'ssp_building003'}, {u'units': 0, u'id': u'1186139', u'machines': 0, u'name': u'ssp_building004'}, {u'units': 0, u'id': u'1186141', u'machines': 0, u'name': u'ssp_building005'}, {u'units': 0, u'id': u'1186142', u'machines': 0, u'name': u'ssp_building006'}, {u'units': 0, u'id': u'1186143', u'machines': 0, u'name': u'ssp_building007'}, {u'units': 0, u'id': u'1186144', u'machines': 0, u'name': u'ssp_building008'}, {u'units': 0, u'id': u'1186145', u'machines': 0, u'name': u'ssp_building010'}, {u'units': 0, u'id': u'1186146', u'machines': 0, u'name': u'ssp_building011'}, {u'units': 0, u'id': u'1186147', u'machines': 0, u'name': u'ssp_building012'}, {u'units': 0, u'id': u'1186148', u'machines': 0, u'name': u'ssp_building013'}, {u'units': 0, u'id': u'1186149', u'machines': 0, u'name': u'ssp_building014'}, {u'units': 0, u'id': u'1186150', u'machines': 0, u'name': u'ssp_building015'}, {u'units': 0, u'id': u'1186151', u'machines': 0, u'name': u'new_building22'}, {u'units': 0, u'id': u'1186253', u'machines': 0, u'name': u'ssp_test_2086'}, {u'units': 0, u'id': u'1186254', u'machines': 0, u'name': u'ssp_test_1562'}, {u'units': 0, u'id': u'1186255', u'machines': 0, u'name': u'ssp_test_2297'}, {u'units': 0, u'id': u'1186256', u'machines': 0, u'name': u'ssp_test_7805'}, {u'units': 0, u'id': u'1186257', u'machines': 0, u'name': u'ssp_test_8324'}, {u'units': 0, u'id': u'1186258', u'machines': 0, u'name': u'ssp_test_921'}, {u'units': 0, u'id': u'1186259', u'machines': 0, u'name': u'ssp_test_3136'}, {u'units': 0, u'id': u'1186268', u'machines': 0, u'name': u'ssp_ces_66786958'}, {u'units': 0, u'id': u'1186269', u'machines': 0, u'name': u'ssp_ces_45651787'}, {u'units': 0, u'id': u'1186270', u'machines': 0, u'name': u'ssp_ces_47185849'}, {u'units': 0, u'id': u'1186271', u'machines': 0, u'name': u'ssp_ces_94163867'}, {u'units': 0, u'id': u'1186272', u'machines': 0, u'name': u'ces_ssp_26635644'}, {u'units': 0, u'id': u'1186297', u'machines': 0, u'name': u'ssp_ces_11971595'}, {u'units': 0, u'id': u'1186298', u'machines': 0, u'name': u'ssp_ces_63257297'}, {u'units': 0, u'id': u'1186299', u'machines': 0, u'name': u'ssp_ces_25239953'}, {u'units': 0, u'id': u'1186300', u'machines': 0, u'name': u'ces_ssp_81766762'}, {u'units': 0, u'id': u'1186301', u'machines': 0, u'name': u'ssp_ces_59178294'}, {u'units': 0, u'id': u'1186302', u'machines': 0, u'name': u'ces_ssp_44175742'}, {u'units': 0, u'id': u'1186303', u'machines': 0, u'name': u'ces_ssp_57156997'}, {u'units': 0, u'id': u'1186304', u'machines': 0, u'name': u'ssp_ces_14744249'}, {u'units': 0, u'id': u'1186305', u'machines': 0, u'name': u'ssp_ces_34386119'}, {u'units': 0, u'id': u'1186306', u'machines': 0, u'name': u'ssp_ces_729179922'}, {u'units': 0, u'id': u'1186314', u'machines': 0, u'name': u'ssp_ces_28291196'}, {u'units': 0, u'id': u'1186315', u'machines': 0, u'name': u'ssp_ces_37315528'}, {u'units': 0, u'id': u'1186316', u'machines': 0, u'name': u'ces_ssp_49965526'}, {u'units': 0, u'id': u'1186317', u'machines': 0, u'name': u'ces_ssp_343695932'}, {u'units': 0, u'id': u'1186318', u'machines': 0, u'name': u'ces_ssp_76577252'}, {u'units': 0, u'id': u'1186319', u'machines': 0, u'name': u'ssp_ces_55572563'}, {u'units': 0, u'id': u'1186320', u'machines': 0, u'name': u'ssp_ces_79727356'}, {u'units': 0, u'id': u'1186321', u'machines': 0, u'name': u'ssp_ces_67528947'}, {u'units': 0, u'id': u'1186322', u'machines': 0, u'name': u'ssp_ces_82762976'}, {u'units': 0, u'id': u'1186323', u'machines': 0, u'name': u'ssp_ces_19543576'}, {u'units': 0, u'id': u'1186324', u'machines': 0, u'name': u'ssp_ces_83453999'}, {u'units': 0, u'id': u'1186325', u'machines': 0, u'name': u'ces_ssp_677246782'}, {u'units': 0, u'id': u'1186326', u'machines': 0, u'name': u'ssp_ces_944597332'}, {u'units': 0, u'id': u'1186342', u'machines': 0, u'name': u'ces_ssp_315191212'}, {u'units': 0, u'id': u'1186343', u'machines': 0, u'name': u'ssp_ces_86497294'}, {u'units': 0, u'id': u'1186344', u'machines': 0, u'name': u'ces_ssp_46589355'}, {u'units': 0, u'id': u'1186345', u'machines': 0, u'name': u'ssp_ces_397642922'}, {u'units': 0, u'id': u'1186346', u'machines': 0, u'name': u'ces_ssp_75964492'}, {u'units': 0, u'id': u'1186347', u'machines': 0, u'name': u'ssp_ces_26325835'}, {u'units': 0, u'id': u'1186348', u'machines': 0, u'name': u'ces_ssp_83255143'}, {u'units': 0, u'id': u'1186349', u'machines': 0, u'name': u'ssp_ces_64944755'}, {u'units': 0, u'id': u'1186350', u'machines': 0, u'name': u'ces_ssp_991996962'}, {u'units': 0, u'id': u'1186355', u'machines': 0, u'name': u'ssp_ces_92625881'}, {u'units': 0, u'id': u'1186365', u'machines': 0, u'name': u'ces_ssp_77854536'}, {u'units': 0, u'id': u'1186372', u'machines': 0, u'name': u'ces_ssp_78266772'}, {u'units': 0, u'id': u'1186373', u'machines': 0, u'name': u'ces_ssp_53936318'}, {u'units': 0, u'id': u'1186374', u'machines': 0, u'name': u'ces_ssp_81944564'}, {u'units': 0, u'id': u'1186375', u'machines': 0, u'name': u'ssp_ces_26376285'}, {u'units': 0, u'id': u'1186376', u'machines': 0, u'name': u'ces_ssp_38874415'}, {u'units': 0, u'id': u'1186377', u'machines': 0, u'name': u'ces_ssp_742775112'}, {u'units': 0, u'id': u'1186378', u'machines': 0, u'name': u'ssp_ces_657571372'}, {u'units': 0, u'id': u'1186388', u'machines': 0, u'name': u'ces_ssp_14441548'}, {u'units': 0, u'id': u'1186405', u'machines': 0, u'name': u'ssp_ces_24533386'}, {u'units': 0, u'id': u'1186410', u'machines': 0, u'name': u'ces_ssp_82982754'}, {u'units': 0, u'id': u'1186415', u'machines': 0, u'name': u'ces_ssp_44718467'}, {u'units': 0, u'id': u'1186416', u'machines': 0, u'name': u'ssp_ces_95327765'}, {u'units': 0, u'id': u'1186421', u'machines': 0, u'name': u'ces_ssp_91469169'}, {u'units': 0, u'id': u'1186422', u'machines': 0, u'name': u'ces_ssp_69559471'}, {u'units': 0, u'id': u'1186428', u'machines': 0, u'name': u'ces_ssp_13791124'}, {u'units': 0, u'id': u'1186439', u'machines': 0, u'name': u'ces_ssp_91856218'}, {u'units': 0, u'id': u'1186451', u'machines': 0, u'name': u'ssp_ces_84863986'}, {u'units': 0, u'id': u'1186461', u'machines': 0, u'name': u'ssp_ces_63942562'}, {u'units': 0, u'id': u'1186475', u'machines': 0, u'name': u'ssp_ces_73848837'}, {u'units': 0, u'id': u'1186480', u'machines': 0, u'name': u'ssp_ces_82485746'}, {u'units': 0, u'id': u'1186493', u'machines': 0, u'name': u'ssp_ces_326111792'}, {u'units': 0, u'id': u'1186494', u'machines': 0, u'name': u'ssp_ces_71836377'}, {u'units': 0, u'id': u'1186497', u'machines': 0, u'name': u'ces_ssp_387419222'}, {u'units': 0, u'id': u'1186499', u'machines': 0, u'name': u'ssp_ces_946757952'}, {u'units': 0, u'id': u'1186503', u'machines': 0, u'name': u'ces_ssp_92232969'}, {u'units': 0, u'id': u'1186505', u'machines': 0, u'name': u'ces_ssp_218531912'}, {u'units': 0, u'id': u'1186507', u'machines': 0, u'name': u'ces_ssp_54461859'}, {u'units': 0, u'id': u'1186512', u'machines': 0, u'name': u'new_building26'}, {u'units': 0, u'id': u'1186520', u'machines': 0, u'name': u'new_building28'}, {u'units': 0, u'id': u'1186521', u'machines': 0, u'name': u'ces_ssp_99442424'}, {u'units': 0, u'id': u'1186522', u'machines': 0, u'name': u'new_building30'}, {u'units': 0, u'id': u'1186523', u'machines': 0, u'name': u'new_building32'}, {u'units': 0, u'id': u'1186524', u'machines': 0, u'name': u'new_building34'}, {u'units': 0, u'id': u'1186525', u'machines': 0, u'name': u'ssp_building016'}, {u'units': 0, u'id': u'1186526', u'machines': 0, u'name': u'ssp_building017'}, {u'units': 0, u'id': u'1186567', u'machines': 0, u'name': u'ssp_ces_146871362'}, {u'units': 0, u'id': u'1186572', u'machines': 0, u'name': u'ssp_ces_766367722'}, {u'units': 0, u'id': u'1186577', u'machines': 0, u'name': u'ssp_ces_82791776'}, {u'units': 0, u'id': u'1186578', u'machines': 0, u'name': u'new_building36'}, {u'units': 0, u'id': u'1186579', u'machines': 0, u'name': u'\u6d4b\u8bd50927'}, {u'units': 0, u'id': u'1186581', u'machines': 0, u'name': u'new_building38'}, {u'units': 0, u'id': u'1186582', u'machines': 0, u'name': u'ssp_building017'}, {u'units': 0, u'id': u'1186583', u'machines': 0, u'name': u'ssp_building018'}, {u'units': 0, u'id': u'1186588', u'machines': 0, u'name': u'ssp_ces_547317572'}, {u'units': 0, u'id': u'1186589', u'machines': 0, u'name': u'ces_ssp_637261672'}, {u'units': 0, u'id': u'1186590', u'machines': 0, u'name': u'ssp_ces_336128632'}, {u'units': 0, u'id': u'1186591', u'machines': 0, u'name': u'ces_ssp_26578551'}, {u'units': 0, u'id': u'1186592', u'machines': 0, u'name': u'ssp_ces_44467649'}, {u'units': 0, u'id': u'1186593', u'machines': 0, u'name': u'ces_ssp_75215534'}, {u'units': 0, u'id': u'1186594', u'machines': 0, u'name': u'ces_ssp_66185392'}, {u'units': 0, u'id': u'1186596', u'machines': 0, u'name': u'ces_ssp_52122293'}, {u'units': 0, u'id': u'1186597', u'machines': 0, u'name': u'ces_ssp_878321772'}, {u'units': 0, u'id': u'1186599', u'machines': 0, u'name': u'ces_ssp_981237192'}, {u'units': 0, u'id': u'1186600', u'machines': 0, u'name': u'ces_ssp_882379152'}, {u'units': 0, u'id': u'1186601', u'machines': 0, u'name': u'ssp_ces_98591847'}, {u'units': 0, u'id': u'1186602', u'machines': 0, u'name': u'ssp_ces_79968488'}, {u'units': 0, u'id': u'1186603', u'machines': 0, u'name': u'ces_ssp_27357911'}, {u'units': 0, u'id': u'1186604', u'machines': 0, u'name': u'ces_ssp_212944812'}, {u'units': 0, u'id': u'1186605', u'machines': 0, u'name': u'ssp_ces_735926282'}, {u'units': 0, u'id': u'1186610', u'machines': 0, u'name': u'ssp_ces_88731854'}, {u'units': 0, u'id': u'1186611', u'machines': 0, u'name': u'ssp_ces_42118254'}, {u'units': 0, u'id': u'1186612', u'machines': 0, u'name': u'ces_ssp_91658953'}, {u'units': 0, u'id': u'1186613', u'machines': 0, u'name': u'ces_ssp_822942882'}, {u'units': 0, u'id': u'1186618', u'machines': 0, u'name': u'ces_ssp_895582522'}, {u'units': 0, u'id': u'1186625', u'machines': 0, u'name': u'ces_ssp_585432942'}, {u'units': 0, u'id': u'1186630', u'machines': 0, u'name': u'ces_ssp_412688712'}, {u'units': 0, u'id': u'1186647', u'machines': 0, u'name': u'ssp_ces_116267352'}, {u'units': 0, u'id': u'1186657', u'machines': 0, u'name': u'ces_ssp_721171172'}, {u'units': 0, u'id': u'1186666', u'machines': 0, u'name': u'ssp_ces_146321242'}, {u'units': 0, u'id': u'1186705', u'machines': 0, u'name': u'ces_ssp_769264952'}, {u'units': 0, u'id': u'1186732', u'machines': 0, u'name': u'ces_ssp_778351462'}, {u'units': 0, u'id': u'1186758', u'machines': 0, u'name': u'ssp_ces_367526992'}, {u'units': 0, u'id': u'1186763', u'machines': 0, u'name': u'ces_ssp_776988842'}, {u'units': 0, u'id': u'1186769', u'machines': 0, u'name': u'ces_ssp_498134572'}, {u'units': 0, u'id': u'1186774', u'machines': 0, u'name': u'ssp_ces_839562562'}, {u'units': 0, u'id': u'1186775', u'machines': 0, u'name': u'ssp_ces_422497962'}, {u'units': 0, u'id': u'1186783', u'machines': 0, u'name': u'ssp_ces_547989982'}, {u'units': 0, u'id': u'1186842', u'machines': 0, u'name': u'ces_ssp_165541682'}, {u'units': 0, u'id': u'1186847', u'machines': 0, u'name': u'ces_ssp_711651882'}, {u'units': 0, u'id': u'1186859', u'machines': 0, u'name': u'ces_ssp_949762152'}, {u'units': 0, u'id': u'1187187', u'machines': 0, u'name': u'ssp_ces_733258812'}, {u'units': 0, u'id': u'1187193', u'machines': 0, u'name': u'ssp_ces_687577492'}, {u'units': 0, u'id': u'1187309', u'machines': 0, u'name': u'ssp_ces_976174152'}, {u'units': 0, u'id': u'1187313', u'machines': 0, u'name': u'ssp_ces_752299282'}, {u'units': 0, u'id': u'1188788', u'machines': 0, u'name': u'ssp_ces_911332492'}, {u'units': 0, u'id': u'1188798', u'machines': 0, u'name': u'ssp_ces_718353562'}, {u'units': 0, u'id': u'1188802', u'machines': 0, u'name': u'ssp_ces_532465392'}, {u'units': 0, u'id': u'1188806', u'machines': 0, u'name': u'ces_ssp_481539232'}, {u'units': 0, u'id': u'1188810', u'machines': 0, u'name': u'ces_ssp_612177412'}, {u'units': 0, u'id': u'1188814', u'machines': 0, u'name': u'ssp_ces_555813992'}, {u'units': 0, u'id': u'1188818', u'machines': 0, u'name': u'ces_ssp_638913992'}, {u'units': 0, u'id': u'1188822', u'machines': 0, u'name': u'ces_ssp_739999542'}, {u'units': 0, u'id': u'1188826', u'machines': 0, u'name': u'ssp_ces_75918418'}, {u'units': 0, u'id': u'1188830', u'machines': 0, u'name': u'ces_ssp_17146233'}, {u'units': 0, u'id': u'1188834', u'machines': 0, u'name': u'ssp_ces_366166322'}, {u'units': 0, u'id': u'1188843', u'machines': 0, u'name': u'ces_ssp_535216632'}, {u'units': 0, u'id': u'1188852', u'machines': 0, u'name': u'ssp_ces_891982612'}, {u'units': 0, u'id': u'1188857', u'machines': 0, u'name': u'ces_ssp_151372992'}, {u'units': 0, u'id': u'1188861', u'machines': 0, u'name': u'ces_ssp_391675152'}, {u'units': 0, u'id': u'1188865', u'machines': 0, u'name': u'ssp_ces_28761751'}, {u'units': 0, u'id': u'1188869', u'machines': 0, u'name': u'ssp_ces_47885369'}, {u'units': 0, u'id': u'1188873', u'machines': 0, u'name': u'ces_ssp_252896972'}, {u'units': 0, u'id': u'1188980', u'machines': 0, u'name': u'ssp_ces_24619762'}, {u'units': 0, u'id': u'1188984', u'machines': 0, u'name': u'ssp_ces_87633997'}, {u'units': 0, u'id': u'1188988', u'machines': 0, u'name': u'ssp_ces_271814782'}, {u'units': 0, u'id': u'1188995', u'machines': 0, u'name': u'ces_ssp_856628232'}, {u'units': 0, u'id': u'1188999', u'machines': 0, u'name': u'ces_ssp_169757132'}, {u'units': 0, u'id': u'1189103', u'machines': 0, u'name': u'ces_ssp_576664982'}, {u'units': 0, u'id': u'1189107', u'machines': 0, u'name': u'ssp_ces_766241572'}, {u'units': 0, u'id': u'1189111', u'machines': 0, u'name': u'ces_ssp_974916942'}, {u'units': 0, u'id': u'1189115', u'machines': 0, u'name': u'ces_ssp_927141822'}, {u'units': 0, u'id': u'1189119', u'machines': 0, u'name': u'ssp_ces_117695382'}, {u'units': 0, u'id': u'1189126', u'machines': 0, u'name': u'ssp_ces_656446532'}, {u'units': 0, u'id': u'1189136', u'machines': 0, u'name': u'ces_ssp_325239222'}, {u'units': 0, u'id': u'1189140', u'machines': 0, u'name': u'ssp_ces_464532712'}, {u'units': 0, u'id': u'1189144', u'machines': 0, u'name': u'ces_ssp_87777721'}, {u'units': 0, u'id': u'1189148', u'machines': 0, u'name': u'ces_ssp_86881952'}, {u'units': 0, u'id': u'1189152', u'machines': 0, u'name': u'ssp_ces_175756122'}, {u'units': 0, u'id': u'1189180', u'machines': 0, u'name': u'ssp_ces_782991652'}, {u'units': 0, u'id': u'1189189', u'machines': 0, u'name': u'ssp_ces_556339472'}, {u'units': 0, u'id': u'1189193', u'machines': 0, u'name': u'ssp_ces_317944492'}, {u'units': 0, u'id': u'1189197', u'machines': 0, u'name': u'ces_ssp_325849432'}, {u'units': 0, u'id': u'1189201', u'machines': 0, u'name': u'ssp_ces_893185572'}, {u'units': 0, u'id': u'1189205', u'machines': 0, u'name': u'ces_ssp_498553952'}, {u'units': 0, u'id': u'1189209', u'machines': 0, u'name': u'ssp_ces_947576622'}, {u'units': 0, u'id': u'1189213', u'machines': 0, u'name': u'ces_ssp_923244262'}, {u'units': 0, u'id': u'1189217', u'machines': 0, u'name': u'ssp_ces_168948582'}, {u'units': 0, u'id': u'1189221', u'machines': 0, u'name': u'ssp_ces_211835322'}, {u'units': 0, u'id': u'1189225', u'machines': 0, u'name': u'ssp_ces_818784962'}, {u'units': 0, u'id': u'1189232', u'machines': 0, u'name': u'ces_ssp_332653822'}, {u'units': 0, u'id': u'1189238', u'machines': 0, u'name': u'ssp_ces_644296132'}, {u'units': 0, u'id': u'1189242', u'machines': 0, u'name': u'ces_ssp_944961212'}, {u'units': 0, u'id': u'1189246', u'machines': 0, u'name': u'ssp_ces_348398882'}, {u'units': 0, u'id': u'1189250', u'machines': 0, u'name': u'ces_ssp_14187295'}, {u'units': 0, u'id': u'1189251', u'machines': 0, u'name': u'ces_ssp_58939832'}, {u'units': 0, u'id': u'1189256', u'machines': 0, u'name': u'ssp_ces_41995863'}, {u'units': 0, u'id': u'1189259', u'machines': 0, u'name': u'ssp_ces_69517613'}, {u'units': 0, u'id': u'1189260', u'machines': 0, u'name': u'ces_ssp_21758478'}, {u'units': 0, u'id': u'1189261', u'machines': 0, u'name': u'ssp_ces_865117532'}, {u'units': 0, u'id': u'1189262', u'machines': 0, u'name': u'ssp_ces_47875211'}, {u'units': 0, u'id': u'1189266', u'machines': 0, u'name': u'ssp_ces_942325492'}, {u'units': 0, u'id': u'1189267', u'machines': 0, u'name': u'ces_ssp_71114836'}, {u'units': 0, u'id': u'1189268', u'machines': 0, u'name': u'ssp_ces_62123349'}, {u'units': 0, u'id': u'1189269', u'machines': 0, u'name': u'ssp_ces_92398666'}, {u'units': 0, u'id': u'1189270', u'machines': 0, u'name': u'ces_ssp_33364518'}, {u'units': 0, u'id': u'1189272', u'machines': 0, u'name': u'ces_ssp_26996835'}, {u'units': 0, u'id': u'1189273', u'machines': 0, u'name': u'ces_ssp_97664275'}, {u'units': 0, u'id': u'1189274', u'machines': 0, u'name': u'ces_ssp_27124691'}, {u'units': 0, u'id': u'1189275', u'machines': 0, u'name': u'ces_ssp_36344875'}, {u'units': 0, u'id': u'1189279', u'machines': 0, u'name': u'ces_ssp_78368165'}, {u'units': 0, u'id': u'1189280', u'machines': 0, u'name': u'ssp_ces_348985532'}, {u'units': 0, u'id': u'1189284', u'machines': 0, u'name': u'ces_ssp_587542312'}, {u'units': 0, u'id': u'1189285', u'machines': 0, u'name': u'ssp_ces_18578582'}, {u'units': 0, u'id': u'1189286', u'machines': 0, u'name': u'ssp_ces_798145742'}, {u'units': 0, u'id': u'1189287', u'machines': 0, u'name': u'ces_ssp_793813752'}, {u'units': 0, u'id': u'1189288', u'machines': 0, u'name': u'ssp_ces_92467538'}, {u'units': 0, u'id': u'1189289', u'machines': 0, u'name': u'ces_ssp_933599152'}, {u'units': 0, u'id': u'1189293', u'machines': 0, u'name': u'ces_ssp_343771572'}, {u'units': 0, u'id': u'1189297', u'machines': 0, u'name': u'ssp_ces_789266182'}, {u'units': 0, u'id': u'1189301', u'machines': 0, u'name': u'ssp_ces_263973542'}, {u'units': 0, u'id': u'1189306', u'machines': 0, u'name': u'ces_ssp_982956962'}, {u'units': 0, u'id': u'1189310', u'machines': 0, u'name': u'ssp_ces_553914272'}, {u'units': 0, u'id': u'1189314', u'machines': 0, u'name': u'ces_ssp_768827582'}, {u'units': 0, u'id': u'1189320', u'machines': 0, u'name': u'ssp_ces_516258932'}, {u'units': 0, u'id': u'1189324', u'machines': 0, u'name': u'ces_ssp_897896522'}, {u'units': 0, u'id': u'1189328', u'machines': 0, u'name': u'ssp_ces_628144492'}, {u'units': 0, u'id': u'1189341', u'machines': 0, u'name': u'ces_ssp_619832742'}, {u'units': 0, u'id': u'1189345', u'machines': 0, u'name': u'ces_ssp_684224482'}, {u'units': 0, u'id': u'1189349', u'machines': 0, u'name': u'ssp_ces_235678682'}, {u'units': 0, u'id': u'1189400', u'machines': 0, u'name': u'ces_ssp_163122422'}, {u'units': 0, u'id': u'1189404', u'machines': 0, u'name': u'ssp_ces_947221222'}, {u'units': 0, u'id': u'1189413', u'machines': 0, u'name': u'ssp_ces_387917272'}, {u'units': 0, u'id': u'1189424', u'machines': 0, u'name': u'ces_ssp_946739712'}, {u'units': 0, u'id': u'1189500', u'machines': 0, u'name': u'ssp_ces_912292252'}, {u'units': 0, u'id': u'1189515', u'machines': 0, u'name': u'ces_ssp_377274332'}, {u'units': 0, u'id': u'1189523', u'machines': 0, u'name': u'ces_ssp_328527732'}, {u'units': 0, u'id': u'1189531', u'machines': 0, u'name': u'ces_ssp_652453752'}, {u'units': 0, u'id': u'1189553', u'machines': 0, u'name': u'ssp_ces_897668842'}, {u'units': 0, u'id': u'1189718', u'machines': 0, u'name': u'ces_ssp_696798632'}, {u'units': 0, u'id': u'1189727', u'machines': 0, u'name': u'ssp_ces_193251242'}, {u'units': 0, u'id': u'1189736', u'machines': 0, u'name': u'ssp_ces_125855642'}, {u'units': 0, u'id': u'1189745', u'machines': 0, u'name': u'ssp_ces_928335822'}, {u'units': 0, u'id': u'1189766', u'machines': 0, u'name': u'ssp_ces_761259492'}, {u'units': 0, u'id': u'1189815', u'machines': 0, u'name': u'ssp_ces_618944632'}, {u'units': 0, u'id': u'1189823', u'machines': 0, u'name': u'ces_ssp_297592552'}, {u'units': 0, u'id': u'1189834', u'machines': 0, u'name': u'ssp_ces_597793512'}, {u'units': 0, u'id': u'1189851', u'machines': 0, u'name': u'ces_ssp_498485742'}, {u'units': 0, u'id': u'1189858', u'machines': 0, u'name': u'ces_ssp_878572222'}, {u'units': 0, u'id': u'1189865', u'machines': 0, u'name': u'ces_ssp_761997192'}, {u'units': 0, u'id': u'1189872', u'machines': 0, u'name': u'ssp_ces_935944772'}, {u'units': 0, u'id': u'1189879', u'machines': 0, u'name': u'ces_ssp_214651362'}, {u'units': 0, u'id': u'1189902', u'machines': 0, u'name': u'ssp_ces_122515672'}, {u'units': 0, u'id': u'1189909', u'machines': 0, u'name': u'ssp_ces_127224222'}, {u'units': 0, u'id': u'1189921', u'machines': 0, u'name': u'ces_ssp_956359682'}, {u'units': 0, u'id': u'1189928', u'machines': 0, u'name': u'ces_ssp_256991592'}, {u'units': 0, u'id': u'1189935', u'machines': 0, u'name': u'ces_ssp_247465542'}, {u'units': 0, u'id': u'1189942', u'machines': 0, u'name': u'ssp_ces_795919642'}, {u'units': 0, u'id': u'1189949', u'machines': 0, u'name': u'ssp_ces_331638272'}, {u'units': 0, u'id': u'1189956', u'machines': 0, u'name': u'ssp_ces_393968122'}, {u'units': 0, u'id': u'1189963', u'machines': 0, u'name': u'ces_ssp_694849872'}, {u'units': 0, u'id': u'1189970', u'machines': 0, u'name': u'ssp_ces_972576172'}, {u'units': 0, u'id': u'1189978', u'machines': 0, u'name': u'ssp_ces_223989652'}, {u'units': 0, u'id': u'1189985', u'machines': 0, u'name': u'ssp_ces_92234559'}, {u'units': 0, u'id': u'1189992', u'machines': 0, u'name': u'ces_ssp_973192692'}, {u'units': 0, u'id': u'1189999', u'machines': 0, u'name': u'ces_ssp_292473852'}, {u'units': 0, u'id': u'1190006', u'machines': 0, u'name': u'ces_ssp_544426172'}, {u'units': 0, u'id': u'1190013', u'machines': 0, u'name': u'ces_ssp_816228232'}, {u'units': 0, u'id': u'1190020', u'machines': 0, u'name': u'ces_ssp_581898432'}, {u'units': 0, u'id': u'1190027', u'machines': 0, u'name': u'ces_ssp_845395142'}, {u'units': 0, u'id': u'1190034', u'machines': 0, u'name': u'ssp_ces_174942552'}, {u'units': 0, u'id': u'1190041', u'machines': 0, u'name': u'ssp_ces_522316622'}, {u'units': 0, u'id': u'1190049', u'machines': 0, u'name': u'ces_ssp_412759792'}, {u'units': 0, u'id': u'1190056', u'machines': 0, u'name': u'ssp_ces_762399142'}, {u'units': 1, u'id': u'1190059', u'machines': 1, u'name': u'\u4fde\u4e00\u7433\u6d4b\u8bd5\u697c\u76d8'}, {u'units': 0, u'id': u'1190067', u'machines': 0, u'name': u'ces_ssp_645952912'}, {u'units': 0, u'id': u'1190074', u'machines': 0, u'name': u'ces_ssp_334513852'}, {u'units': 0, u'id': u'1190082', u'machines': 0, u'name': u'ces_ssp_652554742'}, {u'units': 0, u'id': u'1190091', u'machines': 0, u'name': u'ssp_ces_435118582'}, {u'units': 0, u'id': u'1190098', u'machines': 0, u'name': u'ces_ssp_678274892'}, {u'units': 0, u'id': u'1190099', u'machines': 0, u'name': u'\u6d4b\u8bd5\u4e0b\u54172'}, {u'units': 0, u'id': u'1190101', u'machines': 0, u'name': u'\u8302\u4e1a\u4e2d\u5fc3'}, {u'units': 0, u'id': u'1190102', u'machines': 0, u'name': u'\u8302\u4e1a\u4e2d\u5fc32'}, {u'units': 0, u'id': u'1190108', u'machines': 0, u'name': u'ces_ssp_371541412'}, {u'units': 0, u'id': u'1190115', u'machines': 0, u'name': u'ces_ssp_916734462'}, {u'units': 0, u'id': u'1190123', u'machines': 0, u'name': u'ssp_ces_696864242'}, {u'units': 0, u'id': u'1190129', u'machines': 0, u'name': u'ssp_ces_811285792'}, {u'units': 0, u'id': u'1190136', u'machines': 0, u'name': u'ces_ssp_922621492'}, {u'units': 0, u'id': u'1190143', u'machines': 0, u'name': u'ssp_ces_435286842'}, {u'units': 0, u'id': u'1190153', u'machines': 0, u'name': u'ssp_ces_592599822'}, {u'units': 0, u'id': u'1190161', u'machines': 0, u'name': u'ssp_ces_612553212'}, {u'units': 0, u'id': u'1190169', u'machines': 0, u'name': u'ces_ssp_996124832'}, {u'units': 0, u'id': u'1190177', u'machines': 0, u'name': u'ces_ssp_123578862'}, {u'units': 0, u'id': u'1190184', u'machines': 0, u'name': u'ssp_ces_717822572'}, {u'units': 0, u'id': u'1190191', u'machines': 0, u'name': u'ssp_ces_535334412'}, {u'units': 0, u'id': u'1190198', u'machines': 0, u'name': u'ssp_ces_473892582'}, {u'units': 0, u'id': u'1190208', u'machines': 0, u'name': u'ces_ssp_289481232'}, {u'units': 0, u'id': u'1190233', u'machines': 0, u'name': u'ces_ssp_531226482'}, {u'units': 0, u'id': u'1190247', u'machines': 0, u'name': u'ssp_ces_786743852'}, {u'units': 0, u'id': u'1190254', u'machines': 0, u'name': u'ces_ssp_142795312'}, {u'units': 0, u'id': u'1190262', u'machines': 0, u'name': u'ssp_ces_145619982'}, {u'units': 0, u'id': u'1190272', u'machines': 0, u'name': u'\u9633\u5149\u91cc\u6d4b\u8bd5\u697c\u76d8'}, {u'units': 0, u'id': u'1190273', u'machines': 0, u'name': u'ssp_ces_534226412'}, {u'units': 0, u'id': u'1190281', u'machines': 0, u'name': u'ssp_ces_385776212'}, {u'units': 0, u'id': u'1190290', u'machines': 0, u'name': u'ces_ssp_428715142'}, {u'units': 0, u'id': u'1190300', u'machines': 0, u'name': u'ssp_ces_781934862'}, {u'units': 0, u'id': u'1190312', u'machines': 0, u'name': u'ces_ssp_752734142'}, {u'units': 0, u'id': u'1190322', u'machines': 0, u'name': u'ces_ssp_353313122'}, {u'units': 0, u'id': u'1190340', u'machines': 0, u'name': u'ssp_ces_866926852'}, {u'units': 0, u'id': u'1190346', u'machines': 0, u'name': u'ces_ssp_664275482'}, {u'units': 0, u'id': u'1190353', u'machines': 0, u'name': u'ces_ssp_427737622'}, {u'units': 0, u'id': u'1190369', u'machines': 0, u'name': u'ces_ssp_846118182'}, {u'units': 0, u'id': u'1190377', u'machines': 0, u'name': u'ces_ssp_924358412'}, {u'units': 0, u'id': u'1190385', u'machines': 0, u'name': u'ssp_ces_456458632'}, {u'units': 0, u'id': u'1190394', u'machines': 0, u'name': u'ssp_ces_473795482'}, {u'units': 0, u'id': u'1190402', u'machines': 0, u'name': u'ces_ssp_922942422'}, {u'units': 0, u'id': u'1190412', u'machines': 0, u'name': u'ssp_ces_187488562'}, {u'units': 0, u'id': u'1190420', u'machines': 0, u'name': u'ssp_ces_837682352'}, {u'units': 0, u'id': u'1190428', u'machines': 0, u'name': u'ssp_ces_616982522'}, {u'units': 0, u'id': u'1190436', u'machines': 0, u'name': u'ssp_ces_321588142'}, {u'units': 0, u'id': u'1190444', u'machines': 0, u'name': u'ssp_ces_856149832'}, {u'units': 0, u'id': u'1190452', u'machines': 0, u'name': u'ces_ssp_855241312'}, {u'units': 0, u'id': u'1190461', u'machines': 0, u'name': u'ces_ssp_242854412'}, {u'units': 0, u'id': u'1190470', u'machines': 0, u'name': u'ssp_ces_936231542'}, {u'units': 0, u'id': u'1190479', u'machines': 0, u'name': u'ces_ssp_286694282'}, {u'units': 0, u'id': u'1190487', u'machines': 0, u'name': u'ces_ssp_175279442'}, {u'units': 0, u'id': u'1190495', u'machines': 0, u'name': u'ssp_ces_668241342'}, {u'units': 0, u'id': u'1190503', u'machines': 0, u'name': u'ces_ssp_785814662'}, {u'units': 0, u'id': u'1190511', u'machines': 0, u'name': u'ces_ssp_498823732'}, {u'units': 0, u'id': u'1190519', u'machines': 0, u'name': u'ssp_ces_839555662'}, {u'units': 0, u'id': u'1190527', u'machines': 0, u'name': u'ces_ssp_646526962'}, {u'units': 0, u'id': u'1190535', u'machines': 0, u'name': u'ssp_ces_287981392'}, {u'units': 0, u'id': u'1190543', u'machines': 0, u'name': u'ssp_ces_251521472'}, {u'units': 0, u'id': u'1190551', u'machines': 0, u'name': u'ces_ssp_951231552'}, {u'units': 0, u'id': u'1190559', u'machines': 0, u'name': u'ces_ssp_573865442'}, {u'units': 0, u'id': u'1190567', u'machines': 0, u'name': u'ces_ssp_136487482'}, {u'units': 0, u'id': u'1190575', u'machines': 0, u'name': u'ssp_ces_398687762'}, {u'units': 0, u'id': u'1190583', u'machines': 0, u'name': u'ssp_ces_158433592'}, {u'units': 0, u'id': u'1190591', u'machines': 0, u'name': u'ces_ssp_719741292'}, {u'units': 0, u'id': u'1190599', u'machines': 0, u'name': u'ces_ssp_925852282'}, {u'units': 0, u'id': u'1190607', u'machines': 0, u'name': u'ssp_ces_183332672'}, {u'units': 0, u'id': u'1190615', u'machines': 0, u'name': u'ssp_ces_165414352'}, {u'units': 0, u'id': u'1190623', u'machines': 0, u'name': u'ces_ssp_992523832'}, {u'units': 0, u'id': u'1190631', u'machines': 0, u'name': u'ssp_ces_547156482'}, {u'units': 0, u'id': u'1190639', u'machines': 0, u'name': u'ssp_ces_662664562'}, {u'units': 0, u'id': u'1190663', u'machines': 0, u'name': u'ssp_ces_314851972'}, {u'units': 0, u'id': u'1190671', u'machines': 0, u'name': u'ssp_ces_72533815'}, {u'units': 0, u'id': u'1190679', u'machines': 0, u'name': u'ces_ssp_785834822'}, {u'units': 0, u'id': u'1190688', u'machines': 0, u'name': u'ces_ssp_123295882'}, {u'units': 0, u'id': u'1190691', u'machines': 0, u'name': u'\u65b0\u6f6e\u697c\u76d8'}, {u'units': 0, u'id': u'1190699', u'machines': 0, u'name': u'ssp_ces_546633342'}, {u'units': 0, u'id': u'1190707', u'machines': 0, u'name': u'ssp_ces_231385552'}, {u'units': 0, u'id': u'1190715', u'machines': 0, u'name': u'ces_ssp_919121342'}, {u'units': 0, u'id': u'1190724', u'machines': 0, u'name': u'ssp_ces_781284152'}, {u'units': 0, u'id': u'1190732', u'machines': 0, u'name': u'ssp_ces_154842522'}, {u'units': 0, u'id': u'1190734', u'machines': 0, u'name': u'\u6d4b\u8bd51121ssp'}, {u'units': 0, u'id': u'1190746', u'machines': 0, u'name': u'ssp_ces_931211422'}, {u'units': 0, u'id': u'1190756', u'machines': 0, u'name': u'ssp_ces_542735342'}, {u'units': 0, u'id': u'1190764', u'machines': 0, u'name': u'ces_ssp_376467382'}, {u'units': 0, u'id': u'1190774', u'machines': 0, u'name': u'ces_ssp_663721582'}, {u'units': 0, u'id': u'1190783', u'machines': 0, u'name': u'ssp_ces_651999882'}, {u'units': 0, u'id': u'1190792', u'machines': 0, u'name': u'ssp_ces_588792922'}, {u'units': 0, u'id': u'1190804', u'machines': 0, u'name': u'ssp_ces_534528182'}, {u'units': 0, u'id': u'1190812', u'machines': 0, u'name': u'ces_ssp_558346632'}, {u'units': 0, u'id': u'1190820', u'machines': 0, u'name': u'ssp_ces_842984362'}, {u'units': 0, u'id': u'1190829', u'machines': 0, u'name': u'ssp_ces_849262122'}, {u'units': 0, u'id': u'1190831', u'machines': 0, u'name': u'\u6d4b\u8bd5\u697c\u76d81126'}, {u'units': 1, u'id': u'1190832', u'machines': 1, u'name': u'\u91d1\u6d32\u6e7e\u84dd\u5c7f'}, {u'units': 0, u'id': u'1190834', u'machines': 0, u'name': u'\u65b0\u589e\u6d4b\u8bd5\u697c\u76d8'}, {u'units': 0, u'id': u'1190835', u'machines': 0, u'name': u'\u6d4b\u8bd5\u697c\u76d8'}, {u'units': 0, u'id': u'1190869', u'machines': 0, u'name': u'ces_ssp_248391992'}, {u'units': 0, u'id': u'1190877', u'machines': 0, u'name': u'ces_ssp_465516552'}, {u'units': 0, u'id': u'1190906', u'machines': 0, u'name': u'ces_ssp_725681862'}, {u'units': 0, u'id': u'1190908', u'machines': 0, u'name': u'1128\u6d4b\u8bd5\u697c\u76d8'}, {u'units': 0, u'id': u'1190950', u'machines': 0, u'name': u'ssp_ces_437911242'}, {u'units': 0, u'id': u'1190957', u'machines': 0, u'name': u'ssp_ces_878971832'}, {u'units': 0, u'id': u'1190984', u'machines': 0, u'name': u'ssp_ces_699485912'}, {u'units': 0, u'id': u'1190998', u'machines': 0, u'name': u'ssp_ces_333387772'}, {u'units': 0, u'id': u'1191000', u'machines': 0, u'name': u'1129\u6d4b\u8bd5\u697c\u76d8'}, {u'units': 0, u'id': u'1191001', u'machines': 0, u'name': u'1129\u6d4b\u8bd5\u697c\u76d82'}, {u'units': 0, u'id': u'1191002', u'machines': 0, u'name': u'1129\u6d4b\u8bd5\u697c\u76d83'}, {u'units': 0, u'id': u'1191011', u'machines': 0, u'name': u'ssp_ces_534393632'}, {u'units': 0, u'id': u'1191020', u'machines': 0, u'name': u'ces_ssp_961584372'}, {u'units': 0, u'id': u'1191029', u'machines': 0, u'name': u'ces_ssp_859258162'}, {u'units': 0, u'id': u'1191036', u'machines': 0, u'name': u'ces_ssp_836969112'}, {u'units': 0, u'id': u'1191043', u'machines': 0, u'name': u'ssp_ces_643457742'}, {u'units': 0, u'id': u'1191057', u'machines': 0, u'name': u'ces_ssp_312382972'}, {u'units': 0, u'id': u'1191064', u'machines': 0, u'name': u'ces_ssp_838794462'}, {u'units': 0, u'id': u'1191077', u'machines': 0, u'name': u'ces_ssp_336525112'}, {u'units': 0, u'id': u'1191087', u'machines': 0, u'name': u'ssp_ces_148815712'}, {u'units': 0, u'id': u'1191098', u'machines': 0, u'name': u'ces_ssp_573194212'}, {u'units': 0, u'id': u'1191108', u'machines': 0, u'name': u'ssp_ces_731423322'}, {u'units': 0, u'id': u'1191116', u'machines': 0, u'name': u'ssp_ces_915432552'}, {u'units': 0, u'id': u'1191146', u'machines': 0, u'name': u'ssp_ces_186116712'}, {u'units': 0, u'id': u'1191154', u'machines': 0, u'name': u'ces_ssp_134275422'}, {u'units': 0, u'id': u'1191162', u'machines': 0, u'name': u'ces_ssp_852679672'}, {u'units': 0, u'id': u'1191170', u'machines': 0, u'name': u'ssp_ces_726492642'}, {u'units': 0, u'id': u'1191179', u'machines': 0, u'name': u'ssp_ces_691134342'}, {u'units': 0, u'id': u'1191187', u'machines': 0, u'name': u'ssp_ces_626996442'}, {u'units': 0, u'id': u'1191195', u'machines': 0, u'name': u'ssp_ces_481416552'}, {u'units': 0, u'id': u'1191203', u'machines': 0, u'name': u'ces_ssp_199717222'}, {u'units': 0, u'id': u'1191211', u'machines': 0, u'name': u'ssp_ces_855118162'}, {u'units': 0, u'id': u'1191219', u'machines': 0, u'name': u'ces_ssp_618448782'}, {u'units': 0, u'id': u'1191228', u'machines': 0, u'name': u'ssp_ces_775518622'}, {u'units': 0, u'id': u'1191237', u'machines': 0, u'name': u'ces_ssp_972422342'}, {u'units': 0, u'id': u'1191239', u'machines': 0, u'name': u'\u6d4b\u8bd5\u697c\u76d81204'}, {u'units': 0, u'id': u'1191246', u'machines': 0, u'name': u'ssp_ces_644428322'}, {u'units': 0, u'id': u'1191248', u'machines': 0, u'name': u'\u8302\u4e1a\u4e2d\u5fc3\u6d4b\u8bd5'}, {u'units': 0, u'id': u'1191256', u'machines': 0, u'name': u'ssp_ces_486716532'}, {u'units': 0, u'id': u'1191268', u'machines': 0, u'name': u'ces_ssp_641713592'}, {u'units': 0, u'id': u'1191277', u'machines': 0, u'name': u'ssp_ces_278526522'}, {u'units': 0, u'id': u'1191279', u'machines': 0, u'name': u'ces_ssp_12574328'}, {u'units': 0, u'id': u'1191280', u'machines': 0, u'name': u'ces_ssp_936172182'}, {u'units': 0, u'id': u'1191281', u'machines': 0, u'name': u'ssp_ces_525395572'}, {u'units': 0, u'id': u'1191282', u'machines': 0, u'name': u'ssp_ces_697771212'}, {u'units': 0, u'id': u'1191283', u'machines': 0, u'name': u'ssp_ces_249352662'}, {u'units': 0, u'id': u'1191285', u'machines': 0, u'name': u'ces_ssp_326713332'}, {u'units': 0, u'id': u'1191286', u'machines': 0, u'name': u'ces_ssp_75622346'}, {u'units': 0, u'id': u'1191287', u'machines': 0, u'name': u'ces_ssp_192433252'}, {u'units': 0, u'id': u'1191302', u'machines': 0, u'name': u'ces_ssp_156148282'}, {u'units': 0, u'id': u'1191312', u'machines': 0, u'name': u'ssp_ces_866286192'}, {u'units': 0, u'id': u'1191321', u'machines': 0, u'name': u'ssp_ces_615268322'}, {u'units': 0, u'id': u'1191329', u'machines': 0, u'name': u'ces_ssp_735833852'}, {u'units': 0, u'id': u'1191337', u'machines': 0, u'name': u'ces_ssp_657876752'}, {u'units': 0, u'id': u'1191345', u'machines': 0, u'name': u'ssp_ces_634728952'}, {u'units': 0, u'id': u'1191354', u'machines': 0, u'name': u'ces_ssp_299368162'}, {u'units': 0, u'id': u'1191363', u'machines': 0, u'name': u'ces_ssp_836917872'}, {u'units': 0, u'id': u'1191371', u'machines': 0, u'name': u'ces_ssp_793343412'}, {u'units': 0, u'id': u'1191380', u'machines': 0, u'name': u'ssp_ces_996539372'}, {u'units': 0, u'id': u'1191383', u'machines': 0, u'name': u'ces_ssp_912223682'}, {u'units': 0, u'id': u'1191391', u'machines': 0, u'name': u'ssp_ces_386428412'}, {u'units': 0, u'id': u'1191394', u'machines': 0, u'name': u'\u94f6\u6cf0\u57ce4S'}, {u'units': 2, u'id': u'1191395', u'machines': 2, u'name': u'\u51ef\u5fb7\u5929\u5e9c'}, {u'units': 0, u'id': u'1191396', u'machines': 0, u'name': u'\u6d4b\u8bd5\u697c\u76d81213'}, {u'units': 0, u'id': u'1191411', u'machines': 0, u'name': u'ces_ssp_362291952'}, {u'units': 0, u'id': u'1191419', u'machines': 0, u'name': u'ces_ssp_852225972'}, {u'units': 0, u'id': u'1191428', u'machines': 0, u'name': u'ssp_ces_482948592'}, {u'units': 0, u'id': u'1191437', u'machines': 0, u'name': u'ces_ssp_619427722'}, {u'units': 0, u'id': u'1191445', u'machines': 0, u'name': u'ssp_ces_594371132'}, {u'units': 0, u'id': u'1191454', u'machines': 0, u'name': u'ssp_ces_636326752'}, {u'units': 0, u'id': u'1191464', u'machines': 0, u'name': u'ces_ssp_231293892'}, {u'units': 0, u'id': u'1191474', u'machines': 0, u'name': u'ssp_ces_127381972'}, {u'units': 0, u'id': u'1191514', u'machines': 0, u'name': u'ces_ssp_357598182'}, {u'units': 0, u'id': u'1191532', u'machines': 0, u'name': u'ssp_ces_246788942'}, {u'units': 0, u'id': u'1191540', u'machines': 0, u'name': u'ssp_ces_195614162'}, {u'units': 0, u'id': u'1191548', u'machines': 0, u'name': u'ces_ssp_358216682'}, {u'units': 0, u'id': u'1191559', u'machines': 0, u'name': u'ssp_ces_638843552'}, {u'units': 0, u'id': u'1191562', u'machines': 0, u'name': u'IFS'}, {u'units': 0, u'id': u'1191569', u'machines': 0, u'name': u'ces_ssp_736764142'}, {u'units': 0, u'id': u'1191580', u'machines': 0, u'name': u'ces_ssp_767763752'}, {u'units': 0, u'id': u'1191582', u'machines': 0, u'name': u'\u9999\u69df\u5e7f\u573a'}, {u'units': 0, u'id': u'1191590', u'machines': 0, u'name': u'ssp_ces_934529422'}, {u'units': 0, u'id': u'1191599', u'machines': 0, u'name': u'ssp_ces_923234992'}, {u'units': 0, u'id': u'1191609', u'machines': 0, u'name': u'ces_ssp_811866962'}, {u'units': 2, u'id': u'1191611', u'machines': 2, u'name': u'\u674e\u4e39\u6d4b\u8bd5\u7a7a\u4f4d\u9500\u552e'}, {u'units': 0, u'id': u'1191622', u'machines': 0, u'name': u'ssp_ces_633138912'}, {u'units': 0, u'id': u'1191631', u'machines': 0, u'name': u'ces_ssp_933917442'}, {u'units': 0, u'id': u'1191644', u'machines': 0, u'name': u'ces_ssp_287276152'}, {u'units': 0, u'id': u'1191654', u'machines': 0, u'name': u'ssp_ces_245876432'}, {u'units': 0, u'id': u'1191663', u'machines': 0, u'name': u'ces_ssp_933556962'}, {u'units': 0, u'id': u'1191673', u'machines': 0, u'name': u'ces_ssp_592659512'}, {u'units': 0, u'id': u'1191681', u'machines': 0, u'name': u'ssp_ces_854241972'}, {u'units': 0, u'id': u'1191690', u'machines': 0, u'name': u'ces_ssp_813529142'}, {u'units': 0, u'id': u'1191705', u'machines': 0, u'name': u'ces_ssp_629337962'}, {u'units': 0, u'id': u'1191714', u'machines': 0, u'name': u'ces_ssp_721944422'}, {u'units': 0, u'id': u'1191744', u'machines': 0, u'name': u'ssp_ces_316348452'}, {u'units': 0, u'id': u'1191760', u'machines': 0, u'name': u'ssp_ces_176873962'}, {u'units': 0, u'id': u'4246330', u'machines': 0, u'name': u'ssp_ces_632387492'}, {u'units': 0, u'id': u'4246338', u'machines': 0, u'name': u'ces_ssp_697698212'}, {u'units': 0, u'id': u'4246346', u'machines': 0, u'name': u'ssp_ces_488471862'}, {u'units': 0, u'id': u'4246356', u'machines': 0, u'name': u'ssp_ces_584365962'}, {u'units': 0, u'id': u'4246369', u'machines': 0, u'name': u'ces_ssp_823512522'}, {u'units': 0, u'id': u'4246385', u'machines': 0, u'name': u'ssp_ces_482763612'}, {u'units': 0, u'id': u'4246395', u'machines': 0, u'name': u'ces_ssp_588772262'}, {u'units': 0, u'id': u'4246405', u'machines': 0, u'name': u'ssp_ces_731398352'}, {u'units': 0, u'id': u'4246415', u'machines': 0, u'name': u'ssp_ces_153713472'}, {u'units': 0, u'id': u'4246425', u'machines': 0, u'name': u'ssp_ces_757953932'}, {u'units': 0, u'id': u'4246433', u'machines': 0, u'name': u'ces_ssp_629489372'}, {u'units': 0, u'id': u'4246451', u'machines': 0, u'name': u'ces_ssp_384814782'}, {u'units': 0, u'id': u'4246454', u'machines': 0, u'name': u'\u9b54\u65b9\u516c\u5bd3.\u5927\u67cf\u6811\u5e97'}, {u'units': 0, u'id': u'4246464', u'machines': 0, u'name': u'ssp_ces_494499162'}, {u'units': 0, u'id': u'4246473', u'machines': 0, u'name': u'ces_ssp_124199182'}, {u'units': 0, u'id': u'4246482', u'machines': 0, u'name': u'ces_ssp_777589362'}, {u'units': 0, u'id': u'4246492', u'machines': 0, u'name': u'ces_ssp_832599552'}, {u'units': 0, u'id': u'4246501', u'machines': 0, u'name': u'ces_ssp_451243192'}, {u'units': 0, u'id': u'4246509', u'machines': 0, u'name': u'ssp_ces_355265932'}, {u'units': 0, u'id': u'4246517', u'machines': 0, u'name': u'ces_ssp_612579932'}, {u'units': 0, u'id': u'4246533', u'machines': 0, u'name': u'ces_ssp_544978942'}, {u'units': 0, u'id': u'4246541', u'machines': 0, u'name': u'ces_ssp_728762522'}, {u'units': 0, u'id': u'4246553', u'machines': 0, u'name': u'ces_ssp_137294652'}, {u'units': 0, u'id': u'4246563', u'machines': 0, u'name': u'ssp_ces_736285462'}, {u'units': 0, u'id': u'4246571', u'machines': 0, u'name': u'ces_ssp_664873782'}, {u'units': 0, u'id': u'4246579', u'machines': 0, u'name': u'ssp_ces_782328572'}, {u'units': 0, u'id': u'4246589', u'machines': 0, u'name': u'ces_ssp_873396962'}, {u'units': 0, u'id': u'4246600', u'machines': 0, u'name': u'ssp_ces_818151722'}, {u'units': 0, u'id': u'4246609', u'machines': 0, u'name': u'ssp_ces_651746552'}, {u'units': 0, u'id': u'4246617', u'machines': 0, u'name': u'ces_ssp_716736582'}, {u'units': 0, u'id': u'4246627', u'machines': 0, u'name': u'ssp_ces_918179972'}, {u'units': 0, u'id': u'4246637', u'machines': 0, u'name': u'ces_ssp_973516632'}, {u'units': 0, u'id': u'4246645', u'machines': 0, u'name': u'ces_ssp_492781962'}, {u'units': 0, u'id': u'4246654', u'machines': 0, u'name': u'ssp_ces_958431452'}, {u'units': 0, u'id': u'4246663', u'machines': 0, u'name': u'ces_ssp_772385482'}, {u'units': 0, u'id': u'4246665', u'machines': 0, u'name': u'ssp_ces_481877262'}, {u'units': 0, u'id': u'4246672', u'machines': 0, u'name': u'ssp_ces_796517822'}, {u'units': 0, u'id': u'4246683', u'machines': 0, u'name': u'ssp_ces_442586132'}, {u'units': 0, u'id': u'4246691', u'machines': 0, u'name': u'ces_ssp_963721512'}, {u'units': 0, u'id': u'4246702', u'machines': 0, u'name': u'ssp_ces_945792772'}, {u'units': 0, u'id': u'4246712', u'machines': 0, u'name': u'ssp_ces_697638122'}, {u'units': 0, u'id': u'4246721', u'machines': 0, u'name': u'ssp_ces_545293472'}, {u'units': 0, u'id': u'4246732', u'machines': 0, u'name': u'ssp_ces_946574472'}, {u'units': 0, u'id': u'4246740', u'machines': 0, u'name': u'ssp_ces_481877262'}, {u'units': 0, u'id': u'4246783', u'machines': 0, u'name': u'\u9b54\u65b9\u516c\u5bd3.\u5927\u67cf\u6811\u5e97'}, {u'units': 1, u'id': u'4246784', u'machines': 1, u'name': u'\u660e\u6c34\u4e3d\u666f'}, {u'units': 0, u'id': u'4246911', u'machines': 0, u'name': u'ssp_ces_81188934'}, {u'units': 0, u'id': u'4246922', u'machines': 0, u'name': u'ces_ssp_45986442'}, {u'units': 0, u'id': u'4246932', u'machines': 0, u'name': u'ssp_ces_28693714'}, {u'units': 0, u'id': u'4246935', u'machines': 0, u'name': u'ssp_ces_63856566'}, {u'units': 0, u'id': u'4246936', u'machines': 0, u'name': u'ssp_ces_36421174'}, {u'units': 0, u'id': u'4246937', u'machines': 0, u'name': u'ces_ssp_622589132'}, {u'units': 0, u'id': u'4246938', u'machines': 0, u'name': u'ces_ssp_866887412'}, {u'units': 0, u'id': u'4246939', u'machines': 0, u'name': u'ces_ssp_748549312'}, {u'units': 0, u'id': u'4246946', u'machines': 0, u'name': u'ces_ssp_668644822'}, {u'units': 0, u'id': u'4246948', u'machines': 0, u'name': u'ssp_ces_749535622'}, {u'units': 0, u'id': u'4246956', u'machines': 0, u'name': u'ces_ssp_163751682'}, {u'units': 0, u'id': u'4246966', u'machines': 0, u'name': u'ces_ssp_198391712'}, {u'units': 0, u'id': u'4246976', u'machines': 0, u'name': u'ces_ssp_995856652'}, {u'units': 0, u'id': u'4246986', u'machines': 0, u'name': u'ces_ssp_132322982'}, {u'units': 0, u'id': u'4246996', u'machines': 0, u'name': u'ces_ssp_675429572'}, {u'units': 0, u'id': u'4247006', u'machines': 0, u'name': u'ssp_ces_269167492'}, {u'units': 0, u'id': u'4247016', u'machines': 0, u'name': u'ces_ssp_179697472'}, {u'units': 0, u'id': u'4247026', u'machines': 0, u'name': u'ssp_ces_463478512'}, {u'units': 0, u'id': u'4247035', u'machines': 0, u'name': u'ssp_ces_471358422'}, {u'units': 0, u'id': u'4247045', u'machines': 0, u'name': u'ces_ssp_992588742'}, {u'units': 0, u'id': u'4247055', u'machines': 0, u'name': u'ssp_ces_527381752'}, {u'units': 0, u'id': u'4247065', u'machines': 0, u'name': u'ces_ssp_924394382'}, {u'units': 0, u'id': u'4247075', u'machines': 0, u'name': u'ssp_ces_481459192'}, {u'units': 0, u'id': u'4247085', u'machines': 0, u'name': u'ssp_ces_161163872'}, {u'units': 0, u'id': u'4247095', u'machines': 0, u'name': u'ces_ssp_149444662'}, {u'units': 0, u'id': u'4247107', u'machines': 0, u'name': u'ssp_ces_314441952'}, {u'units': 0, u'id': u'4247116', u'machines': 0, u'name': u'ssp_ces_519753982'}, {u'units': 0, u'id': u'4247125', u'machines': 0, u'name': u'ssp_ces_152892622'}, {u'units': 0, u'id': u'4247135', u'machines': 0, u'name': u'ces_ssp_678859482'}, {u'units': 0, u'id': u'4247144', u'machines': 0, u'name': u'ces_ssp_786249782'}, {u'units': 0, u'id': u'4247152', u'machines': 0, u'name': u'ces_ssp_939196922'}, {u'units': 0, u'id': u'4247160', u'machines': 0, u'name': u'ces_ssp_286227552'}, {u'units': 0, u'id': u'4247171', u'machines': 0, u'name': u'ssp_ces_223379282'}, {u'units': 0, u'id': u'4247192', u'machines': 0, u'name': u'ssp_ces_193126872'}, {u'units': 0, u'id': u'4247201', u'machines': 0, u'name': u'ssp_ces_861277492'}, {u'units': 0, u'id': u'4247210', u'machines': 0, u'name': u'ssp_ces_624689422'}, {u'units': 0, u'id': u'4247220', u'machines': 0, u'name': u'ces_ssp_128813752'}, {u'units': 0, u'id': u'4247228', u'machines': 0, u'name': u'ssp_ces_794947772'}, {u'units': 0, u'id': u'4247236', u'machines': 0, u'name': u'ssp_ces_344798352'}, {u'units': 0, u'id': u'4247244', u'machines': 0, u'name': u'ssp_ces_864367192'}, {u'units': 0, u'id': u'4247252', u'machines': 0, u'name': u'ssp_ces_989328582'}, {u'units': 0, u'id': u'4247262', u'machines': 0, u'name': u'ces_ssp_531727112'}, {u'units': 0, u'id': u'4247270', u'machines': 0, u'name': u'ces_ssp_125314662'}, {u'units': 0, u'id': u'4247278', u'machines': 0, u'name': u'ssp_ces_121878982'}, {u'units': 0, u'id': u'4247286', u'machines': 0, u'name': u'ssp_ces_489591832'}, {u'units': 0, u'id': u'4247294', u'machines': 0, u'name': u'ssp_ces_97841752'}, {u'units': 0, u'id': u'4247302', u'machines': 0, u'name': u'ces_ssp_83538371'}, {u'units': 0, u'id': u'4247316', u'machines': 0, u'name': u'ssp_ces_34717345'}, {u'units': 0, u'id': u'4247317', u'machines': 0, u'name': u'ssp_ces_36583177'}, {u'units': 0, u'id': u'4247326', u'machines': 0, u'name': u'ces_ssp_82461829'}, {u'units': 0, u'id': u'4248357', u'machines': 0, u'name': u'ces_ssp_56288737'}, {u'units': 0, u'id': u'4248365', u'machines': 0, u'name': u'ces_ssp_54732876'}, {u'units': 0, u'id': u'4248373', u'machines': 0, u'name': u'ssp_ces_88993497'}, {u'units': 0, u'id': u'4248381', u'machines': 0, u'name': u'ssp_ces_56214218'}, {u'units': 0, u'id': u'4248389', u'machines': 0, u'name': u'ces_ssp_44954799'}, {u'units': 0, u'id': u'4248397', u'machines': 0, u'name': u'ssp_ces_87151634'}, {u'units': 0, u'id': u'4248406', u'machines': 0, u'name': u'ces_ssp_49549934'}, {u'units': 0, u'id': u'4248414', u'machines': 0, u'name': u'ssp_ces_51479125'}, {u'units': 0, u'id': u'4248422', u'machines': 0, u'name': u'ces_ssp_24665631'}, {u'units': 0, u'id': u'4248430', u'machines': 0, u'name': u'ssp_ces_74272425'}, {u'units': 0, u'id': u'4248438', u'machines': 0, u'name': u'ssp_ces_14362875'}, {u'units': 0, u'id': u'4248446', u'machines': 0, u'name': u'ces_ssp_422265452'}, {u'units': 0, u'id': u'4248454', u'machines': 0, u'name': u'ssp_ces_395574882'}, {u'units': 0, u'id': u'4248464', u'machines': 0, u'name': u'ces_ssp_747318662'}, {u'units': 0, u'id': u'4248472', u'machines': 0, u'name': u'ces_ssp_822413642'}, {u'units': 0, u'id': u'4248483', u'machines': 0, u'name': u'ssp_ces_811146262'}, {u'units': 0, u'id': u'4248491', u'machines': 0, u'name': u'ssp_ces_398283912'}]</msg>
+<status status="PASS" endtime="20190314 18:07:29.698" starttime="20190314 18:07:29.696"></status>
+</kw>
+<kw name="New Get Premises Info" library="deal_premises">
+<doc>:param premises: 为项目选择里（1001014接口）楼盘列表</doc>
+<arguments>
+<arg>${result["data"]}</arg>
+</arguments>
+<assign>
+<var>${premisesList}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.699" level="INFO">${premisesList} = [{u'units': 5, u'id': u'42398', u'machines': 20, u'name': u'\u5408\u5fc3\u56ed'}, {u'units': 13, u'id': u'42741', u'machines': 26, u'name': u'\u5316\u57ce\u793e\u533a\u4e00\u671f'}, {u'units': 7, u'id...</msg>
+<status status="PASS" endtime="20190314 18:07:29.699" starttime="20190314 18:07:29.698"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result["msg"]}</arg>
+<arg>成功</arg>
+</arguments>
+<status status="PASS" endtime="20190314 18:07:29.699" starttime="20190314 18:07:29.699"></status>
+</kw>
+<kw name="Get Premises Id" library="deal_premises">
+<arguments>
+<arg>${premisesList}</arg>
+</arguments>
+<assign>
+<var>${premisesId}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.700" level="INFO">${premisesId} = [u'42398', u'42741', u'42570', u'42574', u'42739']</msg>
+<status status="PASS" endtime="20190314 18:07:29.700" starttime="20190314 18:07:29.700"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${premisesId}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:29.700" level="INFO">[u'42398', u'42741', u'42570', u'42574', u'42739']</msg>
+<status status="PASS" endtime="20190314 18:07:29.700" starttime="20190314 18:07:29.700"></status>
+</kw>
+<kw name="List Change String" library="deal_premises">
+<arguments>
+<arg>${premisesId}</arg>
+</arguments>
+<assign>
+<var>${premisesId1}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.701" level="INFO">${premisesId1} = 42398,42741,42570,42574,42739</msg>
+<status status="PASS" endtime="20190314 18:07:29.701" starttime="20190314 18:07:29.700"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${premisesId1}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:29.701" level="INFO">42398,42741,42570,42574,42739</msg>
+<status status="PASS" endtime="20190314 18:07:29.701" starttime="20190314 18:07:29.701"></status>
+</kw>
+<kw name="AddItem" library="SaleKeywordsLD">
+<doc>加入项目</doc>
+<arguments>
+<arg>${planId}</arg>
+<arg>${premisesId1}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"planId":"${planId}","premisesId":"${premisesId}"}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:29.701" level="INFO">${data} = {"planId":"135031","premisesId":"42398,42741,42570,42574,42739"}</msg>
+<status status="PASS" endtime="20190314 18:07:29.702" starttime="20190314 18:07:29.701"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:29.702" level="INFO">{"planId":"135031","premisesId":"42398,42741,42570,42574,42739"}</msg>
+<status status="PASS" endtime="20190314 18:07:29.702" starttime="20190314 18:07:29.702"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=1001016</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:30.646" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=1001016, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:30.646" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:30.646" starttime="20190314 18:07:29.702"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190314 18:07:30.647" level="INFO">${result} = {u'status': True, u'msg': u'\u6210\u529f', u'code': u'000', u'data': []}</msg>
+<status status="PASS" endtime="20190314 18:07:30.647" starttime="20190314 18:07:30.646"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result["msg"]}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:30.647" level="INFO">成功</msg>
+<status status="PASS" endtime="20190314 18:07:30.647" starttime="20190314 18:07:30.647"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result["msg"]}</arg>
+<arg>成功</arg>
+</arguments>
+<status status="PASS" endtime="20190314 18:07:30.647" starttime="20190314 18:07:30.647"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:30.648" starttime="20190314 18:07:29.701"></status>
+</kw>
+<kw name="List String Change Int" library="deal_premises">
+<arguments>
+<arg>${premisesId}</arg>
+</arguments>
+<assign>
+<var>${premisesId2}</var>
+</assign>
+<msg timestamp="20190314 18:07:30.648" level="INFO">${premisesId2} = [42398, 42741, 42570, 42574, 42739]</msg>
+<status status="PASS" endtime="20190314 18:07:30.648" starttime="20190314 18:07:30.648"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${premisesId2}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:30.648" level="INFO">${premisesId2} = [42398, 42741, 42570, 42574, 42739]</msg>
+<status status="PASS" endtime="20190314 18:07:30.648" starttime="20190314 18:07:30.648"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${premisesId2}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:30.649" level="INFO">[42398, 42741, 42570, 42574, 42739]</msg>
+<status status="PASS" endtime="20190314 18:07:30.649" starttime="20190314 18:07:30.648"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"planId":"${planId}","premisesId":${premisesId2},"premisesType":${premisesType},"premisesFloor":${premisesFloor},"occupancyRate":${occupancyRate},"propertyPrice":${propertyPrice},"intime":${intime},"propertyCompany":"${propertyCompany}","medias":${medias},"premisesPrice":${premisesPrice},"amachineSize":${amachineSize},"abmachineSize":${abmachineSize},"elevatorUse":${elevatorUse},"voice":${voice},"totalCount":${totalCount},"eachCount":${eachCount}}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:30.649" level="INFO">${data} = {"planId":"135031","premisesId":[42398, 42741, 42570, 42574, 42739],"premisesType":[],"premisesFloor":0,"occupancyRate":0,"propertyPrice":0,"intime":[],"propertyCompany":"","medias":[],"premisesPrice"...</msg>
+<status status="PASS" endtime="20190314 18:07:30.649" starttime="20190314 18:07:30.649"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:30.650" level="INFO">{"planId":"135031","premisesId":[42398, 42741, 42570, 42574, 42739],"premisesType":[],"premisesFloor":0,"occupancyRate":0,"propertyPrice":0,"intime":[],"propertyCompany":"","medias":[],"premisesPrice":[],"amachineSize":[],"abmachineSize":[],"elevatorUse":[],"voice":[],"totalCount":0,"eachCount":0}</msg>
+<status status="PASS" endtime="20190314 18:07:30.650" starttime="20190314 18:07:30.649"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=3003003</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.299" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=3003003, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:31.299" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:31.299" starttime="20190314 18:07:30.650"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.300" level="INFO">${result} = {u'status': True, u'msg': u'\u5f53\u524d\u65b9\u6848\u603b\u8bbe\u5907\u6570\uff1a87\u53f0\uff0c\u65b0\u589e\u52a0\uff1a87\u53f0', u'code': u'000', u'data': None}</msg>
+<status status="PASS" endtime="20190314 18:07:31.300" starttime="20190314 18:07:31.300"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${result["msg"]}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:31.301" level="INFO">${result["msg"]} = 当前方案总设备数：87台，新增加：87台</msg>
+<status status="PASS" endtime="20190314 18:07:31.301" starttime="20190314 18:07:31.300"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result["msg"]}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:31.301" level="INFO">当前方案总设备数：87台，新增加：87台</msg>
+<status status="PASS" endtime="20190314 18:07:31.301" starttime="20190314 18:07:31.301"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:31.301" starttime="20190314 18:07:29.044"></status>
+</kw>
+<kw name="DispatchReset" library="SaleKeywordsLD">
+<doc>调度清零，premisesId为[]时，默认清零全部</doc>
+<arguments>
+<arg>${planId}</arg>
+<arg>${premisesId2}</arg>
+</arguments>
+<assign>
+<var>${re}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"planId":"${planId}","premisesId":${premisesId}}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.302" level="INFO">${data} = {"planId":"135031","premisesId":[42398, 42741, 42570, 42574, 42739]}</msg>
+<status status="PASS" endtime="20190314 18:07:31.302" starttime="20190314 18:07:31.301"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.302" level="INFO">To JSON using : content={"planId":"135031","premisesId":[42398, 42741, 42570, 42574, 42739]} </msg>
+<msg timestamp="20190314 18:07:31.302" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20190314 18:07:31.302" level="INFO">${data} = {u'planId': u'135031', u'premisesId': [42398, 42741, 42570, 42574, 42739]}</msg>
+<status status="PASS" endtime="20190314 18:07:31.302" starttime="20190314 18:07:31.302"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=3003006</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.545" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=3003006, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:31.545" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:31.545" starttime="20190314 18:07:31.302"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.546" level="INFO">${result} = {u'status': True, u'msg': u'\u64cd\u4f5c\u6210\u529f', u'code': u'000', u'data': None}</msg>
+<status status="PASS" endtime="20190314 18:07:31.546" starttime="20190314 18:07:31.545"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result["msg"]}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:31.546" level="INFO">当前方案总设备数：87台，新增加：87台</msg>
+<status status="PASS" endtime="20190314 18:07:31.546" starttime="20190314 18:07:31.546"></status>
+</kw>
+<msg timestamp="20190314 18:07:31.546" level="INFO">${re} = {u'status': True, u'msg': u'\u64cd\u4f5c\u6210\u529f', u'code': u'000', u'data': None}</msg>
+<status status="PASS" endtime="20190314 18:07:31.547" starttime="20190314 18:07:31.301"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>'${re["status"]}'</arg>
+<arg>'True'</arg>
+</arguments>
+<status status="PASS" endtime="20190314 18:07:31.547" starttime="20190314 18:07:31.547"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>'${re["code"]}'</arg>
+<arg>'000'</arg>
+</arguments>
+<status status="PASS" endtime="20190314 18:07:31.547" starttime="20190314 18:07:31.547"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${re["msg"]}</arg>
+<arg>操作成功</arg>
+</arguments>
+<status status="PASS" endtime="20190314 18:07:31.548" starttime="20190314 18:07:31.547"></status>
+</kw>
+<kw name="SelectProject" library="SaleKeywordsLD">
+<doc>已选项目接口，调度之后返回项目调度情况</doc>
+<arguments>
+<arg>${planId}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"id":"${id}"}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.548" level="INFO">${data} = {"id":"135031"}</msg>
+<status status="PASS" endtime="20190314 18:07:31.548" starttime="20190314 18:07:31.548"></status>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<doc>Convert a string to a JSON object</doc>
+<arguments>
+<arg>${data}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:31.549" level="INFO">To JSON using : content={"id":"135031"} </msg>
+<msg timestamp="20190314 18:07:31.549" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20190314 18:07:31.549" level="INFO">${data} = {u'id': u'135031'}</msg>
+<status status="PASS" endtime="20190314 18:07:31.549" starttime="20190314 18:07:31.548"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=1001015</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:32.196" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=1001015, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:32.196" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:32.196" starttime="20190314 18:07:31.549"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20190314 18:07:32.197" level="INFO">${result} = {u'status': True, u'msg': u'\u67e5\u8be2\u6210\u529f', u'code': u'000', u'data': [{u'name': u'\u5408\u5fc3\u56ed', u'area': u'\u4e94\u534e\u533a', u'premisesType': u'\u4e2d\u9ad8\u7aef\u4f4f\u5b85', u...</msg>
+<status status="PASS" endtime="20190314 18:07:32.197" starttime="20190314 18:07:32.196"></status>
+</kw>
+<msg timestamp="20190314 18:07:32.197" level="INFO">${result} = {u'status': True, u'msg': u'\u67e5\u8be2\u6210\u529f', u'code': u'000', u'data': [{u'name': u'\u5408\u5fc3\u56ed', u'area': u'\u4e94\u534e\u533a', u'premisesType': u'\u4e2d\u9ad8\u7aef\u4f4f\u5b85', u...</msg>
+<status status="PASS" endtime="20190314 18:07:32.197" starttime="20190314 18:07:31.548"></status>
+</kw>
+<kw name="Select Project" library="deal_premises">
+<doc>:param list: 传入1001015返回的data数据，筛选调度数为0的楼盘</doc>
+<arguments>
+<arg>${result["data"]}</arg>
+</arguments>
+<assign>
+<var>${num}</var>
+</assign>
+<msg timestamp="20190314 18:07:32.198" level="INFO">${num} = 0</msg>
+<status status="PASS" endtime="20190314 18:07:32.198" starttime="20190314 18:07:32.197"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${num}</arg>
+<arg>0</arg>
+</arguments>
+<msg timestamp="20190314 18:07:32.200" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:32.200" starttime="20190314 18:07:32.198"></status>
+</kw>
+<kw name="RemovePlan" library="SaleKeywordsLD">
+<doc>删除方案</doc>
+<arguments>
+<arg>${planId}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"id":${planId}}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<msg timestamp="20190314 18:07:32.200" level="INFO">${data} = {"id":135031}</msg>
+<status status="PASS" endtime="20190314 18:07:32.200" starttime="20190314 18:07:32.200"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/service/dispatch?node=1001038</arg>
+<arg>data=${data}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190314 18:07:32.637" level="INFO">Post Request using : alias=api, uri=/service/dispatch?node=1001038, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg timestamp="20190314 18:07:32.637" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20190314 18:07:32.637" starttime="20190314 18:07:32.200"></status>
+</kw>
+<kw name="Loads" library="json">
+<doc>Deserialize ``s`` (a ``str`` or ``unicode`` instance containing a JSON</doc>
+<arguments>
+<arg>${response.content}</arg>
+</arguments>
+<assign>
+<var>${result1}</var>
+</assign>
+<msg timestamp="20190314 18:07:32.638" level="INFO">${result1} = {u'status': True, u'msg': u'\u6210\u529f', u'code': u'000', u'data': True}</msg>
+<status status="PASS" endtime="20190314 18:07:32.638" starttime="20190314 18:07:32.637"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result1}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:32.638" level="INFO">{u'status': True, u'msg': u'\u6210\u529f', u'code': u'000', u'data': True}</msg>
+<status status="PASS" endtime="20190314 18:07:32.638" starttime="20190314 18:07:32.638"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result1["msg"]}</arg>
+</arguments>
+<msg timestamp="20190314 18:07:32.638" level="INFO">成功</msg>
+<status status="PASS" endtime="20190314 18:07:32.638" starttime="20190314 18:07:32.638"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${result1["msg"]}</arg>
+<arg>成功</arg>
+</arguments>
+<status status="PASS" endtime="20190314 18:07:32.639" starttime="20190314 18:07:32.639"></status>
+</kw>
+<status status="PASS" endtime="20190314 18:07:32.639" starttime="20190314 18:07:32.200"></status>
+</kw>
+<doc>调度清零，有项目，清零全部</doc>
+<tags>
+<tag>LD</tag>
+</tags>
+<status status="PASS" endtime="20190314 18:07:32.639" critical="yes" starttime="20190314 18:07:27.878"></status>
+</test>
+<doc>自动调度</doc>
+<status status="PASS" endtime="20190314 18:07:32.639" starttime="20190314 18:07:27.767"></status>
+</suite>
+<status status="PASS" endtime="20190314 18:07:32.640" starttime="20190314 18:07:27.753"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">LD</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="TestCase" pass="1">TestCase</stat>
+<stat fail="0" id="s1-s1" name="autoDispatchLD" pass="1">TestCase.autoDispatchLD</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

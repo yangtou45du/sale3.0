@@ -1,0 +1,151 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           json
+Library           ../py_keyword/OtherKW.py
+Library           ../py_keyword/ReadConfig.py
+
+*** Keywords ***
+SearchPlan
+    [Arguments]    ${cityCompany}=610100-a0018    ${name}=    ${beginTime}=    ${saleUser}=    ${createMan}=    ${type}=
+    ...    ${photoRequire}=    ${status}=    ${check}=    ${page}=1    ${pageSize}=1000
+    [Documentation]    方案搜索，城市默认值为西安，屏幕类型全部，超过200条的结果请更改pageSize
+    ${params}    Create Dictionary    cityCompany=${cityCompany}    name=${name}    beginTime=${beginTime}    saleUser=${saleUser}    createMan=${createMan}
+    ...    type=${type}    photoRequire=${photoRequire}    status=${status}    check=${check}    page=${page}    pageSize=${pageSize}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001001    data=${params}
+    Return From Keyword    ${response}
+
+InitPlanInfo
+    ${begin_Time}    Get Two Week Friday
+    ${end_Time}    Get two weeks Friday
+    Set Suite Variable    ${begin_Time}
+    Set Suite Variable    ${end_Time}
+    ${sale_User}    Return Get    PlanInfo    saleUser
+    ${order_Id}    Return Get    PlanInfo    orderId
+    Set Suite Variable    ${sale_User}
+    Set Suite Variable    ${order_Id}
+
+JudgePlanNames
+    [Arguments]    ${planId}=    ${name}=    ${beginTime}=    ${endTime}=    ${cityCompany}=610100-a0018
+    [Documentation]    重名判断，默认城市西安
+    ${params}    Create Dictionary    planId=${planId}    name=${name}    beginTime=${beginTime}    endTime=${endTime}    cityCompany=${cityCompany}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001003    data=${params}
+    Return From Keyword    ${response}
+
+AddPlan
+    [Arguments]    ${saleUser}=${sale_User}    ${orderId}=${order_Id}    ${trade}=H02008    ${name}=蒋学addplan接口默认值    ${cityCompanies}=["610100-a0018"]    ${continuation}=0
+    ...    ${wholeNetwork}=0    ${moreTwo}=0    ${beginTime}=${begin_Time}    ${endTime}=${end_Time}    ${saleType}=001    ${pointStatus}=0
+    ...    ${compactNum}=0    ${regulateNum}=0    ${remark}=    ${deliveryMode}=001    ${seconds}=003    ${numbers}=001
+    ...    ${type}=003    ${photoRequire}=001    ${photoPack}=002    ${photoReport}=001    ${photoUp}=002    ${photoDown}=002
+    [Documentation]    初始化时请初始化InitPlanInfo关键字，需传入方案名，开始和结束时间默认值为最近周六周五，默认值为：城市西安，销售方式XJ，合同数调剂数0，投放方式T1，广告时长15s，投放频次300，屏幕类型联动，拍照方式否，不连续不超过空位销售均未勾选
+    ${cityCompanies}    loads    ${cityCompanies}
+    ${params}    Create Dictionary    saleUser=${saleUser}    orderId=${orderId}    trade=${trade}    name=${name}    cityCompanies=${cityCompanies}
+    ...    continuation=${continuation}    wholeNetwork=${wholeNetwork}    moreTwo=${moreTwo}    beginTime=${beginTime}    endTime=${endTime}    saleType=${saleType}
+    ...    pointStatus=${pointStatus}    compactNum=${compactNum}    regulateNum=${regulateNum}    remark=${remark}    deliveryMode=${deliveryMode}    seconds=${seconds}
+    ...    numbers=${numbers}    type=${type}    photoRequire=${photoRequire}    photoPack=${photoPack}    photoReport=${photoReport}    photoUp=${photoUp}
+    ...    photoDown=${photoDown}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001004    data=${params}
+    Return From Keyword    ${response}
+    log    ${response.txg}
+
+PlanDetail_NoUseNow
+    [Arguments]    ${id}=73498
+    ${params}    Create Dictionary    id=${id}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?code=1001005    data=${params}
+    Return From Keyword    ${response}
+
+EditPlan
+    [Arguments]    ${saleUser}=${sale_User}    ${orderId}=${order_Id}    ${trade}=H02008    ${name}=蒋学EditPlan接口默认值    ${cityCompany}=610100-a0018    ${continuation}=0
+    ...    ${wholeNetwork}=0    ${moreTwo}=0    ${beginTime}=${begin_Time}    ${endTime}=${end_Time}    ${saleType}=001    ${pointStatus}=0
+    ...    ${compactNum}=0    ${regulateNum}=0    ${remark}=    ${deliveryMode}=001    ${seconds}=003    ${numbers}=001
+    ...    ${type}=003    ${photoRequire}=001    ${photoPack}=002    ${photoReport}=001    ${photoUp}=002    ${photoDown}=002
+    ...    ${id}=
+    [Documentation]    编辑方案，城市默认西安，相较于新增方案不同的地方是多了方案id和城市为单个城市
+    ${params}    Create Dictionary    id=${id}    saleUser=${saleUser}    orderId=${orderId}    trade=${trade}    name=${name}
+    ...    cityCompany=${cityCompany}    continuation=${continuation}    wholeNetwork=${wholeNetwork}    moreTwo=${moreTwo}    beginTime=${beginTime}    endTime=${endTime}
+    ...    saleType=${saleType}    pointStatus=${pointStatus}    compactNum=${compactNum}    regulateNum=${regulateNum}    remark=${remark}    deliveryMode=${deliveryMode}
+    ...    seconds=${seconds}    numbers=${numbers}    type=${type}    photoRequire=${photoRequire}    photoPack=${photoPack}    photoReport=${photoReport}
+    ...    photoUp=${photoUp}    photoDown=${photoDown}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001006    data=${params}
+    Return From Keyword    ${response}
+
+PlanName
+    [Arguments]    ${value}=未填写
+    ${plan_name}    Evaluate    "蒋学${value}接口"+str(random.randint(1,9999))+str(random.randint(1,9999))    random
+    Return From Keyword    ${plan_name}
+
+MatePointExcel
+    [Arguments]    ${beginTime}=${begin_Time}    ${endTime}=${end_Time}    ${trade}=H01701    ${cityCompany}=510100-a0001    ${seconds}=003    ${numbers}=001
+    ...    ${type}=003    ${locationUrl}=
+    [Documentation]    匹配点位导出excel \ \ 默认值为：城市-成都、秒数-15s、行业-医美整形、次数-300、屏幕类型-联动、开始结束时间为最近周六和下周周五
+    ${params}    Create Dictionary    beginTime=${beginTime}    endTime=${endTime}    trade=${trade}    cityCompany=${cityCompany}    seconds=${seconds}
+    ...    numbers=${numbers}    type=${type}    locationUrl=${locationUrl}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=2002004    data=${params}
+    Return From Keyword    ${response}
+
+MatePointMap
+    [Arguments]    ${beginTime}=${begin_Time}    ${endTime}=${end_Time}    ${trade}=H01701    ${cityCompany}=510100-a0001    ${seconds}=003    ${numbers}=001
+    ...    ${type}=003    ${locationUrl}=
+    [Documentation]    匹配点位导出地图 \ \ 默认值为：城市-成都、秒数-15s、行业-医美整形、次数-300、屏幕类型-联动、开始结束时间为最近周六和下周周五
+    ${params}    Create Dictionary    beginTime=${beginTime}    endTime=${endTime}    trade=${trade}    cityCompany=${cityCompany}    seconds=${seconds}
+    ...    numbers=${numbers}    type=${type}    locationUrl=${locationUrl}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=2002005    data=${params}
+    Return From Keyword    ${response}
+
+ExportPlan
+    [Arguments]    ${beginTime}=${begin_Time}    ${check}=    ${cityCompany}=510100-a0001    ${createMan}=    ${endTime}=${end_Time}    ${flag}=false
+    ...    ${name}=    ${photoRequire}=    ${saleUser}=    ${status}=    ${type}=
+    [Documentation]    方案导出 默认值：城市-成都、导出方式-按列表导出、其余均为全部
+    ${params}    Create Dictionary    beginTime=${beginTime}    check=${check}    cityCompany=${cityCompany}    createMan=${createMan}    endTime=${endTime}
+    ...    flag=${flag}    name=${name}    photoRequire=${photoRequire}    saleUser=${saleUser}    status=${status}    type=${type}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=2002001    data=${params}
+    Return From Keyword    ${response}
+
+DeletePlan_J
+    [Arguments]    ${id}=
+    [Documentation]    删除方案传入id进行删除
+    ${params}    Create Dictionary    id=${id}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001038    data=${params}
+    Return From Keyword    ${response}
+
+RenewPlan
+    [Arguments]    ${id}=
+    [Documentation]    恢复已删除方案传入id进行恢复
+    ${params}    Create Dictionary    id=${id}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001011    data=${params}
+    Return From Keyword    ${response}
+
+EditDeletePlan
+    [Arguments]    ${name}    ${upTime}    ${id}
+    [Documentation]    编辑已删除方案的方案名
+    ${params}    Create Dictionary    id=${id}    name=${name}    upTime=${upTime}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001010    data=${params}
+    Return From Keyword    ${response}
+
+SearchDeletePlan
+    [Arguments]    ${cityCompany}=610100-a0018    ${name}=    ${beginTime}=${begin_Time}    ${saleUser}=    ${createMan}=    ${type}=
+    ...    ${photoRequire}=    ${page}=1    ${pageSize}=1000
+    [Documentation]    搜索已删除方案 默认：城市-西安、开始时间最近周五
+    ${params}    Create Dictionary    cityCompany=${cityCompany}    name=${name}    beginTime=${beginTime}    saleUser=${saleUser}    createMan=${createMan}
+    ...    type=${type}    photoRequire=${photoRequire}    page=${page}    pageSize=${pageSize}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001009    data=${params}
+    Return From Keyword    ${response}
+
+ExportDeletePlanPoint
+    [Arguments]    ${id}=
+    [Documentation]    导出已删除方案点位
+    ${params}    Create Dictionary    id=${id}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=2002008    data=${params}
+    Return From Keyword    ${response}

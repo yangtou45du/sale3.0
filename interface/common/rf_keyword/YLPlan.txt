@@ -1,0 +1,83 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           json
+Library           Collections
+Library           ../py_keyword/ReadConfig.py
+Library           ../py_keyword/ResData.py
+Library           ../py_keyword/OtherKW.py
+Library           ../py_keyword/def_json.py
+Resource          Common.txt
+
+*** Keywords ***
+PlanInit
+    ${begin_time}    get_two_week_friday
+    Set Global Variable    ${begin_time}    ${begin_time}
+
+YLPlanListSearch
+    [Arguments]    ${page}=1    ${page_num}=50    ${city_company}=460100-a0045    ${beginTime}=2019-01-12    ${sale_user}=    ${create_man}=
+    ...    ${type}=004    ${photo_require}=
+    ${data}    Set Variable    {"page":${page},"pageNum":${page_num},"cityCompany":"${city_company}","name":"","beginTime":"${beginTime}","saleUser":"sale_user ","createMan":" ${create_man}","type":"${type}","photoRequire":" ${photo_require}"}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001048    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+ExportYLPlanList
+    [Arguments]    ${city_company}=460100-a0045    ${name}=    ${begin_time}=2019-01-19    ${create_man}=    ${sale_user}=    ${type}=004
+    ...    ${photo_require}=    ${start_time}=2019-01-19
+    ${data}    Set Variable    {"cityCompany":"${city_company}","name":"${name}","beginTime":"${begin_time}","createMan":" ${create_man}","sale_user":" ${sale_user}","type":"${type}","photoRequire":"${photo_require} ","startTime":"${start_time}"}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=2002010    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+EditYLPlan
+    [Arguments]    ${plan_id}=1335    ${sale_user}=4307    ${order_id}=41    ${name}=长期1    ${trade}=H01803    ${begin_time}=2019-01-19
+    ...    ${end_time}=2022-02-25    ${type}=003    ${compactNum}=10    ${city_company}=460100-a0045    ${seconds}=003    ${sort}=001
+    ...    ${remark}=    ${photo_require}=001    ${photo_pack}=002    ${photo_report}=001    ${photoUp}=002
+    ${data}    Set Variable    {"planId":${plan_id},"saleUser":${sale_user},"orderId":${order_id},"name":"${name}","trade":"${trade}","beginTime":"${begin_time}","endTime":"${end_time}","type":"${type}","compactNum":${compactNum},"cityCompany":"${city_company}","seconds":"${seconds}","sort":"${sort}","remark":"${remark}","photoRequire":"${photo_require}","photoPack":"{photo_pack}","photoReport":"${photo_report}","photoUp":"${photoUp}","upTime":null}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001051    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+AddOrCopyYLPlan
+    [Arguments]    ${sale_user}=4307    ${order_id}=41    ${name}=长期1    ${trade}=H01803    ${begin_time}=2019-01-19    ${end_time}=2022-02-25
+    ...    ${type}=003    ${compactNum}=10    ${city_company}=460100-a0045    ${seconds}=003    ${sort}=001    ${remark}=
+    ...    ${photo_require}=001    ${photo_pack}=002    ${photo_report}=001    ${photoUp}=002
+    ${data}    Set Variable    {"saleUser":${sale_user},"orderId":${order_id},"name":"${name}","trade":"${trade}","beginTime":"${begin_time}","endTime":"${end_time}","type":"${type}","compactNum":${compactNum},"cityCompany":"${city_company}","seconds":"${seconds}","sort":"${sort}","remark":"${remark}","photoRequire":"${photo_require}","photoPack":"{photo_pack}","photoReport":"${photo_report}","photoUp":"${photoUp}","upTime":null}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001050    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+ExportYLExcel
+    [Arguments]    ${plan_id}=1186
+    ${data}    Set Variable    {"id":${plan_id}}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=2002034    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+ExportYLMap
+    [Arguments]    ${plan_id}=1186
+    ${data}    Set Variable    {"id":${plan_id}}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=2002011    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+ChangeEndTime
+    [Arguments]    ${plan_id}=1186    ${end_time}=2019-01-17
+    ${data}    Set Variable    {"id":${plan_id},"endDate":"${end_time}"}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001084    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}

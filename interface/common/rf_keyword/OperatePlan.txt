@@ -1,0 +1,76 @@
+*** Settings ***
+Library           RequestsLibrary
+
+*** Keywords ***
+PlanInit
+    #设置随机的方案名，并设置全局变量
+    ${plan_name}    Evaluate    "OP"+str(random.randint(1,9999))+str(random.randint(1,9999))    random
+    Set Suite Variable    ${plan_name}
+    ${saleUser}    Set Variable    3868
+    ${orderId}    Set Variable    551
+    ${beginTime}    Set Variable    2019-02-16
+    ${endTime}    Set Variable    2019-03-01
+    ${cityCompany}    Set Variable    441500-a0077    #汕尾
+    ${cityCompanies}    Set Variable    ["441500-a0077"]
+    Set suite Variable    ${saleUser}
+    Set suite Variable    ${orderId}
+    Set suite Variable    ${beginTime}
+    Set suite Variable    ${endTime}
+    Set suite Variable    ${cityCompany}
+    Set suite Variable    ${cityCompanies}
+
+ToReserve
+    [Arguments]    ${planId}
+    [Documentation]    转预订
+    ${planId}    Create Dictionary    planId=${planId}
+    ${response}    post request    api    /service/dispatch?node=3003010    data=${planId}
+    Return From Keyword    ${response}
+
+ReserveToRetain
+    [Arguments]    ${planId}
+    [Documentation]    预订转保留
+    ${planId}    Create Dictionary    planId=${planId}
+    ${response}    post request    api    /service/dispatch?node=3003009    data=${planId}
+    Return From Keyword    ${response}
+
+SaleToRetain
+    [Arguments]    ${id}
+    [Documentation]    销售转保留
+    ${id}    Create Dictionary    id=${id}
+    ${response}    post request    api    /service/dispatch?node=1001080    data=${id}
+    Return From Keyword    ${response}
+
+ToSale
+    [Arguments]    ${id}
+    [Documentation]    转销售
+    ${id}    Create Dictionary    id=${id}
+    ${response}    post request    api    /service/dispatch?node=1001041    data=${id}
+    Return From Keyword    ${response}
+
+ExportPoint
+    [Arguments]    ${id}
+    [Documentation]    点位导出
+    ${id}    Create Dictionary    id=${id}
+    ${response}    post request    api    /service/dispatch?node=2002008    data=${id}
+    Return From Keyword    ${response}
+
+DeletePlan
+    [Arguments]    ${id}
+    [Documentation]    删除方案
+    ${id}    Create Dictionary    id=${id}
+    ${response}    post request    api    /service/dispatch?node=1001038    data=${id}
+    Return From Keyword    ${response}
+
+ExportMap
+    [Arguments]    ${id}
+    [Documentation]    地图导出
+    ${id}    Create Dictionary    id=${id}
+    ${response}    post request    api    /service/dispatch?node=2002009    data=${id}
+    Return From Keyword    ${response}
+
+AdjustEndDate
+    [Arguments]    ${id}    ${endDate}
+    [Documentation]    调整结束日
+    ${data}    Create Dictionary    planId=${id}    endDate=${endDate}
+    ${response}    post request    api    /service/dispatch?node=1001043    data=${data}
+    Return From Keyword    ${response}

@@ -1,0 +1,442 @@
+*** Settings ***
+Suite Setup
+Resource          ../common/rf_keyword/PointSelectionLJQ.txt
+Library           Collections
+Library           ../common/py_keyword/def_json.py
+Resource          ../common/rf_keyword/SaleKeywordsLD.txt
+Resource          ../common/rf_keyword/Common.txt
+Library           ../common/py_keyword/ReadConfig.py
+Resource          ../common/rf_keyword/SalePlanList_JX.txt
+Resource          ../common/rf_keyword/OperatePlan.txt
+
+*** Test Cases ***
+demo
+    Login
+    Comment    CreatePlan    name=plantest
+    Comment    ${res}    SearchPlan    name=plantest
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    Comment    LogAndLogToConsole    ${planId}
+    Comment    ${res}    GetCanAddPremisesApi    planId=${planId}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${PremisesIdsList}    GetPremisesIds    data=${res}
+    Comment    LogAndLogToConsole    ${PremisesIdsList}
+    Comment    ${res}    GetAlreadyPremisesApi    planId=${planId}
+    Comment    ${PremisesIdsList_a}    GetPremisesIds    data=${res}
+    Comment    LogAndLogToConsole    ${PremisesIdsList_a}
+    Comment    ${res_list}    CreateRandomList    ${PremisesIdsList}    1
+    Comment    #自动调度
+    Comment    ${premisesIds_list}    set variable    [22407, 22408]
+    Comment    ${premisesIds_list}    loads    ${premisesIds_list}
+    Comment    ${res}    AutoControlApi    planId=75350    premisesIds_list=${premisesIds_list}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${res}    GetPremisesMachineApi    planId=75350    premisesId=22407
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${res}    GetMachineCanControlApi    planId=75350    code=NZJB-I01-010
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    #清除自动调度
+    Comment    ${premisesIds_list}    set variable    [22407, 22408]
+    Comment    ${premisesIds_list}    loads    ${premisesIds_list}
+    Comment    ${res}    ClearControlApi    planId=75350    premisesIds_list=${premisesIds_list}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${premisesNames_list}    set variable    ["123","123"]
+    Comment    ${premisesNames_list}    loads    ${premisesNames_list}
+    Comment    ${res}    PastePremisesApi    planId=75350    premisesNames_list=${premisesNames_list}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${res}    PastemachineNamesApi    planId=75350    machineNames_list=${premisesNames_list}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${res}    ReturnGet    LoginData    username
+    Comment    LogAndLogToConsole    ${res}
+    Comment    ${res}    DelPremisesOnPlanApi    planId=75350    premisesIds_str=22408
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    ${res}    AutoControl    planId=${planId}    premisesId=${PremisesIds_List_Alr}
+    Comment    #预订转保留
+    Comment    ${res}    ReserveToRetain_LJQ    planId=${planId}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    #保留转销售
+    Comment    ${res}    RetainToSale_LJQ    planId=${planId}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    #预订转保留
+    Comment    ${res}    SaleToRetain_LJQ    planId=${planId}
+    Comment    LogAndLogToConsole    ${res.text}
+    Comment    #保留转销售
+    Comment    ${res}    RetainToReserve_LJQ    planId=${planId}
+    Comment    LogAndLogToConsole    ${res.text}
+
+CreateDemo
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_a}    CreateRandomList    ${PremisesIds_List}    10
+    LogAndLogToConsole    ${PremisesIds_List_a}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_a}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+
+AddAllPremises_T1
+    [Documentation]    1.将所有项目添加到方案
+    ...    2.验证所有添加的项目是否添加成功
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取已添加项目
+    ${alr_res}    GetAlreadyPremisesApi    planId=${planId}
+    ${PremisesIds_List_Alr}    GetPremisesIds    ${alr_res}
+    #将数据格式处理成str
+    ${PremisesIds_List}    ListElementIntToStr    ${PremisesIds_List}
+    ${PremisesIds_List_Alr}    ListElementIntToStr    ${PremisesIds_List_Alr}
+    #对比验证添加结果
+    CompareListIsEqual    ${PremisesIds_List_Alr}    ${PremisesIds_List}
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddPartPremises_T2
+    [Documentation]    1.选择部分项目进行添加
+    ...    2.验证所有添加的项目是否添加成功
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_A}    CreateRandomList    ${PremisesIds_List}    10
+    LogAndLogToConsole    ${PremisesIds_List_A}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_A}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取已添加项目
+    ${alr_res}    GetAlreadyPremisesApi    planId=${planId}
+    ${PremisesIds_List_Alr}    GetPremisesIds    ${alr_res}
+    #将数据格式处理成str
+    ${PremisesIds_List_A}    ListElementIntToStr    ${PremisesIds_List_A}
+    ${PremisesIds_List_Alr}    ListElementIntToStr    ${PremisesIds_List_Alr}
+    #对比验证添加结果
+    CompareListIsEqual    ${PremisesIds_List_Alr}    ${PremisesIds_List_A}
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddAndDelPremises_T3
+    [Documentation]    1.选择部分项目进行添加
+    ...    2.删除部分项目
+    ...    3.对比验证数据结果
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_A}    CreateRandomList    ${PremisesIds_List}    10
+    LogAndLogToConsole    ${PremisesIds_List_A}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_A}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取部分已添加的方案id用于删除
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_B}    CreateRandomList    ${PremisesIds_List_A}    5
+    #将list转换为str
+    ${PremisesIds_str_B}    ListElementToStr    ${PremisesIds_List_B}
+    #删除部分项目
+    ${res}    DelPremisesOnPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str_B}
+    should contain    ${res.text}    成功
+    #获取已添加项目
+    ${alr_res}    GetAlreadyPremisesApi    planId=${planId}
+    ${PremisesIds_List_Alr}    GetPremisesIds    ${alr_res}
+    #生成没有被删除的项目信息
+    ${should_list}    RemoveEqualValue    ${PremisesIds_List_A}    ${PremisesIds_List_B}
+    ${should_list}    ListElementIntToStr    ${should_list}
+    ${PremisesIds_List_Alr}    ListElementIntToStr    ${PremisesIds_List_Alr}
+    CompareListIsEqual    ${should_list}    ${PremisesIds_List_Alr}
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddAndDelPremises_T4
+    [Documentation]    1.选择部分项目进行添加
+    ...    2.删除部分项目
+    ...    3.对比验证数据结果
+    ...    需要修改,先删除,再添加,再比对
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_A}    CreateRandomList    ${PremisesIds_List}    10
+    LogAndLogToConsole    ${PremisesIds_List_A}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_A}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取部分已添加的方案id用于删除
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_B}    CreateRandomList    ${PremisesIds_List_A}    5
+    #将list转换为str
+    ${PremisesIds_str_B}    ListElementToStr    ${PremisesIds_List_B}
+    #删除部分项目
+    ${res}    DelPremisesOnPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str_B}
+    should contain    ${res.text}    成功
+    #获取已添加项目
+    ${alr_res}    GetAlreadyPremisesApi    planId=${planId}
+    ${PremisesIds_List_Alr}    GetPremisesIds    ${alr_res}
+    #生成没有被删除的项目信息
+    ${should_list}    RemoveEqualValue    ${PremisesIds_List_A}    ${PremisesIds_List_B}
+    ${should_list}    ListElementIntToStr    ${should_list}
+    ${PremisesIds_List_Alr}    ListElementIntToStr    ${PremisesIds_List_Alr}
+    CompareListIsEqual    ${should_list}    ${PremisesIds_List_Alr}
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddAndDelPremises_F5
+    [Documentation]    1.选择部分项目进行添加
+    ...    2.删除不存在的项目信息
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_A}    CreateRandomList    ${PremisesIds_List}    10
+    LogAndLogToConsole    ${PremisesIds_List_A}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_A}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取部分已添加的方案id用于删除
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    LogAndLogToConsole    ${PremisesIds_List}
+    ${PremisesIds_List_Err}    evaluate    [str(i) for i in range(10,20)]
+    ${PremisesIds_List_B}    CreateRandomList    ${PremisesIds_List_Err}    5
+    #将list转换为str
+    ${PremisesIds_str_B}    ListElementToStr    ${PremisesIds_List_B}
+    #删除部分项目
+    ${res}    DelPremisesOnPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str_B}
+    should contain    ${res.text}    删除失败321
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddAndDelPremises_F6
+    [Documentation]    1.创建方案
+    ...    2.添加不存在的项目信息到方案当中
+    ...    3.该case为异常case,但是后台逻辑未做限制,所以跑出的结果会是false的...后续等待开发修改bug
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #生成用于测试的错误的方案项目id
+    ${PremisesIds_List_Err}    evaluate    [str(i) for i in range(10,20)]
+    #将list转换为str
+    ${PremisesIds_str_B}    ListElementToStr    ${PremisesIds_List_Err}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str_B}
+    LogAndLogToConsole    ${res.text}
+    #该case为异常case,但是后台逻辑未做限制,所以跑出的结果会是false的...后续等待开发修改bug
+    should contain    ${res.text}    成功
+    Comment    should contain    ${res.text}    失败
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddAndDelPremises_F7
+    [Documentation]    1.创建方案
+    ...    2.添加不存在的项目信息到方案当中
+    ...    3.该case为异常case,但是后台逻辑未做限制,所以跑出的结果会是false的...后续等待开发修改bug
+    [Setup]
+    #初始化信息
+    InitInfo
+    ${planId}    set variable    9999999
+    #生成用于测试的错误的方案项目id
+    ${PremisesIds_List_Err}    evaluate    [str(i) for i in range(10,20)]
+    #将list转换为str
+    ${PremisesIds_str_B}    ListElementToStr    ${PremisesIds_List_Err}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str_B}
+    LogAndLogToConsole    ${res.text}
+    #该case为异常case,但是后台逻辑未做限制,所以跑出的结果会是false的...后续等待开发修改bug
+    should contain    ${res.text}    方案不存在
+
+AddAndDelPremises_F8
+    [Documentation]    1.给保留方案添加项目
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    #获取20个可添加楼盘
+    ${PremisesIds_List_A}    CreateRandomList    ${PremisesIds_List}    20
+    LogAndLogToConsole    ${PremisesIds_List_A}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_A}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取已添加项目
+    ${alr_res}    GetAlreadyPremisesApi    planId=${planId}
+    ${PremisesIds_List_Alr}    GetPremisesIds    ${alr_res}
+    LogAndLogToConsole    ${PremisesIds_List_Alr}
+    #自动调度
+    ${res}    AutoControl    planId=${planId}    premisesId=${PremisesIds_List_Alr}
+    LogAndLogToConsole     ${res.text}
+    #预订转保留
+    ${res}    ReserveToRetain_LJQ    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List_B}    RemoveEqualValue    ${PremisesIds_List_A}    ${PremisesIds_List}
+    ${PremisesIds_List_B}    CreateRandomList     ${PremisesIds_List_B}    10
+    #将list转换为str
+    ${PremisesIds_List_B_str}    ListElementToStr    ${PremisesIds_List_B}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_List_B_str}
+    LogAndLogToConsole    ${res.text}
+    should contain    ${res.text}    方案不处于预定状态
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功
+
+AddAndDelPremises_F9
+    [Documentation]    1.给销售方案添加项目
+    [Setup]
+    #初始化信息
+    InitInfo
+    #新增方案
+    ${res}    AddPlan    name=${planName}    cityCompanies=${cityCompanies}    beginTime=${beginTime}    endTime=${endTime}    saleUser=${saleUser}
+    ...    orderId=${orderId}
+    LogAndLogToConsole    ${res.text}
+    #查询方案
+    ${res}    SearchPlan    name=${planName}    cityCompany=${cityCompany}    beginTime=${beginTime}
+    LogAndLogToConsole    ${res.text}
+    ${planId}    set variable    ${res.json()["data"]["data"][0]["id"]}
+    #获取可添加项目
+    ${pre}    GetCanAddPremisesApi    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List}    GetPremisesIds    ${pre}
+    #获取20个可添加楼盘
+    ${PremisesIds_List_A}    CreateRandomList    ${PremisesIds_List}    20
+    LogAndLogToConsole    ${PremisesIds_List_A}
+    #将list转换为str
+    ${PremisesIds_str}    ListElementToStr    ${PremisesIds_List_A}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_str}
+    LogAndLogToConsole    ${res.text}
+    #获取已添加项目
+    ${alr_res}    GetAlreadyPremisesApi    planId=${planId}
+    ${PremisesIds_List_Alr}    GetPremisesIds    ${alr_res}
+    LogAndLogToConsole    ${PremisesIds_List_Alr}
+    #自动调度
+    ${res}    AutoControl    planId=${planId}    premisesId=${PremisesIds_List_Alr}
+    LogAndLogToConsole     ${res.text}
+    #预订转保留,保留转销售
+    ${res}    ReserveToRetain_LJQ    planId=${planId}
+    ${res}    RetainToSale_LJQ    planId=${planId}
+    LogAndLogToConsole    ${res.text}
+    ${PremisesIds_List_B}    RemoveEqualValue    ${PremisesIds_List_A}    ${PremisesIds_List}
+    ${PremisesIds_List_B}    CreateRandomList     ${PremisesIds_List_B}    10
+    #将list转换为str
+    ${PremisesIds_List_B_str}    ListElementToStr    ${PremisesIds_List_B}
+    #添加项目
+    ${res}    AddPremisesToPlanApi    planId=${planId}    premisesIds_str=${PremisesIds_List_B_str}
+    LogAndLogToConsole    ${res.text}
+    should contain    ${res.text}    方案不处于预定状态
+    sleep    10
+    #删除方案,清除测试数据
+    ${res}    DeletePlan    ${planId}
+    should contain    ${res.text}    成功

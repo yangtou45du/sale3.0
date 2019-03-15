@@ -1,0 +1,350 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           json
+Library           Collections
+Library           ../py_keyword/deal_premises.py
+Library           random
+Library           ../py_keyword/OtherKW.py
+Resource          Common.txt
+
+*** Keywords ***
+CommomInit
+    ${url}    Set Variable    http://t.zuul.xinchao.mobi
+    Set suite Variable    ${url}
+    ${password}    Set Variable    a123456
+    Set suite Variable    ${password}
+    ${productKey}    Set Variable    6b31a18e-db6e-4e63-b823-7e60cda7b11d
+    Set suite Variable    ${productKey}
+    ${username}    Set Variable    lidan
+    Set suite Variable    ${username}
+    ${url1}    Set Variable    http://t.sale.api.xinchao.mobi
+    Set suite Variable    ${url1}
+
+DispatchReset
+    [Arguments]    ${planId}    ${premisesId}=[]
+    [Documentation]    调度清零，premisesId为[]时，默认清零全部
+    ${data}    Set Variable    {"planId":"${planId}","premisesId":${premisesId}}
+    ${data}    to json    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=3003006    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    [Return]    ${result}
+
+ArrangementPlan
+    [Arguments]    ${planId}
+    [Documentation]    整理方案
+    ${data}    Set Variable    {"planId":"${planId}"}
+    ${data}    to json    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=1001027    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    [Teardown]
+    [Return]    ${result}
+
+DispatchEquipment
+    [Arguments]    ${planId}    ${machineNames}=[]
+    [Documentation]    调度设备
+    ${data}    Set Variable    {"id":"${planId}","machineNames":${machineNames}}
+    ${response}    Post Request    api    /service/dispatch?node=1001025    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    [Return]    ${result}
+
+DispatchCancel
+    [Arguments]    ${planId}    ${code}
+    [Documentation]    取消调度
+    ${data}    Set Variable    {"planId":"${planId}","code":${code}}
+    ${data}    to json    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=3003004    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    [Return]    ${result}
+
+GetItemsList
+    [Arguments]    ${planId}
+    [Documentation]    获取项目列表，0是id的list，1是楼盘具体单元和设备数，例如([u'42390'], [{u'units': 9, u'id': u'42390', u'machines': 18, u'name': u'\u6ec7\u6c60\u6cca\u5c4b|"}
+    ${data}    Set Variable    {"planId":"${planId}"}
+    ${data}    to json    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=1001014    data=${data}
+    [Return]    ${response}
+
+AddItem
+    [Arguments]    ${planId}    ${premisesId}
+    [Documentation]    加入项目
+    ${data}    Set Variable    {"planId":"${planId}","premisesId":"${premisesId}"}
+    log    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=1001016    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    Should Contain    ${result["msg"]}    成功
+
+AutoDispatch
+    [Arguments]    ${planId}    ${premisesType}=[]    ${premisesFloor}=0    ${occupancyRate}=0    ${propertyPrice}=0    ${intime}=[]
+    ...    ${propertyCompany}=    ${medias}=[]    ${premisesPrice}=[]    ${amachineSize}=[]    ${abmachineSize}=[]    ${elevatorUse}=[]
+    ...    ${voice}=[]    ${totalCount}=0    ${eachCount}=0
+    [Documentation]    自动调度，参数默认为自动调度，适用于只需要调度点位
+    ${response}    GetItemsList    ${planId}    #获取要添加的楼盘id，默认5个
+    ${result}    loads    ${response.content}
+    log    ${result["data"]}
+    ${premisesList}    New Get Premises Info    ${result["data"]}    #随机获取5个楼盘
+    Should Contain    ${result["msg"]}    成功
+    ${premisesId}    Get Premises Id    ${premisesList}    #获取到的楼盘ID列表
+    log    ${premisesId}
+    ${premisesId1}    List Change String    ${premisesId}    #列表转为字符串
+    log    ${premisesId1}
+    AddItem    ${planId}    ${premisesId1}    #加入项目
+    ${premisesId2}    List String Change Int    ${premisesId}
+    Set Test Variable    ${premisesId2}
+    log    ${premisesId2}
+    ${data}    Set Variable    {"planId":"${planId}","premisesId":${premisesId2},"premisesType":${premisesType},"premisesFloor":${premisesFloor},"occupancyRate":${occupancyRate},"propertyPrice":${propertyPrice},"intime":${intime},"propertyCompany":"${propertyCompany}","medias":${medias},"premisesPrice":${premisesPrice},"amachineSize":${amachineSize},"abmachineSize":${abmachineSize},"elevatorUse":${elevatorUse},"voice":${voice},"totalCount":${totalCount},"eachCount":${eachCount}}
+    log    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=3003003    data=${data}
+    ${result}    loads    ${response.content}
+    Set Test Variable    ${result["msg"]}
+    log    ${result["msg"]}
+    [Return]    ${response}
+
+EquipmentAnalysis
+    [Arguments]    ${planId}    ${code}
+    [Documentation]    设备分析
+    ${data}    Set Variable    {"planId":"${planId}","code":"${code}"}
+    ${response}    Post Request    api    /service/dispatch?node=3003007    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    [Return]    ${result["msg"]}
+
+GetPremises
+    [Arguments]    ${planId}    ${premisesId}
+    [Documentation]    获取已添加项目已调度和未调度设备
+    ${data}    Set Variable    {"id":"${planId}","premisesId":${premisesId}}
+    log    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=1001022    data=${data}
+    ${result1}    loads    ${response.content}
+    log    ${result1["data"]}
+    log    ${result1["msg"]}
+    log    ${result1["data"]["selected"]}
+    log    ${result1["data"]["unselected"]}
+    ${code}    Get Select And Unselect Code    ${result1["data"]}    #获取已调度楼盘已调度和未调度设备，0已调度，1为调度
+    log    ${code[1]}
+    [Return]    ${code[1]}
+
+SelectProject
+    [Arguments]    ${id}
+    [Documentation]    已选项目接口，调度之后返回项目调度情况
+    ${data}    Set Variable    {"id":"${id}"}
+    ${data}    to json    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=1001015    data=${data}
+    ${result}    loads    ${response.content}
+    [Return]    ${result}
+
+MyInit
+    #设置随机的方案名，并设置全局变量
+    ${name}    Evaluate    "csplan"+str(random.randint(1,9999))+str(random.randint(1,9999))    random
+    Set Test Variable    ${name}
+    log    ${name}
+    ${city}    Set Variable    ["530100-a0027"]
+    Set Suite Variable    ${city}
+    ${orderId}    Set Variable    601
+    Set Suite Variable    ${orderId}
+    ${saleUser}    Set Variable    4401
+    Set Suite Variable    ${saleUser}
+    ${begin_Time}    Get Two Week Friday
+    ${end_Time}    Get two weeks Friday
+    Set Suite Variable    ${begin_Time}
+    Set Suite Variable    ${end_Time}
+
+AddPlanInit
+    [Arguments]    ${saleUser}=${saleUser}    ${orderId}=${orderId}    ${trade}=H02008    ${name}=${name}    ${cityCompanies}=${city}    ${continuation}=0
+    ...    ${wholeNetwork}=0    ${moreTwo}=0    ${beginTime}=${begin_time}    ${endTime}=${end_time}    ${saleType}=001    ${pointStatus}=0
+    ...    ${compactNum}=0    ${regulateNum}=0    ${remark}=    ${deliveryMode}=001    ${seconds}=001    ${numbers}=001
+    ...    ${type}=003    ${photoRequire}=001    ${photoPack}=002    ${photoReport}=001    ${photoUp}=002    ${photoDown}=002
+    [Documentation]    初始化新建方案
+    Login
+    ${cityCompanies}    loads    ${cityCompanies}
+    ${params}    Create Dictionary    saleUser=${saleUser}    orderId=${orderId}    trade=${trade}    name=${name}    cityCompanies=${cityCompanies}
+    ...    continuation=${continuation}    wholeNetwork=${wholeNetwork}    moreTwo=${moreTwo}    beginTime=${beginTime}    endTime=${endTime}    saleType=${saleType}
+    ...    pointStatus=${pointStatus}    compactNum=${compactNum}    regulateNum=${regulateNum}    remark=${remark}    deliveryMode=${deliveryMode}    seconds=${seconds}
+    ...    numbers=${numbers}    type=${type}    photoRequire=${photoRequire}    photoPack=${photoPack}    photoReport=${photoReport}    photoUp=${photoUp}
+    ...    photoDown=${photoDown}
+    log    ${params}
+    ${response}    Post Request    api    /service/dispatch?node=1001004    data=${params}
+    ${result}    loads    ${response.content}
+    ${planId}    Set Variable    ${result["data"][0]["id"]}
+    log    ${planId}
+    Set Test Variable    ${planId}
+    [Return]    ${planId}
+SearchDispactchCode
+    [Arguments]    ${planId}    ${premisesId}
+    [Documentation]    查询已加入项目的设备
+    ${data}    Set Variable    {"id":"${planId}","premisesId":${premisesId}}
+    log    ${data}
+    ${response}    Post Request    api    /service/dispatch?node=1001022    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result["data"]}
+    log    ${result["msg"]}
+    [Return]    ${result["data"]}
+
+GetCanDispatchEquipment
+    [Arguments]    ${planId}
+    [Documentation]    获取可以调度的设备
+    ...    ${premisesCode}：#调度前可以调度的设备
+    ...    ${premisesAllCodeDict}：#所有楼盘列表
+    ...    ${selectDict}：#调度之后的楼盘列表
+    ${response}    GetItemsList    ${planId}    #获取要添加的楼盘，默认5个
+    ${result}    loads    ${response.content}
+    log    ${result["data"]}
+    Should Contain    ${result["msg"]}    成功
+    ${premisesList}    New Get Premises Info    ${result["data"]}    #获取已加入楼盘
+    log    ${premisesList}
+    Set Suite Variable    ${premisesList}
+    ${premisesId}    Get Premises Id    ${premisesList}    #获取楼盘id
+    Set Suite Variable    ${premisesId}
+    log    ${premisesId}    #id为字符串
+    ${premisesId2}    List Change String    ${premisesId}    #列表转为字符串
+    log    ${premisesId2}
+    AddItem    ${planId}    ${premisesId2}
+    ${dict}    Create Dictionary
+    ${premisesList}    Evaluate    list(${premisesList})
+    ${premisesCode}    Create List    #可以调度的楼盘列表
+    log    ${premisesList}
+    ${premisesAllCodeDict}    Create Dictionary    #所有楼盘列表
+    ${premisesCodeDict}    Create Dictionary    #可以调度的楼盘列表
+    : FOR    ${premise}    IN    @{premisesList}
+    \    log    ${premise["id"]}
+    \    ${data}    SearchDispactchCode    ${planId}    ${premise["id"]}    #查询每个楼盘下的设备
+    \    ${premisesAllCodeDict}    Set To Dictionary    ${premisesAllCodeDict}    ${premise["id"]}=${data["unselected"]}
+    \    ${code}    GetCanDispatcCode    ${planId}    ${data["unselected"]}    #获取可以调度的设备
+    \    log    ${code}
+    \    Append To List    ${premisesCode}    ${code}
+    \    ${premisesCodeDict}    Set To Dictionary    ${premisesCodeDict}    ${premise["id"]}=${code}
+    Set Suite Variable    @{premisesList}
+    log    ${premisesAllCodeDict}
+    log    ${premisesCode}    #调度前可以调度的设备
+    log    ${premisesCodeDict}
+    Set Suite Variable    ${premisesCode}
+    Set Suite Variable    ${premisesAllCodeDict}
+    Set Suite Variable    ${premisesCodeDict}    #可以调度的楼盘字典
+
+AutoDispatch1
+    [Arguments]    ${planId}    ${premisesType}=[]    ${premisesFloor}=0    ${occupancyRate}=0    ${propertyPrice}=0    ${intime}=[]
+    ...    ${propertyCompany}=    ${medias}=[]    ${premisesPrice}=[]    ${amachineSize}=[]    ${abmachineSize}=[]    ${elevatorUse}=[]
+    ...    ${voice}=[]    ${totalCount}=0    ${eachCount}=0
+    [Documentation]    自动调度，适用于调度点位的用例数据分析
+    GetCanDispatchEquipment    ${planId}
+    ${premisesId1}    List String Change Int    ${premisesId}    #列表字符串转为列表int
+    log    ${premisesId1}
+    Set Suite Variable    ${premisesId1}
+    ${data2}    Set Variable    {"planId":"${planId}","premisesId":${premisesId1},"premisesType":${premisesType},"premisesFloor":${premisesFloor},"occupancyRate":${occupancyRate},"propertyPrice":${propertyPrice},"intime":${intime},"propertyCompany":"${propertyCompany}","medias":${medias},"premisesPrice":${premisesPrice},"amachineSize":${amachineSize},"abmachineSize":${abmachineSize},"elevatorUse":${elevatorUse},"voice":${voice},"totalCount":${totalCount},"eachCount":${eachCount}}
+    log    ${data2}
+    ${response}    Post Request    api    /service/dispatch?node=3003003    data=${data2}    #自动调度
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    Should Contain    ${result["msg"]}    新增加
+    #${selectList}    Create List    #调度之后的楼盘列表
+    ${selectDict}    create dictionary    #调度之后的楼盘字典
+    : FOR    ${premise}    IN    @{premisesList}    #查询调度后成功的设备
+    \    log    ${premise["id"]}
+    \    ${data}    SearchDispactchCode    ${planId}    ${premise["id"]}    #查询每个楼盘下的设备
+    \    ${select}    Set Variable    ${data}    #获取已调度的设备
+    \    ${selectDict}    set to dictionary    ${selectDict}    ${premise["id"]}=${select["selected"]}
+    \    #Append To List    ${selectList}    ${select}
+    #log    ${selectList}
+    log    ${selectDict}
+    #Set Suite Variable    ${selectList}
+    set suite variable    ${selectDict}
+
+AutoDispatch2
+    [Arguments]    ${planId}    ${premisesType}=[]    ${premisesFloor}=0    ${occupancyRate}=0    ${propertyPrice}=0    ${intime}=[]
+    ...    ${propertyCompany}=    ${medias}=[]    ${premisesPrice}=[]    ${amachineSize}=[]    ${abmachineSize}=[]    ${elevatorUse}=[]
+    ...    ${voice}=[]    ${totalCount}=0    ${eachCount}=0    ${premisesId}=${premisesId1}
+    [Documentation]    自动调度接口
+    ${data2}    Set Variable    {"planId":"${planId}","premisesId":${premisesId},"premisesType":${premisesType},"premisesFloor":${premisesFloor},"occupancyRate":${occupancyRate},"propertyPrice":${propertyPrice},"intime":${intime},"propertyCompany":"${propertyCompany}","medias":${medias},"premisesPrice":${premisesPrice},"amachineSize":${amachineSize},"abmachineSize":${abmachineSize},"elevatorUse":${elevatorUse},"voice":${voice},"totalCount":${totalCount},"eachCount":${eachCount}}
+    log    ${data2}
+    ${response}    Post Request    api    /service/dispatch?node=3003003    data=${data2}    #自动调度
+    ${result}    loads    ${response.content}
+    log    ${result["msg"]}
+    ${selectDict1}    create dictionary    #调度之后的楼盘字典
+    : FOR    ${premise}    IN    @{premisesList}    #查询调度后成功的设备
+    \    log    ${premise["id"]}
+    \    ${data}    SearchDispactchCode    ${planId}    ${premise["id"]}    #查询每个楼盘下的设备
+    \    ${select}    Set Variable    ${data}    #获取已调度的设备
+    \    ${selectDict1}    set to dictionary    ${selectDict1}    ${premise["id"]}=${select["selected"]}
+    log    ${selectDict1}
+    set suite variable    ${selectDict1}
+    [return]    ${result}
+GetCanDispatcCode
+    [Arguments]    ${planId}    ${CodeList}
+    [Documentation]    通过设备分析获取可以调度的code
+    ${code}    Create list
+    : FOR    ${i}    IN    @{codeList}
+    \    ${msg}    EquipmentAnalysis    ${planId}    ${i['code']}
+    \    Comment    ${sta}    Run Keyword And Return Status    Should Contain    ${result["msg"]}    设备可以调度
+    \    Comment    log    ${result["msg"]}
+    \    Run Keyword if    '${msg}'=='设备可以调度'    Run Keyword    Append To List    ${code}    ${i}
+    log    ${code}
+    [Return]    ${code}
+
+PlanReject_search
+    [Arguments]    ${planId}    ${beginTime}=${begin_time}    ${endTime}=${end_time}    ${planType}=    ${planName}=
+    [Documentation]    方案排斥搜索
+    ${data}    Set Variable    {"planId":${planId},"beginTime":"${beginTime}","endTime":"${endTime}","planType":"${planType} ","planName":"${planName}"}
+    ${response}    Post Request    api    /service/dispatch?node=1001028    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result}
+    log    ${result["msg"]}
+    [Return]    ${result}
+
+PlanReject
+    [Arguments]    ${planId}    ${otherPlanId}    ${excludeType}=4
+    [Documentation]    方案排斥
+    ${data}    Set Variable    {"planId":${planId},"otherPlanId":"${otherPlanId}","excludeType":${excludeType}}
+    ${response}    Post Request    api    /service/dispatch?node=1001030    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result}
+    log    ${result["msg"]}
+
+ClearReject
+    [Arguments]    ${planId}    ${otherPlanId}
+    [Documentation]    清除排斥
+    ${data}    Set Variable    {"planId":${planId},"otherPlanId":"${otherPlanId}"}
+    ${response}    Post Request    api    /service/dispatch?node=1001029    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result}
+    log    ${result["msg"]}
+
+AlreadyRejectPlanList
+    [Arguments]    ${planId}
+    [Documentation]    已排斥方案列表
+    ${data}    Set Variable    {"planId":${planId}}
+    ${response}    Post Request    api    /service/dispatch?node=1001078    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result}
+    log    ${result["msg"]}
+
+PlanDisassembleLook
+    [Arguments]    ${planId}    ${date}
+    [Documentation]    方案拆解预览
+    ${data}    Set Variable    {"id":${planId},"date":${date}}
+    ${response}    Post Request    api    /service/dispatch?node=1001035    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result}
+    log    ${result["msg"]}
+
+PlanDisassemble
+    [Arguments]    ${planId}    ${date}
+    [Documentation]    方案拆解
+    ${data}    Set Variable    {"id":${planId},"date":${date}}
+    ${response}    Post Request    api    /service/dispatch?node=1001036    data=${data}
+    ${result}    loads    ${response.content}
+    log    ${result}
+    log    ${result["msg"]}
+
+RemovePlan
+    [Arguments]    ${planId}
+    [Documentation]    删除方案
+    ${data}    Set Variable    {"id":${planId}}
+    ${response}    Post Request    api    /service/dispatch?node=1001038    data=${data}
+    ${result1}    loads    ${response.content}
+    log    ${result1}
+    log    ${result1["msg"]}
+    Should Contain    ${result1["msg"]}    成功

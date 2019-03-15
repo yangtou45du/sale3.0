@@ -1,0 +1,215 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           json
+Library           Collections
+Library           ../py_keyword/ReadConfig.py
+Library           ../py_keyword/ResData.py
+Library           ../py_keyword/OtherKW.py
+Library           ../py_keyword/def_json.py
+Resource          Common.txt
+
+*** Keywords ***
+InitInfo
+    Login
+    ${planName}    evaluate    "PSL"+str(random.randint(1000,9999))    random
+    set test variable    ${planName}    ${planName}
+    ${begin_time}    Get Two Week Friday
+    ${end_time}    Get Two Weeks Friday
+    set test variable    ${begin_time}    ${begin_time}
+    set test variable    ${end_time}    ${end_time}
+    ${cityCompanies}    ReturnGet    PlanInfo    cityCompaniesA
+    set test variable    ${cityCompanies}    ${cityCompanies}
+    ${saleUser}    Return Get    PlanInfo    saleUser
+    ${orderId}    Return Get    PlanInfo    orderId
+    set test variable    ${saleUser}    ${saleUser}
+    set test variable    ${orderId}    ${orderId}
+    set test variable    ${type}    001
+    ${cityCompanies_a}    loads    ${cityCompanies}
+    ${cityCompany}    set variable    ${cityCompanies_a[0]}
+    set test variable    ${cityCompany}    ${cityCompany}
+
+GetCanAddPremisesApi
+    [Arguments]    ${planId}=    ${medias}=    ${intime}=    ${propertyPrice}=0    ${occupancyRate}=0    ${premisesFloor}=0
+    ...    ${propertyCompany}=    ${propertyCompany}=    ${premisesName}=
+    [Documentation]    获取所有可添加楼盘
+    ${data}    set variable    {"planId":"${planId}","medias":"","intime":"","propertyPrice":0,"occupancyRate":0,"premisesFloor":0,"propertyCompany":"","premisesName":"","premisesPrice":[],"premisesType":[]}
+    ${data}    loads    ${data}
+    set to dictionary    ${data}    medias    ${medias}    intime    ${intime}    propertyPrice
+    ...    ${propertyPrice}    occupancyRate    ${occupancyRate}    premisesFloor    ${premisesFloor}    propertyCompany
+    ...    ${propertyCompany}    premisesName    ${premisesName}
+    LogAndLogToConsole    ${data}
+    ${res}    post request    api    /service/dispatch?node=1001014    data=${data}
+    return from keyword    ${res}
+
+GetAlreadyPremisesApi
+    [Arguments]    ${planId}=
+    [Documentation]    获取所有可添加楼盘
+    ${data}    set variable    {"id":"${planId}"}
+    ${data}    loads    ${data}
+    LogAndLogToConsole    ${data}
+    ${res}    post request    api    /service/dispatch?node=1001015    data=${data}
+    return from keyword    ${res}
+
+AddPremisesToPlanApi
+    [Arguments]    ${planId}=    ${premisesIds_str}=
+    [Documentation]    添加楼盘
+    ${data}    set variable    {"planId":"75350","premisesId":"22885,22919"}
+    ${data}    loads    ${data}
+    set to dictionary    ${data}    planId    ${planId}    premisesId    ${premisesIds_str}
+    ${res}    post request    api    /service/dispatch?node=1001016    data=${data}
+    return from keyword    ${res}
+
+DelPremisesOnPlanApi
+    [Arguments]    ${planId}=    ${premisesIds_str}=
+    [Documentation]    添加楼盘
+    ${data}    set variable    {"planId":"75350","premisesId":"22885,22919"}
+    ${data}    loads    ${data}
+    LogAndLogToConsole    ${data}
+    set to dictionary    ${data}    planId    ${planId}    premisesId    ${premisesIds_str}
+    ${res}    post request    api    /service/dispatch?node=1001017    data=${data}
+    return from keyword    ${res}
+
+GetPremisesMachineApi
+    [Arguments]    ${planId}=    ${premisesId}=
+    ${data}    set variable    {"id":"${planId}","premisesId":${premisesId}}
+    ${data}    loads    ${data}
+    ${res}    post request    api    /service/dispatch?node=1001022    data=${data}
+    return from keyword    ${res}
+
+GetMachineCanControlApi
+    [Arguments]    ${planId}=    ${code}=
+    ${data}    set variable    {"planId":"${planId}","code":"NZJB-I01-010"}
+    ${data}    loads    ${data}
+    set to dictionary    ${data}    code    ${code}
+    ${res}    post request    api    /service/dispatch?node=3003007    data=${data}
+    return from keyword    ${res}
+
+AutoControlApi
+    [Arguments]    ${planId}=75350    ${premisesIds_list}=
+    ${data}    set variable    {"planId":"${planId}","premisesId":${premisesIds_list},"premisesType":[],"premisesFloor":0,"occupancyRate":0,"propertyPrice":0,"intime":[],"propertyCompany":"","medias":[],"premisesPrice":[],"amachineSize":[],"abmachineSize":[],"elevatorUse":[],"voice":[],"totalCount":0,"eachCount":0}
+    ${data}    loads    ${data}
+    #set to dictionary    ${data}    planId    ${planId}    premisesId    ${premisesIds_list}
+    ${res}    post request    api    /service/dispatch?node=3003003    data=${data}
+    return from keyword    ${res}
+
+ClearControlApi
+    [Arguments]    ${planId}=75350    ${premisesIds_list}=
+    ${data}    set variable    {"planId":"${planId}","premisesId":${premisesIds_list},"premisesType":[],"premisesFloor":0,"occupancyRate":0,"propertyPrice":0,"intime":[],"propertyCompany":"","medias":[],"premisesPrice":[],"amachineSize":[],"abmachineSize":[],"elevatorUse":[],"voice":[],"totalCount":0,"eachCount":0}
+    ${data}    loads    ${data}
+    #set to dictionary    ${data}    planId    ${planId}    premisesId    ${premisesIds_list}
+    ${res}    post request    api    /service/dispatch?node=3003006    data=${data}
+    return from keyword    ${res}
+
+PastePremisesApi
+    [Arguments]    ${planId}=75350    ${premisesNames_list}=
+    ${data}    set variable    {"id":"${planId}","premisesNames":${premisesNames_list}}
+    ${data}    loads    ${data}
+    #set to dictionary    ${data}    planId    ${planId}    premisesId    ${premisesIds_list}
+    ${res}    post request    api    /service/dispatch?node=1001024    data=${data}
+    return from keyword    ${res}
+
+PastemachineNamesApi
+    [Arguments]    ${planId}=75350    ${machineNames_list}=
+    ${data}    set variable    {"id":"${planId}","machineNames":${machineNames_list}}
+    ${data}    loads    ${data}
+    #set to dictionary    ${data}    planId    ${planId}    premisesId    ${premisesIds_list}
+    ${res}    post request    api    /service/dispatch?node=1001025    data=${data}
+    return from keyword    ${res}
+
+GetPremisesIds
+    [Arguments]    ${data}=
+    [Documentation]    获取添加楼盘信息中的楼盘id
+    ...    直接传入带处理的json信息即可
+    ${list_data}    set variable    ${data.json()["data"]}
+    ${PremisesIdsList}    evaluate    [i["id"] for i in ${list_data}]
+    return from keyword    ${PremisesIdsList}
+
+CreateRandomList
+    [Arguments]    ${data_list}=    ${num}=
+    ${res_list}    evaluate    random.sample(${data_list},int(${num}))    random
+    return from keyword    ${res_list}
+
+ListElementToStr
+    [Arguments]    ${data_list}=
+    ${data_list}    evaluate    [int(i) for i in ${data_list}]
+    ${data_str}    set variable    ${data_list}a
+    ${premisesId_str}    evaluate    '${data_str}'[1:-2]
+    ${premisesId_str}    evaluate    '${premisesId_str}'.replace(" ","")
+    LogAndLogToConsole    ${premisesId_str}
+    return from keyword    ${premisesId_str}
+
+ListElementToStr_B
+    [Arguments]    ${data_list}=
+    ${all_pre_name_str}    set variable
+    : FOR    ${name_one}    IN    @{data_list}
+    \    ${name_one}    evaluate    u'${name_one}'
+    \    ${all_pre_name_str}    set variable    ${name_one}<br>${all_pre_name_str}
+    log    ${all_pre_name_str}
+    ${all_pre_name_str}    evaluate    str('${all_pre_name_str}')[:-4]
+    return from keyword    ${all_pre_name_str}
+
+RemoveEqualValue
+    [Arguments]    ${list_a}=    ${list_b}=
+    [Documentation]    移除两个列表中重复的元素，只保留差异元素
+    ${difference_element_list}    evaluate    list(set(${list_a})^set(${list_b}))
+    LogAndLogToConsole    ${difference_element_list}
+    return from keyword    ${difference_element_list}
+
+CompareListIsEqual
+    [Arguments]    ${data_list_a}=    ${data_list_b}=
+    LogAndLogToConsole    ${data_list_a}
+    LogAndLogToConsole    ${data_list_b}
+    sort list    ${data_list_a}
+    sort list    ${data_list_b}
+    should be equal as strings    ${data_list_a}    ${data_list_b}
+
+ListElementIntToStr
+    [Arguments]    ${data_list}
+    ${data_list}    evaluate    [str(i) for i in ${data_list}]
+    return from keyword    ${data_list}
+
+AutoControl
+    [Arguments]    ${planId}=    ${premisesId}=
+    [Documentation]    1.自动调度接口
+    ...    2.${planId}方案id
+    ...    3.${premisesId}需要进行调度的楼盘id,list型数据
+    ${data}    set variable    {"planId":"${planId}","premisesId":${premisesId},"premisesType":[],"premisesFloor":0,"occupancyRate":0,"propertyPrice":0,"intime":[],"propertyCompany":"","medias":[],"premisesPrice":[],"amachineSize":[],"abmachineSize":[],"elevatorUse":[],"voice":[],"totalCount":0,"eachCount":0}
+    ${data}    loads    ${data}
+    ${res}    post request    api    /service/dispatch?node=3003003    data=${data}
+    return from keyword    ${res}
+
+ReserveToRetain_LJQ
+    [Arguments]    ${planId}=
+    [Documentation]    1.预订转保留接口
+    ...    2.${planId}方案id
+    ${data}    set variable    {"planId":${planId}}
+    ${data}    loads    ${data}
+    ${res}    post request    api    /service/dispatch?node=3003009    data=${data}
+    return from keyword    ${res}
+
+RetainToSale_LJQ
+    [Arguments]    ${planId}=
+    [Documentation]    1.预订转保留接口
+    ...    2.${planId}方案id
+    ${data}    set variable    {"id":${planId}}
+    ${data}    loads    ${data}
+    ${res}    post request    api    /service/dispatch?node=1001041    data=${data}
+    return from keyword    ${res}
+
+SaleToRetain_LJQ
+    [Arguments]    ${planId}=
+    [Documentation]    1.预订转保留接口
+    ...    2.${planId}方案id
+    ${data}    set variable    {"id":${planId}}
+    ${data}    loads    ${data}
+    ${res}    post request    api    /service/dispatch?node=1001080    data=${data}
+    return from keyword    ${res}
+
+RetainToReserve_LJQ
+    [Arguments]    ${planId}=
+    [Documentation]    1.预订转保留接口
+    ...    2.${planId}方案id
+    ${data}    set variable    {"planId":${planId}}
+    ${data}    loads    ${data}
+    ${res}    post request    api    /service/dispatch?node=3003010    data=${data}
+    return from keyword    ${res}

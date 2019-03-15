@@ -1,0 +1,99 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           json
+Library           Collections
+Library           ../py_keyword/deal_premises.py
+Resource          SalePlanList_JX.txt
+Resource          Common.txt
+
+*** Keywords ***
+ProjectInquiry
+    [Arguments]    ${plan_id}=    ${medias}=[]    ${intime}=08/05/2015-01/01/2019    ${property_price}=0    ${occupancy_rate}=0    ${premises_floor}=0
+    ...    ${property_company}=    ${premisesName}=    ${premises_price}=[]    ${premises_type}=[]    ${areas}=[]
+    ${data}    Set Variable    {"planId":"${plan_id}","medias":${medias},"intime":"${intime}","propertyPrice":${property_price},"occupancyRate":${occupancy_rate},"premisesFloor":${premises_floor},"propertyCompany":"${property_company}","premisesName":"${premisesName}","premisesPrice":${premises_price},"premisesType":${premises_type},"areas":${areas}}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001014    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+SelectedItem
+    [Arguments]    ${plan_id}=74009
+    ${data}    Set Variable    {"id": "${plan_id}"}
+    Comment    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001015    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+DeviceQuery
+    [Arguments]    ${plan_id}=74009    ${premises_id}=167922
+    ${data}    Set Variable    {"id":"${plan_id}","premisesId":${premises_id}}
+    Comment    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001022    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+ProjectNamePaste
+    [Arguments]    ${plan_id}=74009    ${premises_names}=["和悦城（商业）"]
+    ${data}    Set Variable    {"id":"${plan_id}","premisesNames":${premises_names}}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001024    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+DeviceNumberPaste
+    [Arguments]    ${plan_id}=74009    ${machine_names}=["21321321"]
+    ${data}    Set Variable    {"id":"${plan_id}","machineNames":${machine_names}}
+    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001025    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+DeleteItem
+    [Arguments]    ${plan_id}=74009    ${premises_id}=167922
+    ${data}    Set Variable    {"id":"${plan_id}","premisesId":${premises_id}}
+    Comment    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001017    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+AddItem
+    [Arguments]    ${plan_id}=74009    ${premises_id}=167922
+    ${data}    Set Variable    {"planId":"${plan_id}","premisesId":"${premises_id}"}
+    Comment    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001016    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+SchedulingDevice
+    [Arguments]    ${plan_id}=74009    ${machine_names}=["BJB-F01-038","BJB-F01-039"]
+    ${data}    Set Variable    {"id":"${plan_id}","machineNames":${machine_names}}
+    Comment    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=1001025    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+CancelScheduling
+    [Arguments]    ${plan_id}=74009    ${machine_names}=["BJB-F01-038","BJB-F01-039"]
+    ${data}    Set Variable    {"id":"${plan_id}","machineNames":${machine_names}}
+    Comment    ${data}    to json    ${data}
+    ${res}    Post Request    api    /service/dispatch?node=3003004    data=${data}
+    log    ${res.text}
+    log    ${res.json()["msg"]}
+    Return From Keyword    ${res}
+
+GetPlanId
+    GetPlanName
+    InitPlanInfo
+    ${res}    AddPlan    name=${plan_name}    saleUser=4307    orderId=331    cityCompanies=["510100-a0001"]
+    log    ${res.text}
+    ${id}    Set Variable    ${res.json()["data"][0]["id"]}
+    log    ${id}
+    Set Global Variable    ${id}
